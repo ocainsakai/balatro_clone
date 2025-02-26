@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: four_spade
   m_EditorClassIdentifier: 
   cardName: four_spade
-  value: 4
-  suit: 3
-  artWork: {fileID: 7322482175094510486, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  rank: 4
+  suit: 0
+  artWork: {fileID: 0}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: jack_diamond
   m_EditorClassIdentifier: 
   cardName: jack_diamond
-  value: 11
+  rank: 11
   suit: 1
-  artWork: {fileID: -9219276080727655814, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  artWork: {fileID: 0}

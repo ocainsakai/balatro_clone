@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: four_club
   m_EditorClassIdentifier: 
   cardName: four_club
-  value: 4
+  rank: 4
   suit: 2
-  artWork: {fileID: -1676634076, guid: 37cd745afb806954393af3cea8d88508, type: 3}
+  artWork: {fileID: 0}

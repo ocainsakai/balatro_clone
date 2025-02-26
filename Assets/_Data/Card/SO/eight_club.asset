@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: eight_club
   m_EditorClassIdentifier: 
   cardName: eight_club
-  value: 8
+  rank: 8
   suit: 2
-  artWork: {fileID: -5263874647668402371, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  artWork: {fileID: 0}

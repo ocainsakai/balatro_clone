@@ -22,7 +22,7 @@ public class LevelSO : ScriptableObject
             if (int.TryParse(valueStr, out int parsedValue))
             {
                 level = parsedValue;
-                targetScore = 300 * (int)Mathf.Pow(2, level-1);
+                targetScore = 30 * (int)Mathf.Pow(2, level-1);
             }
         }
     }

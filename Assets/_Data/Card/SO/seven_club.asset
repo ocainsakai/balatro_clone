@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: seven_club
   m_EditorClassIdentifier: 
   cardName: seven_club
-  value: 7
+  rank: 7
   suit: 2
-  artWork: {fileID: 9088635494764499737, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  artWork: {fileID: 0}

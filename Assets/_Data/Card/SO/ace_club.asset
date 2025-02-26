@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ace_club
   m_EditorClassIdentifier: 
   cardName: ace_club
-  value: 1
+  rank: 1
   suit: 2
-  artWork: {fileID: -5897554182239356296, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  artWork: {fileID: 0}

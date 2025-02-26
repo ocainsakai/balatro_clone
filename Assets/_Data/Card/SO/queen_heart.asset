@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: queen_heart
   m_EditorClassIdentifier: 
   cardName: queen_heart
-  value: 12
-  suit: 0
-  artWork: {fileID: 1889788931670894573, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  rank: 12
+  suit: 3
+  artWork: {fileID: 0}

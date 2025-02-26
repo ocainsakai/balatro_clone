@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: king_club
   m_EditorClassIdentifier: 
   cardName: king_club
-  value: 13
+  rank: 13
   suit: 2
-  artWork: {fileID: -7359497514868848656, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  artWork: {fileID: 0}

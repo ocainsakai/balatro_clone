@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ace_heart
   m_EditorClassIdentifier: 
   cardName: ace_heart
-  value: 1
-  suit: 0
-  artWork: {fileID: 4814014392320650903, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  rank: 1
+  suit: 3
+  artWork: {fileID: 0}

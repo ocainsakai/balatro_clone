@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: jack_spade
   m_EditorClassIdentifier: 
   cardName: jack_spade
-  value: 11
-  suit: 3
-  artWork: {fileID: 2559147268134542868, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  rank: 11
+  suit: 0
+  artWork: {fileID: 0}

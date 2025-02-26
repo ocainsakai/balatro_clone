@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: two_heart
   m_EditorClassIdentifier: 
   cardName: two_heart
-  value: 2
-  suit: 0
-  artWork: {fileID: 7975030836289974784, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  rank: 2
+  suit: 3
+  artWork: {fileID: 0}

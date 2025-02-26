@@ -2,41 +2,33 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class PokerHandEvaluator
-{
-    public static int CalculateHandScore(List<CardSO> hand)
+{ 
+   
+    public static PokerHandType EvaluateHand(List<Card> hand)
     {
-        Dictionary<int, int> valueCounts = new Dictionary<int, int>();
-        Dictionary<Suit, int> suitCounts = new Dictionary<Suit, int>();
-        List<int> values = new List<int>();
+        var rankCounts = hand.GroupBy(c => c.cardSO.rank).ToDictionary(g => g.Key, g => g.Count());
+        bool isFlush = hand.All(c => c.cardSO.suit == hand[0].cardSO.suit) && hand.Count == 5;
+        var sortedRanks = hand.Select(c => c.cardSO.rank).OrderBy(r => r).ToList();
+        bool isStraight = sortedRanks.Zip(sortedRanks.Skip(1), (a, b) => b - a).All(diff => diff == 1) && hand.Count == 5;
+        
+        
+            if (isFlush && sortedRanks.SequenceEqual(new List<int> { 10, 11, 12, 13, 14 }))
+                return PokerHandType.RoyalFlush;
+            if (isFlush && isStraight)
+                return PokerHandType.StraightFlush;
+            if (rankCounts.ContainsValue(5)) return PokerHandType.FiveOfAKind;
+            if (rankCounts.ContainsValue(3) && rankCounts.ContainsValue(2)) return PokerHandType.FullHouse;
+            if (isFlush) return PokerHandType.Flush;
+            if (isStraight) return PokerHandType.Straight;
+        
+            if (rankCounts.ContainsValue(4)) return PokerHandType.FourOfAKind;
+            if (rankCounts.Count(v => v.Value == 2) == 2) return PokerHandType.TwoPair;
+       
+            if (rankCounts.ContainsValue(3)) return PokerHandType.ThreeOfAKind;
+        
+            if (rankCounts.ContainsValue(2)) return PokerHandType.Pair;
+          
+        return PokerHandType.HighCard;
 
-        foreach (CardSO card in hand)
-        {
-            if (!valueCounts.ContainsKey(card.value))
-                valueCounts[card.value] = 0;
-            valueCounts[card.value]++;
-
-            if (!suitCounts.ContainsKey(card.suit))
-                suitCounts[card.suit] = 0;
-            suitCounts[card.suit]++;
-            values.Add(card.value);
-        }
-        values.Sort();
-        bool isStraight = values.Distinct().Count() == 5 && (values.Max() - values.Min() == 4);
-        // four of kind
-        if (valueCounts.ContainsValue(4)) return 50;
-        // full horse
-        if (valueCounts.ContainsValue(3) && valueCounts.ContainsValue(2)) return 40;
-        // Flush
-        if (suitCounts.ContainsValue(5)) return 35;
-        // straight
-        if (isStraight) return 45;
-        // Three of a Kind
-        if (valueCounts.ContainsValue(3)) return 30;
-        // two pair
-        if (valueCounts.Count(v => v.Value == 2) == 2) return 20; // Two Pair
-        // One Pair
-        if (valueCounts.ContainsValue(2)) return 10; 
-
-        return 5;
     }
 }

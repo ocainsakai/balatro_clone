@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: two_club
   m_EditorClassIdentifier: 
   cardName: two_club
-  value: 2
+  rank: 2
   suit: 2
-  artWork: {fileID: 2411571093249805434, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  artWork: {fileID: 0}

@@ -1,4 +1,3 @@
-using NUnit.Framework.Internal.Builders;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -6,7 +5,7 @@ using UnityEngine;
 public class CardSO : ScriptableObject
 {
     public string cardName;
-    public int value;
+    public int rank;
     public Suit suit;
     public Sprite artWork;
 
@@ -14,10 +13,10 @@ public class CardSO : ScriptableObject
     private void OnValidate()
     {
         cardName = this.name;
-        ParseNameForValueAndSuit();
+        GetData();
 
     }
-    private void ParseNameForValueAndSuit()
+    private void GetData()
     {
         string pattern = @"(?<value>\d+|ace|two|three|four|five|six|seven|eight|nine|ten|king|queen|jack)_(?<suit>\w+)";
         Match match = Regex.Match(name, pattern);
@@ -27,11 +26,11 @@ public class CardSO : ScriptableObject
             string valueStr = match.Groups["value"].Value;
             if (int.TryParse(valueStr, out int parsedValue))
             {
-                value = parsedValue;
+                rank = parsedValue;
             }
             else
             {
-                value = valueStr switch
+                rank = valueStr switch
                 {
                     "ace" => 1,
                     "two" => 2,
@@ -46,23 +45,20 @@ public class CardSO : ScriptableObject
                     "jack" => 11,
                     "queen" => 12,
                     "king" => 13,
-                    _ => value
+                    _ => rank
                 };
             }
-
-            if (System.Enum.TryParse(match.Groups["suit"].Value, true, out Suit parsedSuit))
-            {
-                suit = parsedSuit;
-            }
         }
+        artWork = Resources.Load<Sprite>($"Playing Cards/card-{suit}-{rank}");
     }
+
 }
 
 public enum Suit
 {
-    heart,
-    diamond,
-    club,
-    spade
+    hearts = 3,
+    diamonds = 1,
+    clubs = 2,
+    spades = 0
 }
 

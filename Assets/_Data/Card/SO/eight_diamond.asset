@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: eight_diamond
   m_EditorClassIdentifier: 
   cardName: eight_diamond
-  value: 8
+  rank: 8
   suit: 1
-  artWork: {fileID: 3112513888665509672, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  artWork: {fileID: 0}

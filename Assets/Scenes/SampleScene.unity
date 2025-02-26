@@ -367,6 +367,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardSO: {fileID: 0}
   deckManager: {fileID: 0}
+  sprites:
+  - {fileID: -5263874647668402371, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 4333138732080818910, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -5285129749605641632, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 7322482175094510486, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -989662180944460502, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 9000753371612647144, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -4911197541237523971, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 8980198973302484543, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 368875794390313339, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -5445514492879785236, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 2559147268134542868, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -998938902856970436, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -3838374284229865744, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -5023320546211391196, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -1184517762903133153, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -5175315137386728789, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 7975030836289974784, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 8561092802386936604, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -523496404422867513, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -8755306274863278819, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 7827339188314553269, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -7899186708785991793, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 3112513888665509672, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -3873255989601871390, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -6058591175638864929, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -9219276080727655814, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -7875163920786017093, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 2223269284784743197, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -7628446821267640200, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -723424369275886930, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -5897554182239356296, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 2411571093249805434, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 5386569355683853729, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -2519287101720647739, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 5203439707542919797, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -6643993398168838423, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 9088635494764499737, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -8379719324938346336, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 7220237613910019951, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 4794239433282563247, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -240224816420143470, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -8388481219334044991, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -7359497514868848656, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 2835553314626646055, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 2631891180096049899, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 4814014392320650903, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 3405051526748432196, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -7772479424824778201, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 310915578907205264, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 1891299314564809667, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 1618840198157452696, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -9184928353552329823, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -844249458275874610, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -7137791332021835958, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 2869725675843283743, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -2349163834117515985, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: 1889788931670894573, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -3820546269226277456, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -4003229778611574472, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
+  - {fileID: -8469564336594609304, guid: 020478d1a73f98f438fedbb291cc531d, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,10 +1094,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 14
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1182,10 +1243,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 14
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1580,7 +1641,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1707714017
@@ -1880,10 +1941,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 14
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2301,10 +2362,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 14
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

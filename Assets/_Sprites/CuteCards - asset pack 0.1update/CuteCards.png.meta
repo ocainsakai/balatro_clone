@@ -280,10 +280,10 @@ TextureImporter:
       name: CuteCards_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 435
-        width: 94
-        height: 138
+        x: 4
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,10 +302,10 @@ TextureImporter:
       name: CuteCards_1
       rect:
         serializedVersion: 2
-        x: 103
-        y: 435
-        width: 94
-        height: 138
+        x: 104
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,10 +324,10 @@ TextureImporter:
       name: CuteCards_2
       rect:
         serializedVersion: 2
-        x: 203
-        y: 435
-        width: 94
-        height: 138
+        x: 204
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,10 +346,10 @@ TextureImporter:
       name: CuteCards_3
       rect:
         serializedVersion: 2
-        x: 303
-        y: 435
-        width: 94
-        height: 138
+        x: 304
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,10 +368,10 @@ TextureImporter:
       name: CuteCards_4
       rect:
         serializedVersion: 2
-        x: 403
-        y: 435
-        width: 94
-        height: 138
+        x: 404
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,10 +390,10 @@ TextureImporter:
       name: CuteCards_5
       rect:
         serializedVersion: 2
-        x: 503
-        y: 435
-        width: 94
-        height: 138
+        x: 504
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +412,10 @@ TextureImporter:
       name: CuteCards_6
       rect:
         serializedVersion: 2
-        x: 603
-        y: 435
-        width: 94
-        height: 138
+        x: 604
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,10 +434,10 @@ TextureImporter:
       name: CuteCards_7
       rect:
         serializedVersion: 2
-        x: 703
-        y: 435
-        width: 94
-        height: 138
+        x: 704
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -456,10 +456,10 @@ TextureImporter:
       name: CuteCards_8
       rect:
         serializedVersion: 2
-        x: 803
-        y: 435
-        width: 94
-        height: 138
+        x: 804
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,10 +478,10 @@ TextureImporter:
       name: CuteCards_9
       rect:
         serializedVersion: 2
-        x: 903
-        y: 435
-        width: 94
-        height: 138
+        x: 904
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,10 +500,10 @@ TextureImporter:
       name: CuteCards_10
       rect:
         serializedVersion: 2
-        x: 1003
-        y: 435
-        width: 94
-        height: 138
+        x: 1004
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -522,10 +522,10 @@ TextureImporter:
       name: CuteCards_11
       rect:
         serializedVersion: 2
-        x: 1103
-        y: 435
-        width: 94
-        height: 138
+        x: 1104
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -544,10 +544,10 @@ TextureImporter:
       name: CuteCards_12
       rect:
         serializedVersion: 2
-        x: 1203
-        y: 435
-        width: 94
-        height: 138
+        x: 1204
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -566,10 +566,10 @@ TextureImporter:
       name: CuteCards_13
       rect:
         serializedVersion: 2
-        x: 1303
-        y: 435
-        width: 94
-        height: 138
+        x: 1304
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -588,10 +588,10 @@ TextureImporter:
       name: CuteCards_14
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 435
-        width: 94
-        height: 138
+        x: 1404
+        y: 436
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -610,10 +610,10 @@ TextureImporter:
       name: CuteCards_15
       rect:
         serializedVersion: 2
-        x: 3
-        y: 291
-        width: 94
-        height: 138
+        x: 4
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -632,10 +632,10 @@ TextureImporter:
       name: CuteCards_16
       rect:
         serializedVersion: 2
-        x: 103
-        y: 291
-        width: 94
-        height: 138
+        x: 104
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -654,10 +654,10 @@ TextureImporter:
       name: CuteCards_17
       rect:
         serializedVersion: 2
-        x: 203
-        y: 291
-        width: 94
-        height: 138
+        x: 204
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -676,10 +676,10 @@ TextureImporter:
       name: CuteCards_18
       rect:
         serializedVersion: 2
-        x: 303
-        y: 291
-        width: 94
-        height: 138
+        x: 304
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -698,10 +698,10 @@ TextureImporter:
       name: CuteCards_19
       rect:
         serializedVersion: 2
-        x: 403
-        y: 291
-        width: 94
-        height: 138
+        x: 404
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -720,10 +720,10 @@ TextureImporter:
       name: CuteCards_20
       rect:
         serializedVersion: 2
-        x: 503
-        y: 291
-        width: 94
-        height: 138
+        x: 504
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -742,10 +742,10 @@ TextureImporter:
       name: CuteCards_21
       rect:
         serializedVersion: 2
-        x: 603
-        y: 291
-        width: 94
-        height: 138
+        x: 604
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -764,10 +764,10 @@ TextureImporter:
       name: CuteCards_22
       rect:
         serializedVersion: 2
-        x: 703
-        y: 291
-        width: 94
-        height: 138
+        x: 704
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -786,10 +786,10 @@ TextureImporter:
       name: CuteCards_23
       rect:
         serializedVersion: 2
-        x: 803
-        y: 291
-        width: 94
-        height: 138
+        x: 804
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -808,10 +808,10 @@ TextureImporter:
       name: CuteCards_24
       rect:
         serializedVersion: 2
-        x: 903
-        y: 291
-        width: 94
-        height: 138
+        x: 904
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -830,10 +830,10 @@ TextureImporter:
       name: CuteCards_25
       rect:
         serializedVersion: 2
-        x: 1003
-        y: 291
-        width: 94
-        height: 138
+        x: 1004
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -852,10 +852,10 @@ TextureImporter:
       name: CuteCards_26
       rect:
         serializedVersion: 2
-        x: 1103
-        y: 291
-        width: 94
-        height: 138
+        x: 1104
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -874,10 +874,10 @@ TextureImporter:
       name: CuteCards_27
       rect:
         serializedVersion: 2
-        x: 1203
-        y: 291
-        width: 94
-        height: 138
+        x: 1204
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -896,10 +896,10 @@ TextureImporter:
       name: CuteCards_28
       rect:
         serializedVersion: 2
-        x: 1303
-        y: 291
-        width: 94
-        height: 138
+        x: 1304
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -918,10 +918,10 @@ TextureImporter:
       name: CuteCards_29
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 291
-        width: 94
-        height: 138
+        x: 1404
+        y: 292
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -940,10 +940,10 @@ TextureImporter:
       name: CuteCards_30
       rect:
         serializedVersion: 2
-        x: 3
-        y: 147
-        width: 94
-        height: 138
+        x: 4
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -962,10 +962,10 @@ TextureImporter:
       name: CuteCards_31
       rect:
         serializedVersion: 2
-        x: 103
-        y: 147
-        width: 94
-        height: 138
+        x: 104
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -984,10 +984,10 @@ TextureImporter:
       name: CuteCards_32
       rect:
         serializedVersion: 2
-        x: 203
-        y: 147
-        width: 94
-        height: 138
+        x: 204
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1006,10 +1006,10 @@ TextureImporter:
       name: CuteCards_33
       rect:
         serializedVersion: 2
-        x: 303
-        y: 147
-        width: 94
-        height: 138
+        x: 304
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1028,10 +1028,10 @@ TextureImporter:
       name: CuteCards_34
       rect:
         serializedVersion: 2
-        x: 403
-        y: 147
-        width: 94
-        height: 138
+        x: 404
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1050,10 +1050,10 @@ TextureImporter:
       name: CuteCards_35
       rect:
         serializedVersion: 2
-        x: 503
-        y: 147
-        width: 94
-        height: 138
+        x: 504
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1072,10 +1072,10 @@ TextureImporter:
       name: CuteCards_36
       rect:
         serializedVersion: 2
-        x: 603
-        y: 147
-        width: 94
-        height: 138
+        x: 604
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1094,10 +1094,10 @@ TextureImporter:
       name: CuteCards_37
       rect:
         serializedVersion: 2
-        x: 703
-        y: 147
-        width: 94
-        height: 138
+        x: 704
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1116,10 +1116,10 @@ TextureImporter:
       name: CuteCards_38
       rect:
         serializedVersion: 2
-        x: 803
-        y: 147
-        width: 94
-        height: 138
+        x: 804
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1138,10 +1138,10 @@ TextureImporter:
       name: CuteCards_39
       rect:
         serializedVersion: 2
-        x: 903
-        y: 147
-        width: 94
-        height: 138
+        x: 904
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1160,10 +1160,10 @@ TextureImporter:
       name: CuteCards_40
       rect:
         serializedVersion: 2
-        x: 1003
-        y: 147
-        width: 94
-        height: 138
+        x: 1004
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1182,10 +1182,10 @@ TextureImporter:
       name: CuteCards_41
       rect:
         serializedVersion: 2
-        x: 1103
-        y: 147
-        width: 94
-        height: 138
+        x: 1104
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1204,10 +1204,10 @@ TextureImporter:
       name: CuteCards_42
       rect:
         serializedVersion: 2
-        x: 1203
-        y: 147
-        width: 94
-        height: 138
+        x: 1204
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1226,10 +1226,10 @@ TextureImporter:
       name: CuteCards_43
       rect:
         serializedVersion: 2
-        x: 1303
-        y: 147
-        width: 94
-        height: 138
+        x: 1304
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1248,10 +1248,10 @@ TextureImporter:
       name: CuteCards_44
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 147
-        width: 94
-        height: 138
+        x: 1404
+        y: 148
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1270,10 +1270,10 @@ TextureImporter:
       name: CuteCards_45
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 94
-        height: 138
+        x: 4
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1292,10 +1292,10 @@ TextureImporter:
       name: CuteCards_46
       rect:
         serializedVersion: 2
-        x: 103
-        y: 3
-        width: 94
-        height: 138
+        x: 104
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1314,10 +1314,10 @@ TextureImporter:
       name: CuteCards_47
       rect:
         serializedVersion: 2
-        x: 203
-        y: 3
-        width: 94
-        height: 138
+        x: 204
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1336,10 +1336,10 @@ TextureImporter:
       name: CuteCards_48
       rect:
         serializedVersion: 2
-        x: 303
-        y: 3
-        width: 94
-        height: 138
+        x: 304
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1358,10 +1358,10 @@ TextureImporter:
       name: CuteCards_49
       rect:
         serializedVersion: 2
-        x: 403
-        y: 3
-        width: 94
-        height: 138
+        x: 404
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1380,10 +1380,10 @@ TextureImporter:
       name: CuteCards_50
       rect:
         serializedVersion: 2
-        x: 503
-        y: 3
-        width: 94
-        height: 138
+        x: 504
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1402,10 +1402,10 @@ TextureImporter:
       name: CuteCards_51
       rect:
         serializedVersion: 2
-        x: 603
-        y: 3
-        width: 94
-        height: 138
+        x: 604
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1424,10 +1424,10 @@ TextureImporter:
       name: CuteCards_52
       rect:
         serializedVersion: 2
-        x: 703
-        y: 3
-        width: 94
-        height: 138
+        x: 704
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1446,10 +1446,10 @@ TextureImporter:
       name: CuteCards_53
       rect:
         serializedVersion: 2
-        x: 803
-        y: 3
-        width: 94
-        height: 138
+        x: 804
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1468,10 +1468,10 @@ TextureImporter:
       name: CuteCards_54
       rect:
         serializedVersion: 2
-        x: 903
-        y: 3
-        width: 94
-        height: 138
+        x: 904
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1490,10 +1490,10 @@ TextureImporter:
       name: CuteCards_55
       rect:
         serializedVersion: 2
-        x: 1003
-        y: 3
-        width: 94
-        height: 138
+        x: 1004
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1512,10 +1512,10 @@ TextureImporter:
       name: CuteCards_56
       rect:
         serializedVersion: 2
-        x: 1103
-        y: 3
-        width: 94
-        height: 138
+        x: 1104
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1534,10 +1534,10 @@ TextureImporter:
       name: CuteCards_57
       rect:
         serializedVersion: 2
-        x: 1203
-        y: 3
-        width: 94
-        height: 138
+        x: 1204
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1556,10 +1556,10 @@ TextureImporter:
       name: CuteCards_58
       rect:
         serializedVersion: 2
-        x: 1303
-        y: 3
-        width: 94
-        height: 138
+        x: 1304
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1578,10 +1578,10 @@ TextureImporter:
       name: CuteCards_59
       rect:
         serializedVersion: 2
-        x: 1403
-        y: 3
-        width: 94
-        height: 138
+        x: 1404
+        y: 4
+        width: 92
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1600,7 +1600,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -1609,7 +1609,67 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CuteCards_0: -5263874647668402371
+      CuteCards_1: 4333138732080818910
+      CuteCards_10: 2559147268134542868
+      CuteCards_11: -998938902856970436
+      CuteCards_12: -3838374284229865744
+      CuteCards_13: -5023320546211391196
+      CuteCards_14: -1184517762903133153
+      CuteCards_15: -5175315137386728789
+      CuteCards_16: 7975030836289974784
+      CuteCards_17: 8561092802386936604
+      CuteCards_18: -523496404422867513
+      CuteCards_19: -8755306274863278819
+      CuteCards_2: -5285129749605641632
+      CuteCards_20: 7827339188314553269
+      CuteCards_21: -7899186708785991793
+      CuteCards_22: 3112513888665509672
+      CuteCards_23: -3873255989601871390
+      CuteCards_24: -6058591175638864929
+      CuteCards_25: -9219276080727655814
+      CuteCards_26: -7875163920786017093
+      CuteCards_27: 2223269284784743197
+      CuteCards_28: -7628446821267640200
+      CuteCards_29: -723424369275886930
+      CuteCards_3: 7322482175094510486
+      CuteCards_30: -5897554182239356296
+      CuteCards_31: 2411571093249805434
+      CuteCards_32: 5386569355683853729
+      CuteCards_33: -2519287101720647739
+      CuteCards_34: 5203439707542919797
+      CuteCards_35: -6643993398168838423
+      CuteCards_36: 9088635494764499737
+      CuteCards_37: -8379719324938346336
+      CuteCards_38: 7220237613910019951
+      CuteCards_39: 4794239433282563247
+      CuteCards_4: -989662180944460502
+      CuteCards_40: -240224816420143470
+      CuteCards_41: -8388481219334044991
+      CuteCards_42: -7359497514868848656
+      CuteCards_43: 2835553314626646055
+      CuteCards_44: 2631891180096049899
+      CuteCards_45: 4814014392320650903
+      CuteCards_46: 3405051526748432196
+      CuteCards_47: -7772479424824778201
+      CuteCards_48: 310915578907205264
+      CuteCards_49: 1891299314564809667
+      CuteCards_5: 9000753371612647144
+      CuteCards_50: 1618840198157452696
+      CuteCards_51: -9184928353552329823
+      CuteCards_52: -844249458275874610
+      CuteCards_53: -7137791332021835958
+      CuteCards_54: 2869725675843283743
+      CuteCards_55: -2349163834117515985
+      CuteCards_56: 1889788931670894573
+      CuteCards_57: -3820546269226277456
+      CuteCards_58: -4003229778611574472
+      CuteCards_59: -8469564336594609304
+      CuteCards_6: -4911197541237523971
+      CuteCards_7: 8980198973302484543
+      CuteCards_8: 368875794390313339
+      CuteCards_9: -5445514492879785236
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

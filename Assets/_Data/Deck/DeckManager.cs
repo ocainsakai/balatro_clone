@@ -83,9 +83,12 @@ public class DeckManager : MonoBehaviour
         }
         choosing.Clear();
     }
+    
     public int Calculate()
     {
-        int totalScore = PokerHandEvaluator.CalculateHandScore(hand);
+        PokerHandType handType = PokerHandEvaluator.EvaluateHand(choosing);
+        int totalScore = ScoreCalculator.CalculateScore(handType);
+        Debug.Log($"HandType: {handType}. Total: {totalScore}");
         foreach (Card card in choosing)
         {
             if (card != null)

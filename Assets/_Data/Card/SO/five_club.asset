@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: five_club
   m_EditorClassIdentifier: 
   cardName: five_club
-  value: 5
+  rank: 5
   suit: 2
-  artWork: {fileID: -490651007, guid: 37cd745afb806954393af3cea8d88508, type: 3}
+  artWork: {fileID: 0}
