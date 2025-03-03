@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,5 +10,18 @@ public class LevelManager : MonoBehaviour
     {
         return levels[level];
     }
+    public void LoadHomeScene()
+    {
+        SceneManager.LoadScene("HomeScene");
+    }
 
+    public void LoadPlayScene()
+    {
+        SceneManager.LoadScene("PlayScene");
+    }
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

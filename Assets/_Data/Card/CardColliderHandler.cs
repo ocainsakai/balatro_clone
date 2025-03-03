@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class CardColliderHandler : MonoBehaviour
+public class CardColliderHandler : MonoBehaviour, IPointerClickHandler
 {
     public Card ctrl => GetComponentInParent<Card>();
-    public void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
         ctrl.Choose();
     }

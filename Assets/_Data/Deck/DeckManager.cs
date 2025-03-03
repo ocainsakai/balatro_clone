@@ -1,22 +1,21 @@
-    using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
-    public Transform cardPrf;
-    public DeckAreaHandler handArea;
-    //public DeckAreaHandler deckArea;
+    public Transform cardPrf => Resources.Load<Transform>("_Prefabs/CardPrf");
     public List<CardSO> deck = new List<CardSO>();
     public List<CardSO> hand = new List<CardSO>();
     public List<Card> choosing = new List<Card>();
+    private Transform handArea;
     public List<CardSO> initDeck => Resources.Load<CardListSO>(nameof(CardListSO)).cards;
     public int handSize = 8;
     public int choosingMax = 5;
 
     public bool canChoose => (choosing.Count < choosingMax);
-    public void Awake()
+    public void OnEnable()
     {
-        Debug.Log(initDeck.Count);
+        handArea = GameObject.FindGameObjectWithTag("Respawn").transform;
         deck = initDeck;
     }
     public void Choose(Card card)
@@ -110,5 +109,12 @@ public class DeckManager : MonoBehaviour
             deck[randomIndex] = temp;
         }
     }
-
+    public void HideHand()
+    {
+        handArea.gameObject.SetActive(false);
+    }
+    public void ShowHand()
+    {
+        handArea.gameObject.SetActive(false);
+    }
 }

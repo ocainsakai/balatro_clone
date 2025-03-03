@@ -2,11 +2,12 @@
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     private DeckManager deckManager;
-    private UIManager uiManager;
+    private UIManager uiManager => UIManager.Instance;
     private LevelManager levelManager;
 
-
+    
     private int targetScore;
     private int currentScore;
     private int playCount;
@@ -17,13 +18,21 @@ public class GameManager : MonoBehaviour
     public GamePhase CurrentPhase { get; private set; }
     private void Awake()
     {
-        deckManager = GetComponent<DeckManager>();
-        uiManager = GetComponent<UIManager>();
-        levelManager = GetComponent<LevelManager>();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
     {
+        deckManager = GetComponent<DeckManager>();
+        levelManager = GetComponent<LevelManager>();
+        
         currentLevel = 0;
         NewGame(levelManager.GetLevel(currentLevel));
     }
@@ -31,7 +40,6 @@ public class GameManager : MonoBehaviour
     {
         CurrentPhase = newPhase;
         Debug.Log("Chuyển sang Phase: " + newPhase);
-
         switch (newPhase)
         {
             case GamePhase.Draw:
@@ -59,7 +67,7 @@ public class GameManager : MonoBehaviour
     }
     void StartDrawPhase()
     {
-        // Rút bài từ Deck
+        uiManager.ShowPhaseUI(GamePhase.Play);
         deckManager.DrawCards();
         ChangePhase(GamePhase.Play);
     }
@@ -69,9 +77,11 @@ public class GameManager : MonoBehaviour
     }
     void StartNextBlindPhase()
     {
-        currentLevel++;
-        NewGame(levelManager.GetLevel(currentLevel));
-        ChangePhase(GamePhase.Draw);
+        uiManager.ShowPhaseUI(GamePhase.NextBlind);
+        //currentLevel++;
+        //NewGame(levelManager.GetLevel(currentLevel));
+        //ChangePhase(GamePhase.Draw);
+
     }
     public void PlayHand()
     {
@@ -79,8 +89,8 @@ public class GameManager : MonoBehaviour
         currentScore += deckManager.Calculate();
         playCount--;
 
-        uiManager.UpdateText("score", currentScore);
-        uiManager.UpdateText("play", playCount);
+        uiManager.meta.UpdateText("score", currentScore);
+        uiManager.meta.UpdateText("play", playCount);
 
         ChangePhase(GamePhase.Scoring);
     }
@@ -90,10 +100,10 @@ public class GameManager : MonoBehaviour
         if (discardCount <= 0) return;
         deckManager.Discard();
         discardCount--;
-        uiManager.UpdateText("discard", discardCount);
+        uiManager.meta.UpdateText("discard", discardCount);
 
     }
-    void StartBossBlindPhase()
+    public void StartBossBlindPhase()
     {
         // Đối đầu Boss
         //BossManager.Instance.StartBossFight();
@@ -112,8 +122,8 @@ public class GameManager : MonoBehaviour
     }
     void StartShopPhase()
     {
-        // Mở Shop UI để nâng cấp bài
-        //UIManager.Instance.ShowShopUI();
+        uiManager.ShowPhaseUI(GamePhase.Shop);
+        deckManager.HideHand();
     }
     void StartGameOver()
     {
@@ -126,15 +136,14 @@ public class GameManager : MonoBehaviour
         discardCount = 4;
         targetScore = level.targetScore;
         currentScore = 0;
-
-        uiManager.UpdateText("score", 0);
-        uiManager.UpdateText("play", playCount);
-        uiManager.UpdateText("discard", discardCount);
-        uiManager.UpdateText("predict", targetScore);
+        uiManager.ShowPhaseUI(GamePhase.Draw);
+        uiManager.meta.UpdateText("score", 0);
+        uiManager.meta.UpdateText("play", playCount);
+        uiManager.meta.UpdateText("discard", discardCount);
+        uiManager.meta.UpdateText("predict", targetScore);
 
         deckManager.ShuffleDeck();
         deckManager.DrawCards();
-        ChangePhase(GamePhase.Draw);
     }
 }
 
