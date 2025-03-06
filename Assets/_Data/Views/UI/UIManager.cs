@@ -8,34 +8,30 @@ public class UIManager : MonoBehaviour
     public GameObject leftPanel;
     public GameObject playPhaseUI;
     public GameObject shopPhaseUI;
-    public GameObject chooseBossPhaseUI;
+    public GameObject blindPhaseUI;
     //public GameObject resultPhaseUI;
     
-    public void ShowPhaseUI(GamePhase phase)
+    public void ShowPhaseUI(RunPhase phase)
     {
         playPhaseUI.SetActive(false);
         shopPhaseUI.SetActive(false);
-        chooseBossPhaseUI.SetActive(false);
+        blindPhaseUI.SetActive(false);
 
         //resultPhaseUI.SetActive(false);
-
         switch (phase)
         {
-            case GamePhase.Draw:
-            case GamePhase.Play:
+            case RunPhase.Blind:
+                blindPhaseUI.SetActive(true);
+                break;
+            case RunPhase.Scoring:
                 playPhaseUI.SetActive(true);
                 break;
-            case GamePhase.Shop:
+            case RunPhase.Shoping:
                 shopPhaseUI.SetActive(true);
                 break;
-            case GamePhase.NextBlind:
-            case GamePhase.BossBlind:
-                chooseBossPhaseUI.SetActive(true);
-                break;
-            //case GamePhase.GameOver:
-            //    resultPhaseUI.SetActive(true);
-                //break;
         }
+
+        
     }
 
     private void Awake()

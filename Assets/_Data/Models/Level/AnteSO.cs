@@ -1,10 +1,10 @@
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LevelSO", menuName = "Scriptable Objects/LevelSO")]
-public class LevelSO : ScriptableObject
+[CreateAssetMenu(fileName = "AnteSO", menuName = "Scriptable Objects/AnteSO")]
+public class AnteSO : ScriptableObject
 {
-    public int level;
+    public int ante;
     public int targetScore;
     private void OnValidate()
     {
@@ -21,8 +21,8 @@ public class LevelSO : ScriptableObject
             string valueStr = match.Groups["number"].Value;
             if (int.TryParse(valueStr, out int parsedValue))
             {
-                level = parsedValue;
-                targetScore = 30 * (int)Mathf.Pow(2, level-1);
+                ante = parsedValue;
+                targetScore = 30 * (int)Mathf.Pow(2, ante-1);
             }
         }
     }

@@ -1,14 +1,27 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public List<LevelSO> levels => Resources.Load<LevelListSO>(nameof(LevelListSO)).levels;
-    
-    public LevelSO GetLevel(int level)
+    public int round;
+    public int ante;
+    public int base_score => 100 * ante * ante;
+    public BossManager blindMng;
+    public void NextRound()
     {
-        return levels[level];
+        round++;
+    }
+    public void NextAnte()
+    {
+        ante++;
+        blindMng.NewAnte(base_score, ante);
+    }
+    public void NewRun()
+    {
+        round = 1;
+        ante = 1;
+        blindMng.NewAnte(base_score, ante);
+
     }
     public void LoadHomeScene()
     {
