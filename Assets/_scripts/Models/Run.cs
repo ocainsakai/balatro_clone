@@ -1,24 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class Run
 {
+    private AnteSO anteList => Resources.Load<AnteSO>(typeof(AnteSO).ToString());
     // Các thuộc tính cơ bản
     public StakeDifficult stakeDifficulty;
     public DeckSO deck;
-    public int round;
-    public int ante;
-    public int money;
-
+    public int round { get; private set; }
+    public int anteLevel { get; private set; }
+    public int money { get; private set; }
+    public int baseChips => GetBaseChips();
     // Thêm thuộc tính cho gameplay
     public List<CardSO> playingDeck = new List<CardSO>();
-    public List<CardSO> discardPile = new List<CardSO>();
+    public List<CardSO> choosingCards = new List<CardSO>();
     public List<CardSO> handCards = new List<CardSO>();
+    public List<CardSO> playedCards = new List<CardSO>();
     public List<CardSO> jokers = new List<CardSO>();
 
+    //public event Action<CardSO> onChoosing;
     // Thông tin về hands đã chơi
-    public int handsPlayed;
+    public int handSize = 8;
+    public int handCount = 4;
+    public int discardsCount = 4;
     public int totalScore;
     public float scoreMultiplier = 1.0f;
 
@@ -34,8 +41,8 @@ public class Run
     {
         stakeDifficulty = stake;
         deck = selectedDeck;
-        round = 1;
-        ante = CalculateStartingAnte(stake);
+        round = 0;
+        anteLevel = 0;
         money = startingMoney;
 
         // Khởi tạo bộ bài chơi từ deck đã chọn
@@ -45,41 +52,53 @@ public class Run
     // Khởi tạo bộ bài
     private void InitializePlayingDeck()
     {
-        playingDeck = deck.defaultCards;
+        playingDeck = new List<CardSO>(deck.defaultCards);
     }
 
     // Tính toán ante ban đầu dựa trên mức độ khó
-    private int CalculateStartingAnte(StakeDifficult stake)
+    public int GetBaseChips()
     {
-        switch (stake)
+        Ante ante = anteList.antes[anteLevel + 1];
+        switch (stakeDifficulty)
         {
-            case StakeDifficult.Low:
-                return 5;
-            case StakeDifficult.Medium:
-                return 10;
-            case StakeDifficult.High:
-                return 20;
-            case StakeDifficult.VeryHigh:
-                return 30;
-            default:
-                return 5;
+            case StakeDifficult.white:
+            case StakeDifficult.red:
+                return ante.baseChipsRequirement;
+            case StakeDifficult.green:
+            case StakeDifficult.black:
+            case StakeDifficult.blue:
+                return ante.baseChips_GreenOrHigher;
+            case StakeDifficult.purple:
+            case StakeDifficult.orange:
+            case StakeDifficult.gold:
+                return ante.baseChips_PurpleOrHigher;
+        }
+        return 0;
+    }
+    private void Draws()
+    {
+        Shuffe();
+        for (int i = handCards.Count; i < handSize; i++)
+        {
+            CardSO newCard = DrawCard();
+            handCards.Add(newCard);
+            UIManager.Instance.DrawHand(newCard);
         }
     }
-
-    // Phương thức để bắt đầu round mới
-    public void StartNewRound()
+    // Phương thức để b{ắt đầu round mới
+    public void NextRound()
     {
         round++;
-        ante = CalculateAnte();
-
-        // Logic để bắt đầu vòng mới
+        Draws();
+        UIManager.Instance.runUI.UpdateRun(this);
     }
-
-    // Tính toán ante cho round hiện tại
-    private int CalculateAnte()
+    public void NextAnte()
     {
-        // Trong Balatro, ante thường tăng theo round
-        return ante + (int)(ante * 0.5f);
+        anteLevel++;
+        totalScore = 0;
+        //NextRound();
+        //round++;Nex
+        BlindManager.Instance.NewBLinds(anteLevel);
     }
 
     // Phương thức để rút bài
@@ -87,7 +106,7 @@ public class Run
     {
         if (playingDeck.Count == 0)
         {
-            ShuffleDiscardPile();
+            return null;
         }
 
         if (playingDeck.Count > 0)
@@ -100,13 +119,43 @@ public class Run
         return null; // Không còn bài để rút
     }
 
-    // Trộn lại bộ bài từ discard pile
-    private void ShuffleDiscardPile()
+    public void PlayHand()
     {
-        playingDeck.AddRange(discardPile);
-        discardPile.Clear();
+        if (handCount <= 0 || choosingCards.Count == 0) return;
+        totalScore += CalculateHandScore(handCards);
+        handCount--;
+        handCards.RemoveAll(card => choosingCards.Contains(card));
+        playedCards.AddRange(choosingCards);
 
-        // Trộn bài
+        UIManager.Instance.DestroyCard();
+        choosingCards.Clear();
+
+        NextRound();
+    }
+    public void CheckWinAnte()
+    {
+        if (totalScore < 300)
+        {
+            NextRound();
+        } else
+        {
+            NextAnte();
+        }
+    }
+    public void Discard()
+    {
+        if (discardsCount <= 0 || choosingCards.Count == 0) return;
+        discardsCount--;
+        handCards.RemoveAll(card => choosingCards.Contains(card));
+        playingDeck.AddRange(choosingCards);
+        UIManager.Instance.DestroyCard();
+        choosingCards.Clear();
+        Draws();
+        UIManager.Instance.runUI.UpdateRun(this);
+
+    }
+    private void Shuffe()
+    {
         System.Random rng = new System.Random();
         int n = playingDeck.Count;
         while (n > 1)
@@ -119,12 +168,22 @@ public class Run
         }
     }
 
+    public bool Choose(CardSO cardSO)
+    {
+        if (!choosingCards.Contains(cardSO))
+        {
+            if (choosingCards.Count >= 5) return false;
+            choosingCards.Add(cardSO);
+        } else
+        {
+            choosingCards.Remove(cardSO);
+        }
+        return true;
+    }
     // Thêm phương thức tính điểm
     public int CalculateHandScore(List<CardSO> hand)
     {
-        // Logic tính điểm cho một hand trong Balatro
-        // Điểm cơ bản + hiệu ứng từ Jokers
-        return 0; // Thay với logic tính điểm thật
+        return 100; // Thay với logic tính điểm thật
     }
 
     // Cập nhật tiền sau mỗi lượt
@@ -145,8 +204,12 @@ public class Run
 // Enum cho mức độ khó
 public enum StakeDifficult
 {
-    Low,
-    Medium,
-    High,
-    VeryHigh
+    white = 1,
+    red = 2,
+    green = 3,
+    black = 4,
+    blue = 5,
+    purple = 6,
+    orange = 7,
+    gold = 8
 }

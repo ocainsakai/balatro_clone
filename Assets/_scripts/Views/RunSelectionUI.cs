@@ -11,7 +11,7 @@ public class RunSelectionUI : MonoBehaviour
     [SerializeField] private GameObject stakeSelection;
     [SerializeField] private GameObject deckSelection;
 
-    void Start()
+    void Awake()
     {
         newRun.onClick.AddListener(() => UpdateNewRunUI());
         continueRun.onClick.AddListener(() => UpdateContinueUI());
@@ -35,14 +35,14 @@ public class RunSelectionUI : MonoBehaviour
     {
         ShowBody();
         ClearPlayButtonListeners();
-        playBtn.onClick.AddListener(() => GameController.Instance.NewRun());
+        playBtn.onClick.AddListener(() => GameManager.Instance.StartNewRun());
     }
 
     private void UpdateContinueUI()
     {
         HideBody();
         ClearPlayButtonListeners();
-        playBtn.onClick.AddListener(() => GameController.Instance.ContinueRun());
+        playBtn.onClick.AddListener(() => GameManager.Instance.ContinueRun());
     }
 
     private void UpdateChallengeUI()

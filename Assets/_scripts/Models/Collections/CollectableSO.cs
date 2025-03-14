@@ -11,7 +11,6 @@ public abstract class CollectableSO : ScriptableObject
     public Sprite Icon;
     public string Description;
 
-    public bool IsLocked { get; protected set; }
 #if UNITY_EDITOR
     [ContextMenu("Generate ID")]
     protected void GenerateIdMenuItem()
@@ -56,14 +55,5 @@ public abstract class CollectableSO : ScriptableObject
         }
     }
 #endif
-    public void Lock()
-    {
-        this.IsLocked = true;
-    }
-
-    public void Unlock()
-    {
-        this.IsLocked = false;
-    }
-
+    
 }

@@ -12,7 +12,7 @@ public class DeckSelectionUI : MonoBehaviour
     private DeckSO currentDeckSelection => DeckManager.Instance.GetCurrentDeck();
     [SerializeField] private GameObject lockedOverlayPrefab;
 
-    private void OnEnable()
+    private void Start()
     {
 
         leftBtn.onClick.RemoveAllListeners();
@@ -37,6 +37,7 @@ public class DeckSelectionUI : MonoBehaviour
     }
     private void UpdateSelection()
     {
+        
         bool isUnlocked = DeckManager.Instance.IsCurrentDeckUnlock();
         lockedOverlayPrefab.SetActive(!isUnlocked);
         art.sprite = currentDeckSelection.cardBackImage;

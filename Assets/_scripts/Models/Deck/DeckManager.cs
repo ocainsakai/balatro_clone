@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
+
 
 public class DeckManager : MonoBehaviour
 {
     public static DeckManager Instance;
+    public SpriteRenderer image => GetComponent<SpriteRenderer>();
 
     [SerializeField] private DeckCollectionSO deckCollection 
         => Resources.Load<DeckCollectionSO>("Collections/DeckCollectionSO");
@@ -31,11 +32,9 @@ public class DeckManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return;
         }
-
-        LoadPlayerDeckData();
-        //Debug.Log(deckCollection.avalableItems.Count);
+            LoadPlayerDeckData();
+            Debug.Log(Instance == null);
     }
 
     private void LoadPlayerDeckData()
@@ -60,7 +59,7 @@ public class DeckManager : MonoBehaviour
             // Mở khóa deck mặc định
             currentDeck = deckCollection.startingDeck;
             unlockedIds.Add(currentDeck.Id);
-            SavePlayerDeckData();
+            //SavePlayerDeckData();
         }
         //foreach (var item in deckCollection.avalableItems)
         //{
@@ -76,37 +75,34 @@ public class DeckManager : MonoBehaviour
 
     }
 
-    private void SavePlayerDeckData()
-    {
-        PlayerDeckData data = new PlayerDeckData
-        {
-            currentId = currentDeck.Id,
-            unlockedIds = unlockedIds.ToList()
-        };
+    //private void SavePlayerDeckData()
+    //{
+    //    PlayerDeckData data = new PlayerDeckData
+    //    {
+    //        currentId = currentDeck.Id,
+    //        unlockedIds = unlockedIds.ToList()
+    //    };
 
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString("DeckData", json);
-        PlayerPrefs.Save();
-    }
+    //    string json = JsonUtility.ToJson(data);
+    //    PlayerPrefs.SetString("DeckData", json);
+    //    PlayerPrefs.Save();
+    //}
 
-    public List<DeckSO> GetAllDecks()
-    {
-        return deckCollection.avalableItems;
-    }
+    //public List<DeckSO> GetAllDecks()
+    //{
+    //    return deckCollection.avalableItems;
+    //}
 
-    public List<DeckSO> GetUnlockedDecks()
-    {
-        return deckCollection.avalableItems.Where(deck => unlockedIds.Contains(deck.Id)).ToList();
-    }
+    //public List<DeckSO> GetUnlockedDecks()
+    //{
+    //    return deckCollection.avalableItems.Where(deck => unlockedIds.Contains(deck.Id)).ToList();
+    //}
     public bool IsCurrentDeckUnlock()
     {
         return unlockedIds.Contains(currentDeck.Id);
 
     }
-    public bool IsDeckUnlocked(string Id)
-    {
-        return unlockedIds.Contains(Id);
-    }
+    
 
     public DeckSO GetCurrentDeck()
     {
@@ -132,18 +128,15 @@ public class DeckManager : MonoBehaviour
         }
         currentDeck = deckCollection.avalableItems[index];
     }
-    public void SetCurrentDeck(string Id)
+    public bool SetCurrentDeck()
     {
         // Chỉ có thể chọn deck đã mở khóa
-        if (unlockedIds.Contains(Id))
+        if (unlockedIds.Contains(currentDeck.Id))
         {
-            DeckSO newDeck = deckCollection.avalableItems.Find(d => d.Id == Id);
-            if (newDeck != null)
-            {
-                currentDeck = newDeck;
-                SavePlayerDeckData();
-            }
+            //SavePlayerDeckData();
+            return true;
         }
+        return false;
     }
 
     public void UnlockDeck(string Id)
@@ -152,11 +145,19 @@ public class DeckManager : MonoBehaviour
         if (deckToUnlock != null && !unlockedIds.Contains(Id))
         {
             unlockedIds.Add(Id);
-            deckToUnlock.Unlock();
-            SavePlayerDeckData();
+            //SavePlayerDeckData();
 
             // Thông báo mở khóa (có thể thêm event system ở đây)
             Debug.Log($"Unlocked new deck: {deckToUnlock.Name}");
         }
+    }
+
+    public void Show()
+    {
+        this.image.enabled = true;
+    }
+    public void Hide()
+    {
+        this.image.enabled = false;
     }
 }
