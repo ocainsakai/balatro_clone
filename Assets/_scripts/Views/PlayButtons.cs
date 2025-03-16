@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayButtons : MonoBehaviour
 {
-    Run running => GameManager.Instance.running;
+    RunManager running => GameManager.Instance.runManager;
     [SerializeField] private Button playHand;
     [SerializeField] private Button sortByRank;
     [SerializeField] private Button sortBySuit;

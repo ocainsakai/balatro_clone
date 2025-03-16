@@ -10,10 +10,7 @@ public class GameManager : MonoBehaviour
     public DeckManager deckManager => DeckManager.Instance;
 
     [Header("Running Infomation")]
-    public Run running;
-    public int ante => running.anteLevel;
-    public int round => running.round;
-    public int baseChips => running.baseChips;
+    public RunManager runManager;
 
     public Phase currentPhase { get; private set; }
 
@@ -49,8 +46,9 @@ public class GameManager : MonoBehaviour
             if (deckManager != null)
             {
                 Debug.Log("Deck is valid");
-                running = new Run(StakeDifficult.white, deckManager.GetCurrentDeck());
-                StartNewAnte();
+                runManager = new RunManager(StakeDifficult.white, deckManager.GetCurrentDeck());
+                ChangePhase(Phase.Blind);
+
                 Debug.Log("Initialized test run in PlayRun scene");
             }
             else
@@ -65,7 +63,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("playyy");
         if (deckManager.SetCurrentDeck())
         {
-            running = new Run(StakeDifficult.white, deckManager.GetCurrentDeck());
+            runManager = new RunManager(StakeDifficult.white, deckManager.GetCurrentDeck());
             //Debug.Log(running.playingDeck.Count);
             SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.LoadScene("PlayRun");
@@ -76,16 +74,10 @@ public class GameManager : MonoBehaviour
         if (scene.name == "PlayRun")
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-
-            StartNewAnte();
-            
+            ChangePhase(Phase.Blind);
         }
     }
-    private void StartNewAnte()
-    {
-        running.NextAnte();
-        ChangePhase(Phase.Blind);
-    }
+   
     public void ContinueRun()
     {
 
@@ -117,18 +109,15 @@ public class GameManager : MonoBehaviour
     }
     private void StartScorePhase()
     {
-        StartNewRound();
+        
+        runManager.Draws();
+        UIManager.Instance.runUI.UpdateRun(runManager.run);
     }
     private void StartShopPhase()
     {
 
     }
-
-    private void StartNewRound()
-    {
-        running.NextRound();
-
-    }
+    
 }
 public enum Phase
 {

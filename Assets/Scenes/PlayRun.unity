@@ -528,6 +528,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50a08372cea2765438f250da9625a82f, type: 2}
   - {fileID: 11400000, guid: f3b0f907bd4545c44a6f030e9a5ca78d, type: 2}
   - {fileID: 11400000, guid: 17b65ed5bc1bfcd448a857b7cbf0e897, type: 2}
+  currentBlind: {fileID: 0}
 --- !u!1 &42535945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,12 +1666,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932e43aab6562f34d948f65e39686dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phaseInfor: {fileID: 78851915}
   roundScore: {fileID: 2136390688069745479}
   round: {fileID: 13796175}
   ante: {fileID: 769375168}
   money: {fileID: 1250422476}
   handCount: {fileID: 791330736}
-  discardsCount: {fileID: 1865243422}
+  discardCount: {fileID: 1865243422}
 --- !u!1 &470065731
 GameObject:
   m_ObjectHideFlags: 0

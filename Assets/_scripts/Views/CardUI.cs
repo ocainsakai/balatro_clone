@@ -6,7 +6,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler
 {
     public CardSO cardSO;
 
-    private Run running => GameManager.Instance.running;
+    private RunManager running => GameManager.Instance.runManager;
     [SerializeField] private Sprite cardArt;
     [SerializeField] private Sprite backArt => DeckManager.Instance.image.sprite;
 

@@ -37,7 +37,12 @@ public class BlindUI : MonoBehaviour
         else
         {
             buttonText.text = "Select";
-            button.onClick.AddListener( () => GameManager.Instance.ChangePhase(Phase.Score));
+            button.onClick.AddListener(() =>
+            {
+            GameManager.Instance.ChangePhase(Phase.Score);
+            BlindManager.Instance.SetBlind(this.currentBlind);
+            });
+
         }
 
     }

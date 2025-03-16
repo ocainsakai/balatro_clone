@@ -84,7 +84,7 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateBlindUI(BlindSO[] blinds)
     {
-        int baseChips = GameManager.Instance.running.GetBaseChips();
+        int baseChips = GameManager.Instance.runManager.GetBaseChips();
         small.SetBlind(blinds[0], baseChips);
         big.SetBlind(blinds[1], baseChips);
         boss.SetBlind(blinds[2], baseChips);

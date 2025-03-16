@@ -11,6 +11,7 @@ public class BlindManager : MonoBehaviour
     
     [SerializeField] private List<BlindSO> allBlinds;
 
+    public BlindSO currentBlind;
 
     private BlindSO[] currentBlinds = new BlindSO[3];
     private BlindSO smallBlind => allBlinds.FirstOrDefault(t => t.blindName == "Small Blind");
@@ -45,6 +46,11 @@ public class BlindManager : MonoBehaviour
         currentBlinds[2] = hook;
         UIManager.Instance.UpdateBlindUI(currentBlinds);
 
+    }
+    public void SetBlind(BlindSO blind)
+    {
+        this.currentBlind = blind;
+        GameManager.Instance.runManager.UpdateBlind(currentBlind.scoreMultiple);
     }
     public void Hide()
     {
