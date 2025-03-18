@@ -11,9 +11,16 @@ public class DeckManager : MonoBehaviour
         => Resources.Load<DeckCollectionSO>("Collections/DeckCollectionSO");
 
     // Theo dõi trạng thái hiện tại
+    public int DeckCount => deckCollection.avalableItems.Count;
     private DeckSO currentDeck;
     private HashSet<string> unlockedIds = new HashSet<string>();
-    public int DeckCount => deckCollection.avalableItems.Count;
+
+
+    public List<CardSO> playingDeck = new List<CardSO>();
+    public List<CardSO> choosingCards = new List<CardSO>();
+    public List<CardSO> handCards = new List<CardSO>();
+    public List<CardSO> playedCards = new List<CardSO>();
+    public List<CardSO> jokers = new List<CardSO>();
     // Lưu trạng thái player
     [System.Serializable]
     private class PlayerDeckData
@@ -61,42 +68,11 @@ public class DeckManager : MonoBehaviour
             unlockedIds.Add(currentDeck.Id);
             //SavePlayerDeckData();
         }
-        //foreach (var item in deckCollection.avalableItems)
-        //{
-        //    if (unlockedIds.Contains(item.Id))
-        //    {
-        //        item.Unlock();
-        //    } else
-        //    {
-        //        item.Lock();
-        //        Debug.Log(item.name);
-        //    }
-        //}
+
 
     }
 
-    //private void SavePlayerDeckData()
-    //{
-    //    PlayerDeckData data = new PlayerDeckData
-    //    {
-    //        currentId = currentDeck.Id,
-    //        unlockedIds = unlockedIds.ToList()
-    //    };
 
-    //    string json = JsonUtility.ToJson(data);
-    //    PlayerPrefs.SetString("DeckData", json);
-    //    PlayerPrefs.Save();
-    //}
-
-    //public List<DeckSO> GetAllDecks()
-    //{
-    //    return deckCollection.avalableItems;
-    //}
-
-    //public List<DeckSO> GetUnlockedDecks()
-    //{
-    //    return deckCollection.avalableItems.Where(deck => unlockedIds.Contains(deck.Id)).ToList();
-    //}
     public bool IsCurrentDeckUnlock()
     {
         return unlockedIds.Contains(currentDeck.Id);
@@ -150,6 +126,12 @@ public class DeckManager : MonoBehaviour
             // Thông báo mở khóa (có thể thêm event system ở đây)
             Debug.Log($"Unlocked new deck: {deckToUnlock.Name}");
         }
+    }
+
+
+    private void InitializePlayingDeck()
+    {
+        playingDeck = new List<CardSO>(currentDeck.defaultCards);
     }
 
     public void Show()
