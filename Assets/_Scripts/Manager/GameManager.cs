@@ -3,13 +3,11 @@ using System.Collections;
 using UnityEngine;
 
 
-public class GameManager : MonoBehaviour
+public class GameManager : AbstractSingleton<GameManager>
 {
-    public static GameManager instance;
-    DeckManager deckManager => GetComponent<DeckManager>();
-    BlindManager blindManager => GetComponent<BlindManager>();
-    //PhaseManager phaseManager =  new PhaseManager();
-    UIManager uiManager => GetComponent<UIManager>();
+    DeckManager deckManager => DeckManager.instance;
+    BlindManager blindManager => BlindManager.instance;
+    UIManager uiManager => UIManager.instance;
     public Phase currentPhase;
     public class Run {
         public int round_score;
@@ -19,28 +17,13 @@ public class GameManager : MonoBehaviour
         public int ante;
         public int round;
     }
-    public Run run;
-    public event Action sortByRank;
-    public event Action sortBySuit;
-    public event Action<Card> OnDrawCard;
-    public event Action<Card> OnDiscardCard;
+    public Run run { get; private set; }
     public event Action<Run> OnRunUpdate;
     public event Action<Poker> OnPokerUpdate;
     public event Action<string> PhaseChanged;
-    public bool canChoose => deckManager.choosing_cards.Count < 5;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    
     void Start()
     {
         InitGame();
@@ -49,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         deckManager.Initialize();
         blindManager.Initialize();
-        
+
         run = new Run()
         {
             round_score = 0,
@@ -94,12 +77,8 @@ public class GameManager : MonoBehaviour
         uiManager.ShowAction();
         uiManager.ShowHand();
         uiManager.ShowDeck();
-
-
         PhaseChanged?.Invoke("Phase: Play");
-        StartCoroutine(DrawCoroutine());
-
-
+        StartCoroutine(deckManager.DrawHand());
     }
     public void StartShopPhase()
     {
@@ -111,117 +90,34 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    public void PlayHand()
-    {
-        if (run.play_hands <= 0 || deckManager.choosing_cards.Count == 0) return;
-        StartCoroutine(PlayHandCoroutine());
-    }
+    
+    //public bool CheckWin()
+    //{
+    //    if (blindManager.IsWin(run.round_score))
+    //    {
+    //        Debug.Log("you defeat this blind");
+    //        blindManager.Defeat();
+    //        EndPlay();
+    //        ChangePhase(Phase.blind);
+    //        return true;
+    //    } else if (run.play_hands <= 0)
+    //    {
+    //        //Debug.Log("you lose");
+    //        ChangePhase(Phase.gameover);
+    //        return true;
+    //    }
+    //    return false;
 
-    private IEnumerator PlayHandCoroutine()
-    {
-        int score = 0;
-        yield return StartCoroutine(CalculateHand(result => score = result));
+    //}
+    //public void EndPlay()
+    //{
+    //    OnRunUpdate?.Invoke(run);
+    //    OnPokerUpdate?.Invoke(new Poker());
 
-        run.round_score += score;
-        run.play_hands--;
-        run.round++;
-        OnRunUpdate?.Invoke(run);
+    //    deckManager.End();
 
-        if (CheckWin()) yield break;
-
-        StartCoroutine(DiscardCoroutine());
-
-        deckManager.PlayHand();
-        StartCoroutine(DrawCoroutine());
-    }
-
-
-    public void Discard()
-    {
-        if (run.discards <= 0 || deckManager.choosing_cards.Count == 0) return;
-        run.discards--;
-        StartCoroutine(DiscardCoroutine());
-        StartCoroutine(DrawCoroutine());
-        deckManager.Shuffe();
-        OnRunUpdate?.Invoke(run);
-    }
-
-    public void Choosing(Card card, bool isChoosing)
-    {
-        if (isChoosing)
-        {
-            deckManager.choosing_cards.Add(card);
-        } else
-        {
-            deckManager.choosing_cards.Remove(card);
-        }
-        Poker poker;
-        PokerHandEvaluator.EvaluateHand(deckManager.choosing_cards, out poker);
-        OnPokerUpdate?.Invoke(poker);
-        // poker hand and update ui
-
-    }
-    private IEnumerator DrawCoroutine()
-    {
-        for(int i = deckManager.hand_count; i < deckManager.hand_size; i++)
-        {
-            yield return StartCoroutine(deckManager.Draw(card => OnDrawCard?.Invoke(card)));
-        }
-    }
-    private IEnumerator DiscardCoroutine()
-    {
-        foreach (var cardToDiscard in deckManager.choosing_cards)
-        {
-            
-            yield return StartCoroutine(deckManager.Discard(cardToDiscard,card => OnDiscardCard?.Invoke(card)));
-        }
-    }
-    public IEnumerator CalculateHand(Action<int> onComplete)
-    {
-        Poker poker = new Poker();
-        PokerHandEvaluator.EvaluateHand(deckManager.choosing_cards, out poker);
-
-        foreach (Card card in deckManager.choosing_cards)
-        {
-            poker.chips += card.baseValue;
-            OnPokerUpdate?.Invoke(poker);
-            yield return new WaitForSeconds(0.2f);
-        }
-
-        int score = (int)(poker.chips * poker.multiple);
-        onComplete?.Invoke(score);
-    }
-    public bool CheckWin()
-    {
-        if (blindManager.IsWin(run.round_score))
-        {
-            Debug.Log("you defeat this blind");
-            blindManager.Defeat();
-            EndPlay();
-            ChangePhase(Phase.blind);
-            return true;
-        } else if (run.play_hands <= 0)
-        {
-            //Debug.Log("you lose");
-            ChangePhase(Phase.gameover);
-            return true;
-        }
-        return false;
-
-    }
-    public void EndPlay()
-    {
-        OnRunUpdate?.Invoke(run);
-        OnPokerUpdate?.Invoke(new Poker());
-
-        deckManager.End();
-
-    }
-    public void SetBlind(Blind blind)
-    {
-        blindManager.SetCurrentBlind(blind);
-        SetupRun();
-    }
+    //}
+    
 
     public void SetupRun()
     {
@@ -238,14 +134,7 @@ public class GameManager : MonoBehaviour
     {
         OnPokerUpdate?.Invoke(poker);
     }
-    public void SortByRank()
-    {
-        sortByRank?.Invoke();
-    }
-    public void SortBySuit()
-    {
-        sortBySuit?.Invoke();
-    }
+   
 }
 
 
