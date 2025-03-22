@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class BlindManager : AbstractSingleton<BlindManager>
+public class BlindManager : SingletonAbstract<BlindManager>
 {
     [SerializeField] public List<Blind> bosses;
     [SerializeField] public Blind small;

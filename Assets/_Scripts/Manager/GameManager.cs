@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine;
 
 
-public class GameManager : AbstractSingleton<GameManager>
+public class GameManager : SingletonAbstract<GameManager>
 {
-    DeckManager deckManager => DeckManager.instance;
+    PlayingManager playManager => PlayingManager.instance;
     BlindManager blindManager => BlindManager.instance;
     UIManager uiManager => UIManager.instance;
     public Phase currentPhase;
@@ -30,7 +30,7 @@ public class GameManager : AbstractSingleton<GameManager>
     }
     public void InitGame()
     {
-        deckManager.Initialize();
+        playManager.Initialize();
         blindManager.Initialize();
 
         run = new Run()
@@ -78,7 +78,7 @@ public class GameManager : AbstractSingleton<GameManager>
         uiManager.ShowHand();
         uiManager.ShowDeck();
         PhaseChanged?.Invoke("Phase: Play");
-        StartCoroutine(deckManager.DrawHand());
+        StartCoroutine(playManager.DrawHand());
     }
     public void StartShopPhase()
     {

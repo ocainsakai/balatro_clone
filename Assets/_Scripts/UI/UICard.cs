@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static UnityEngine.Rendering.GPUSort;
 
 public class UICard : MonoBehaviour
 {
@@ -9,14 +10,25 @@ public class UICard : MonoBehaviour
     public bool isChoosing {get; private set;}
     public void OnMouseDown()
     {
-        if (DeckManager.instance.canChoose || isChoosing)
+        if (PlayingManager.instance.canChoose || isChoosing)
         {
             isChoosing = !isChoosing;
             this.transform.position +=  Vector3.up * (isChoosing ? moveOffset : -moveOffset);
             OnChoosingCard?.Invoke(card, isChoosing);
         }
     }
-    
+    public void Move(Vector3 target)
+    {
+        float elapsedTime = 0f;
+        float moveDuration = 0.2f;
+        Vector3 start = transform.position;
+        while (elapsedTime < moveDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / moveDuration;
+            this.transform.position = Vector3.Lerp(start, target, t);
+        }
+    }
     public void Initlize(Card card)
     {
         this.card = card;

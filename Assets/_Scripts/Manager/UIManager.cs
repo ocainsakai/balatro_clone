@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UIManager : AbstractSingleton<UIManager>
+public class UIManager : SingletonAbstract<UIManager>
 {
     [SerializeField] private GameObject handArea;
     [SerializeField] private GameObject actionBtns;

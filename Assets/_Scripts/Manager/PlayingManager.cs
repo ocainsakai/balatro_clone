@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckManager : AbstractSingleton<DeckManager>
+public class PlayingManager : SingletonAbstract<PlayingManager>
 {
 
     public event Action<Card> OnDiscardCard;
@@ -130,7 +130,6 @@ public class DeckManager : AbstractSingleton<DeckManager>
             hand_cards.Remove(card);
             choosing_cards.Remove(card);
             yield return new WaitForSeconds(0.2f);
-            Sort();
             onComplete?.Invoke(card);
         }
     }
