@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class BlindManager : MonoBehaviour
+public class BlindManager : AbstractSingleton<BlindManager>
 {
     [SerializeField] public List<Blind> bosses;
     [SerializeField] public Blind small;
@@ -42,7 +42,7 @@ public class BlindManager : MonoBehaviour
 
         ui_small.UnLock();
     }
-    public void SetCurrentBlind(Blind blind)
+    public void SetBlind(Blind blind)
     {
         this.currentBlind = blind;
         this.currentBlindScore = (int) (blind.score_multiple * baseChips[anteLevel+1]);

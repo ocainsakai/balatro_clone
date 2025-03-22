@@ -9,7 +9,7 @@ public class UICard : MonoBehaviour
     public bool isChoosing {get; private set;}
     public void OnMouseDown()
     {
-        if (GameManager.instance.canChoose || isChoosing)
+        if (DeckManager.instance.canChoose || isChoosing)
         {
             isChoosing = !isChoosing;
             this.transform.position +=  Vector3.up * (isChoosing ? moveOffset : -moveOffset);

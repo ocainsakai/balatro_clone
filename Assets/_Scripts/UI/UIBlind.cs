@@ -34,7 +34,7 @@ public class UIBlind : MonoBehaviour
     {
         isLocked = true;
         btn_txt.text = "Select";
-        btn.onClick.AddListener(() => GameManager.instance.SetBlind(blind));
+        btn.onClick.AddListener(() => BlindManager.instance.SetBlind(blind));
         btn.onClick.AddListener(() => GameManager.instance.ChangePhase(Phase.playing));
 
     }

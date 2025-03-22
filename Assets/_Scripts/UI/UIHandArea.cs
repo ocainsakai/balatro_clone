@@ -15,20 +15,22 @@ public class UIHandArea : MonoBehaviour
     public float cardSpacing = 1.0f;
     public float cardWidth = 0.8f;
     public float moveDuration = 0.5f;
-    private bool isByRank;
-    public void SortCardByRank()
+    //private bool isByRank;
+    public void Sort(int index)
     {
-        isByRank = true;
-        cards = cards.OrderBy(card => card.card.rank).ToList();
-        StartCoroutine(UpdateCardPositionsWithAnimation());
-    }
+        if (index == 1)
+        {
+            cards = cards.OrderBy(card => card.card.rank).ToList();
+        }
+        else if (index == 2)
+        {
+            cards = cards.OrderBy(card => card.card.suit).ToList();
 
-    public void SortCardBySuit()
-    {
-        isByRank = false;
-        cards = cards.OrderBy(card => card.card.suit).ToList();
-        StartCoroutine(UpdateCardPositionsWithAnimation());
+        }
+        UpdateCardPositionsWithAnimation();
+
     }
+    
 
     private IEnumerator UpdateCardPositionsWithAnimation()
     {
@@ -67,17 +69,16 @@ public class UIHandArea : MonoBehaviour
     }
     public void OnEnable()
     {
-        GameManager.instance.OnDrawCard += DrawCard;
-        GameManager.instance.sortBySuit += SortCardBySuit;
-        GameManager.instance.sortByRank += SortCardByRank;
-        GameManager.instance.OnDiscardCard += Discard;
+        DeckManager.instance.OnDrawCard += DrawCard;
+        DeckManager.instance.OnSort += Sort;
+        DeckManager.instance.OnDiscardCard += Discard;
     }
     
     public void DrawCard(Card card)
     {
         UICard newCard = AddCard().GetComponent<UICard>();
         newCard.Initlize(card);
-        newCard.OnChoosingCard += GameManager.instance.Choosing;
+        newCard.OnChoosingCard += DeckManager.instance.Choosing;
         cards.Add(newCard); 
 
     }

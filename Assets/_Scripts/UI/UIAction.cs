@@ -11,10 +11,10 @@ public class UIAction : MonoBehaviour
     void Start()
     {
         //Debug.Log(running);
-        playHand.onClick.AddListener(() => GameManager.instance.PlayHand());
-        sortByRank.onClick.AddListener(() => GameManager.instance.SortByRank());
-        sortBySuit.onClick.AddListener(() => GameManager.instance.SortBySuit());
-        discard.onClick.AddListener(() => GameManager.instance.Discard());
+        playHand.onClick.AddListener(() => DeckManager.instance.PlayHand());
+        sortByRank.onClick.AddListener(() => DeckManager.instance.Sort(1));
+        sortBySuit.onClick.AddListener(() => DeckManager.instance.Sort(2));
+        discard.onClick.AddListener(() => DeckManager.instance.Discard());
     }
     private void OnDisable()
     {
