@@ -10,7 +10,7 @@ using UnityEditor;
 #endif
 
 [CreateAssetMenu(fileName = "Card", menuName = "Scriptable Objects/Card")]
-public class Card : ScriptableObject
+public class CardSO : ScriptableObject
 {
     [Header("Card Identity")]
     public string cardId;

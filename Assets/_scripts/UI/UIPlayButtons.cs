@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class PlayButtons : MonoBehaviour
+public class UIPlayButtons : MonoBehaviour
 {
     [SerializeField] private Button playHand;
     [SerializeField] private Button sortByRank;
@@ -12,9 +12,9 @@ public class PlayButtons : MonoBehaviour
     void Start()
     {
         //Debug.Log(running);
-        playHand.onClick.AddListener(() => PlayingManager.instance.PlayHand());
-        sortByRank.onClick.AddListener(() => PlayingManager.instance.Sort(2));
-        sortBySuit.onClick.AddListener(() => PlayingManager.instance.Sort(1));
-        discard.onClick.AddListener(() => PlayingManager.instance.Discard());
+        playHand.onClick.AddListener(() => UIHand.instance.PlayHand());
+        sortByRank.onClick.AddListener(() => UIHand.instance.SortByRank());
+        sortBySuit.onClick.AddListener(() => UIHand.instance.SortBySuit());
+        discard.onClick.AddListener(() => UIHand.instance.Discard());
     }
 }

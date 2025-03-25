@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a41744b8216684d4997798663757a79c, type: 3}
-  m_Name: Clubs ace
+  m_Script: {fileID: 11500000, guid: 2da2ab74816cd024f96f4b32917e34d8, type: 3}
+  m_Name: Diamonds 14
   m_EditorClassIdentifier: 
   cardId: 
-  cardName: Clubs 1
-  cardFrontImage: {fileID: 9143688492262608414, guid: 8d327a77106795343a20d93625e83634, type: 3}
+  cardName: 
+  cardFrontImage: {fileID: 0}
   cardColor: {r: 1, g: 1, b: 1, a: 1}
-  suit: 2
-  rank: 1
+  suit: 0
+  rank: 0
   cardType: 0
   cardDescription: 
   isSpecialCard: 0

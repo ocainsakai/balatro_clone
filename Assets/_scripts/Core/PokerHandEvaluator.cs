@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using UnityEngine;
+
+using Debug = UnityEngine.Debug;
 
 
 
@@ -11,14 +11,13 @@ public class PokerHandEvaluator
     public int flushSize = 5;
     public int straightSize = 5;
     public int straightGap = 1;
-
-    List<Card> inPoker = new List<Card>();
-    public int CalculateHand(List<Card> hand, out Poker poker, out List<Card> inPoker)
+    List<CardSO> inPoker = new List<CardSO>();
+    public int CalculateHand(List<CardSO> hand, out Poker poker, out List<CardSO> inPoker)
     {
         this.inPoker.Clear();
         EvaluateHand(hand, out poker);
 
-        foreach (Card card in this.inPoker)
+        foreach (CardSO card in this.inPoker)
         {
             poker.chips += card.baseValue;
 
@@ -27,44 +26,45 @@ public class PokerHandEvaluator
         inPoker = this.inPoker;
         return score;
     }
-    public void EvaluateHand(List<Card> hand, out Poker poker)
+    public void EvaluateHand(List<CardSO> inSelect, out Poker poker)
     {
-        if (IsRoyalStraightFlush(hand))
+        
+        if (IsRoyalStraightFlush(inSelect))
         {
             poker = Poker.straightFlush;
             //inPoker = hand;
             return;
         }
-        if (IsStraightFlush(hand))
+        if (IsStraightFlush(inSelect))
         {
             poker = Poker.straightFlush;
             //inPoker = hand;
             return;
         }
-        if (IsFullHouse(hand))
+        if (IsFullHouse(inSelect))
         {
             poker = Poker.fullHouse;
             return;
 
         }     // Full House
-        if (IsRoyalStraight(hand))
+        if (IsRoyalStraight(inSelect))
         {
             poker = Poker.straight;
             return;
         }
-        if (IsFlush(hand))
+        if (IsFlush(inSelect))
         {
             poker = Poker.flush;
             return;
 
         }         // Flush
-        if (IsStraight(hand))
+        if (IsStraight(inSelect))
         {
             poker = Poker.straight;
             return;
 
         }      // Straight 
-        if (IsFourOfAKind(hand))
+        if (IsFourOfAKind(inSelect))
         {
 
             poker = Poker.fourOfAKind;
@@ -72,51 +72,53 @@ public class PokerHandEvaluator
             return;
 
         }   // Four of a Kind
-        if (IsThreeOfAKind(hand))
+        if (IsThreeOfAKind(inSelect))
         {
             poker = Poker.threeOfAKind;
             return;
 
         } // Three of a Kind
-        if (IsTwoPair(hand))
+        if (IsTwoPair(inSelect))
         {
             poker = Poker.twoPair;
             return;
 
         }      // Two Pair
-        if (IsPair(hand))
+        if (IsPair(inSelect))
         {
             poker = Poker.pair;
             return;
 
         }          // One Pair
-        Card highCard = hand.OrderBy(card => card.rank).Last();
-        inPoker = new List<Card> { highCard };
+        CardSO highCard = inSelect.OrderBy(card => card.rank).Last();
+        inPoker = new List<CardSO> { highCard };
         poker = Poker.highCard;
 
 
     }
 
-    public bool IsFlush(List<Card> hand)
+    public bool IsFlush(List<CardSO> hand)
     {
         if (hand.GroupBy(card => card.suit).All(g => g.Count() >= flushSize))
         {
-            inPoker = hand;
+            inPoker = new List<CardSO> (hand);
+
             return true;
         }
         return false;
     }
-    public bool IsRoyalStraight(List<Card> hand)
+    public bool IsRoyalStraight(List<CardSO> hand)
     {
         if (IsStraight(hand) && hand.Any(card => card.IsRoyal()))
         {
-            inPoker = hand;
+            inPoker = new List<CardSO>(hand);
+
 
             return true;
         }
         return false ;
     }
-    public bool IsStraight(List<Card> hand)
+    public bool IsStraight(List<CardSO> hand)
     {
         if (hand.Count <  straightSize) return false;
         var values = hand.Select(card => card.rank).OrderBy(v => v).ToList();
@@ -125,22 +127,23 @@ public class PokerHandEvaluator
             int diff = values[i+1] - values[i];
             if(diff > straightGap || diff == 0) return false;
         }
-        inPoker = hand;
+
+        inPoker = new List<CardSO> (hand);
         return true;
     }
 
-    public bool IsStraightFlush(List<Card> hand)
+    public bool IsStraightFlush(List<CardSO> hand)
     {
         int size = Math.Min(flushSize, straightSize);
         return IsFlush(hand) && IsStraight(hand);
     }
-    public bool IsRoyalStraightFlush(List<Card> hand)
+    public bool IsRoyalStraightFlush(List<CardSO> hand)
     {
         int size = Math.Min(flushSize, straightSize);
         return IsFlush(hand) && IsRoyalStraight(hand);
     }
 
-    public bool IsFourOfAKind(List<Card> hand)
+    public bool IsFourOfAKind(List<CardSO> hand)
     {
         if (hand.GroupBy(card => card.rank).All(g => g.Count() == 4))
         {
@@ -150,29 +153,29 @@ public class PokerHandEvaluator
         return false;
     }
 
-    public bool IsFullHouse(List<Card> hand)
+    public bool IsFullHouse(List<CardSO> hand)
     {
         
         var groups = hand.GroupBy(card => card.rank).Select(g => g.Count()).OrderByDescending(c => c).ToList();
         if (groups.Count >= 2 && groups[0] == 3 && groups[1] == 2)
         {
-            inPoker = hand;
+            inPoker = new List<CardSO>(hand);
             return true;
         }
         return false;
     }
 
-    public bool IsThreeOfAKind(List<Card> hand)
+    public bool IsThreeOfAKind(List<CardSO> hand)
     {
         if (hand.GroupBy(card => card.rank).All(g => g.Count() == 3))
         {
-            inPoker = hand.GroupBy(card => card.rank).First(g => g.Count() == 4).ToList();
+            inPoker = hand.GroupBy(card => card.rank).First(g => g.Count() == 3).ToList();
             return true;
         }
         return false;
     }
 
-    public bool IsTwoPair(List<Card> hand)
+    public bool IsTwoPair(List<CardSO> hand)
     {
         if (hand.GroupBy(card => card.rank).Count(g => g.Count() == 2) == 2 )
         {
@@ -182,9 +185,9 @@ public class PokerHandEvaluator
         return false;
     }
 
-    public bool IsPair(List<Card> hand)
+    public bool IsPair(List<CardSO> hand)
     {
-        if (hand.GroupBy(card => card.rank).Count(g => g.Count() == 2) == 2)
+        if (hand.GroupBy(card => card.rank).Count(g => g.Count() == 2) == 1)
         {
             inPoker = hand.GroupBy(card => card.rank).Where(g => g.Count() == 2).SelectMany(g => g).ToList();
             return true;
@@ -198,7 +201,7 @@ public struct Poker
     public string name;
     public int chips;
     public int multiple;
-
+    public static Poker none = new Poker() { chips = 0 , multiple =0, name = ""}; 
     public static Poker highCard = new Poker()
     { chips = 5, multiple = 1, name = "High Card" };
 
