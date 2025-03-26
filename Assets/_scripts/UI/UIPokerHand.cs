@@ -1,7 +1,7 @@
 ﻿
 using TMPro;
 using UnityEngine;
-using DG.Tweening;
+
 
 
 
@@ -18,7 +18,6 @@ public class UIPokerHand : UITextAbstract
         JumpText(poker_name, poker.name, 0.3f);
         JumpText(chips, poker.chips.ToString(), 0.3f);
         JumpText(multiple, poker.multiple.ToString(), 0.3f);
-
     }
     public void UpdateChip(int chips_amount, float duration)
     {

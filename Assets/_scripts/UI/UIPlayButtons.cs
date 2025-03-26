@@ -12,9 +12,9 @@ public class UIPlayButtons : MonoBehaviour
     void Start()
     {
         //Debug.Log(running);
-        playHand.onClick.AddListener(() => UIHand.instance.PlayHand());
-        sortByRank.onClick.AddListener(() => UIHand.instance.SortByRank());
-        sortBySuit.onClick.AddListener(() => UIHand.instance.SortBySuit());
-        discard.onClick.AddListener(() => UIHand.instance.Discard());
+        playHand.onClick.AddListener(() => UIHandManager.instance.PlayHand());
+        sortByRank.onClick.AddListener(() => UIHandManager.instance.SortByRank());
+        sortBySuit.onClick.AddListener(() => UIHandManager.instance.SortBySuit());
+        discard.onClick.AddListener(() => UIHandManager.instance.Discard());
     }
 }

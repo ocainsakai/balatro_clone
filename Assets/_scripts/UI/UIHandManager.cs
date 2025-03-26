@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DG.Tweening;
-using Unity.VisualScripting;
+using BalatroClone.Cards;
 
 
 
-public class UIHand : SingletonAbs<UIHand>
+public class UIHandManager : SingletonAbs<UIHandManager>
 {
     [SerializeField] private GameObject uiCardPrf;
     [SerializeField] private Transform deckPosition;
-    [SerializeField] public UIPokerHand ui_poker_hand;
     public Poker currentPoker;
 
     private PokerHandEvaluator evaluator;
@@ -76,17 +75,17 @@ public class UIHand : SingletonAbs<UIHand>
         {
             deck.AddRange(discard_pile);
             discard_pile.Clear();
-        }    
+        }
         for (int i = hand.Count; i < hand_size; i++)
         {
             Card card = deck[0];
-            card.gameObject.SetActive(true);   
+            card.gameObject.SetActive(true);
             hand.Add(card);
             deck.Remove(card);
         }
         Debug.Log(hand.Count);
         StartCoroutine(SortProcess());
-        ui_poker_hand.UpdatePokerHand(Poker.none);
+        UIManager.instance.NonePoker();
     }
     public void SelectCard(Card card)
     {
@@ -100,7 +99,7 @@ public class UIHand : SingletonAbs<UIHand>
     {
         if (inSelectCards.Count <= 0)
         {
-            ui_poker_hand.UpdatePokerHand(Poker.none);
+            UIManager.instance.NonePoker();
             currentPoker = Poker.none;
             return;
         }
@@ -109,12 +108,13 @@ public class UIHand : SingletonAbs<UIHand>
         evaluator.EvaluateHand(inSelectCards, out poker);
         if (string.Compare(poker.name, currentPoker.name) != 0)
         {
-            ui_poker_hand.UpdatePokerHand(poker);
+            UIManager.instance.UpdatePokerHand(poker);
             currentPoker = poker;
         }
         //ui_poker_hand.UpdatePokerHand(Poker.none);  
 
     }
+    
     public void PlayHand()
     {
         if (GameManager.instance.run.play_hands <= 0
@@ -186,10 +186,11 @@ public class UIHand : SingletonAbs<UIHand>
         foreach (Card card in hand)
         {
             if (!inPoker.Contains(card.cardSO)) continue;
-            ui_poker_hand.UpdateChip(card.cardSO.baseValue, 0.5f);
+            UIManager.instance.UpdateChip(card.cardSO.baseValue);
             yield return card.PlusCoroutine();
         }
-        yield return GameManager.instance.AddScore(score);
+        //yield return GameManager.instance.AddScore(score);
+        // update run
         yield return DiscardProcess();
         DrawHand(); 
     }

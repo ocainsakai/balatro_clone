@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-
+using BalatroClone.Cards;
 
 public class Utilities 
 {

@@ -5,7 +5,15 @@ using UnityEngine;
 public class GameManager : SingletonAbs<GameManager>
 {
     [SerializeField] UIManager uiManager;
-    [SerializeField] public UIRun uiRun;
+    [SerializeField] BlindManager blindManager;
+    [SerializeField] UIHandManager handManager;
+    [SerializeField] UIRunManager uiRun;
+    [SerializeField] UIPlayButtons uiPlayBtn;
+    //[SerializeField] DeckManager deckManager;
+ 
+    //[SerializeField] UIPokerHand ui_poker_hand;
+
+    [SerializeField] GameObject deck;
     public class Run
     {
         public int round_score;
@@ -17,9 +25,40 @@ public class GameManager : SingletonAbs<GameManager>
     }
     public Run run { get; private set; }
 
+    public Phase currentPhase { get; private set; }
+
     void Start()
     {
         InitGame();
+    }
+    public void ChangePhase(Phase phase)
+    {
+        currentPhase = phase;
+        switch (currentPhase)
+        {
+            case Phase.Blind:
+                StartBlindPhase();
+                break;
+            case Phase.Score:
+                StartPlayingPhase();
+                break;
+            case Phase.Shop: 
+                break;
+        }
+    }
+    public void StartBlindPhase()
+    {
+        HideAll();
+        blindManager.gameObject.SetActive(true);
+        blindManager.Initlize();
+    }
+    public void StartPlayingPhase()
+    {
+        HideAll();
+        deck.gameObject.SetActive(true);
+        uiPlayBtn.gameObject.SetActive(true);
+        handManager.gameObject.SetActive(true);
+        //handManager.Initlize(deckManager.defaulsCards);
     }
     public void InitGame()
     {
@@ -32,7 +71,9 @@ public class GameManager : SingletonAbs<GameManager>
             ante = 1,
             round = 1
         };
+        uiManager.NonePoker();
         uiRun.UpdateRunUI(run);
+        ChangePhase(Phase.Blind);
     }
     public void PlayHand()
     {
@@ -45,11 +86,19 @@ public class GameManager : SingletonAbs<GameManager>
         run.discards--;
         uiRun.UpdateRunUI(run);
     }
-    public IEnumerator AddScore(int score)
+    public void HideAll()
     {
-        yield return (uiRun.AddScore(score));
-        run.round_score += score;
+        blindManager.gameObject.SetActive(false);
+        uiPlayBtn.gameObject.SetActive(false);
+        //uiRun.gameObject.SetActive(false);
+        handManager.gameObject.SetActive(false);
+        deck.gameObject.SetActive(false);
     }
+    //public IEnumerator AddScore(int score)
+    //{
+    //    yield return (uiRun.AddScore(score));
+    //    run.round_score += score;
+    //}
 }
 public enum Phase
 {
