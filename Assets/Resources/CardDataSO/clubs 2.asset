@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21e55ad30f252740bd0f6f9370303a5, type: 3}
+  m_Name: clubs 2
+  m_EditorClassIdentifier: 
+  cardId: -990440295
+  cardName: TWO CLUBS
+  cardType: 0
+  cardSprite: {fileID: 3783169320521910952, guid: cf464b65a1cd93844868507ad3701452, type: 3}
+  primaryColor: {r: 1, g: 1, b: 1, a: 1}
+  secondaryColor: {r: 0, g: 0, b: 0, a: 1}
+  suit: 2
+  rank: 2
+  cardDescription: 
+  baseScore: 0
+  hasSpecialAbility: 0
+  specialAbilityDescription: 
