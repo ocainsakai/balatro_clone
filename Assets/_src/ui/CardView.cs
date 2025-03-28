@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Balatro.Core.Card;
 using UnityEngine.EventSystems;
 using System;
 using DG.Tweening;
 using TMPro;
 using System.Collections;
 
-namespace Balatro.UI.Cards
+namespace Balatro.Cards
 {
     // Script quản lý giao diện thẻ bài
     public class CardView : MonoBehaviour, IPointerClickHandler
@@ -103,6 +102,7 @@ namespace Balatro.UI.Cards
         {
             transform.DOMove(pos, duration).SetEase(Ease.OutQuad);
             yield return new WaitForSeconds(0.2f);
+            //Destroy(gameObject);
 
         }
         public IEnumerator ShowValue()

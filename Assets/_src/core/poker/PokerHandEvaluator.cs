@@ -1,4 +1,4 @@
-﻿using Balatro.Core.Card;
+﻿using Balatro.Cards;
 using System;
 using System.Collections.Generic;
 using System.Linq;

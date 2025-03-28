@@ -1,7 +1,7 @@
-﻿using Balatro.Core.Card;
+﻿
 using UnityEngine;
 
-namespace Balatro.UI.Cards
+namespace Balatro.Cards
 {
     public class CardFactory : MonoBehaviour
     {

@@ -1,19 +1,23 @@
 using TMPro;
 using UnityEngine;
 
-public class UIRoundScore : MonoBehaviour
+namespace Balatro.UI
 {
-    [SerializeField] TextMeshProUGUI _roundScore;
-    public int _totalScore = 0;
-    public void SetScore(int score)
+    public class UIRoundScore : MonoBehaviour
     {
-        _totalScore = score;
-        _roundScore.text = "Round Score: " + _totalScore.ToString();
-    }
-    public void PlusScore(int score)
-    {
-        _totalScore += score;   
-        _roundScore.text = "Round Score: " + _totalScore.ToString();
+        [SerializeField] TextMeshProUGUI _roundScore;
+        public int _totalScore = 0;
+        public void SetScore(int score)
+        {
+            _totalScore = score;
+            _roundScore.text = "Round Score: " + _totalScore.ToString();
+        }
+        public void PlusScore(int score)
+        {
+            _totalScore += score;
+            _roundScore.text = "Round Score: " + _totalScore.ToString();
 
+        }
     }
+
 }

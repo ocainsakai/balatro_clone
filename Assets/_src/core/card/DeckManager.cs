@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 using System.Linq;
-namespace Balatro.Core.Card
+namespace Balatro.Cards
 {
     public class DeckManager : MonoBehaviour
     {

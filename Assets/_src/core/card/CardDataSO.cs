@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace Balatro.Core.Card
+namespace Balatro.Cards
 {
     public enum CardType
     {

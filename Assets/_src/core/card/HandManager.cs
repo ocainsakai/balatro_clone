@@ -1,12 +1,11 @@
-﻿using Balatro.UI.Cards;
+﻿using Balatro.Core;
+using Balatro.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-//using Unity.VisualScripting;
 using UnityEngine;
-//using UnityEngine.XR;
-namespace Balatro.Core.Card
+namespace Balatro.Cards
 {
     public class HandManager : MonoBehaviour
     {
@@ -79,6 +78,10 @@ namespace Balatro.Core.Card
             }
             int score = (int) (_uiHand.chip * _uiHand.mul);
             _uiScore.PlusScore(score);
+            if (_uiScore._totalScore >= GameManager.instance.blindScore)
+            {
+                GameManager.instance.StartSelectPhase();
+            }
             yield return RemoveSelected();
         }
         public IEnumerator RemoveSelected()
