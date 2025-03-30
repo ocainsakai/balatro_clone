@@ -1,91 +1,152 @@
 ﻿using System.Collections.Generic;
-using System;
 using UnityEngine;
 using System.Linq;
+using System;
 namespace Balatro.Cards
 {
     public class DeckManager : MonoBehaviour
     {
-        [SerializeField] private List<CardDataSO> cardPool 
+        [SerializeField] private CardFactory _factory;
+        [SerializeField] private CardAnimator _anim;
+
+        [SerializeField] private List<CardDataSO> card_pool 
             => Resources.LoadAll<CardDataSO>(typeof(CardDataSO).Name).ToList();
         //[SerializeField] private CardFactory _factory;
         //private List<CardView> _createdCards = new List<CardView>();
-        private List<CardDataSO> _deck = new List<CardDataSO>();
-        private List<CardDataSO> _drawnPile = new List<CardDataSO>();
+        public List<Card> deck = new List<Card>();
+        public List<Card> hand = new List<Card>();
+        public List<Card> discardPile = new List<Card>();
 
-        
-        // Khởi tạo bộ bài
-        public void InitializeDeck()
+        public event Action<PokerHandType> OnPokerChange;
+        public event Action<int> AddChip;
+        public event Action<int> AddMul;
+        public event Action OnScoreChange;
+        public event Action NextRound;
+        private List<Card> selectedCards => hand.Where(x => x.isSelect).ToList();
+        public bool isSortBySuit = true;
+        public int hand_size = 8;
+      
+        public void ResetDeck()
         {
-            //_factory.ClearAllCards();
-            //_createdCards.Clear();
-            _deck.Clear();
-            _drawnPile.Clear();
-
-            foreach (var item in cardPool)
+            deck.Clear();
+            discardPile.Clear();
+            hand.Clear();
+            _factory.ClearAllCards();
+        }
+        public void StartPhase()
+        {
+            foreach (var item in card_pool)
             {
-                
-                _deck.Add(item);
-                //_createdCards.Add(cardView);
+                Card card = _factory.CreateCard(item);
+                card.OnCardClick += ClickOnCard;
+                card.gameObject.SetActive(false);
+                deck.Add(card);
             }
             Shuffle();
+            AddCardToHand();
+        }
+        private PokerHandResult EvaluatorHand()
+        {
+            var result =
+            PokerHandEvaluator.EvaluateHand(selectedCards.Select(x => x.data).ToList());
+            OnPokerChange?.Invoke(result.HandType);
+            return result;
+        }
+        private void ClickOnCard(Card card)
+        {
+            if (card.isSelect)
+            {
+                card.isSelect = false;
+                card.UnSelectCard(0.2f);
+                EvaluatorHand();
+            } else if (hand.Where(x => x.isSelect).Count() < 5)
+            {
+                card.isSelect = true;
+                card.SelectCard(0.2f);
+                EvaluatorHand();
+
+            }
         }
 
-        // Xáo bài
         public void Shuffle()
         {
-            //var combined = _deck.Zip(_createdCards, (runtime, view) => (runtime, view)).ToList();
             System.Random random = new System.Random();
-            //combined = combined.OrderBy(x => random.Next()).ToList();
-
-            _deck = _deck.OrderBy(x => random.Next()).ToList();
-            //_createdCards = combined.Select(x => x.view).ToList();
+            deck = deck.OrderBy(x => random.Next()).ToList();
         }
-
-        // Rút bài
-        public CardDataSO DrawCard()
+        public Card DrawCard()
         {
-            if (_deck.Count == 0)
+            if (deck.Count <= 0)
             {
-                // Nếu hết bài, đổ lại bài từ discard pile
                 RestoreDeckFromDiscardPile();
             }
 
-            if (_deck.Count > 0)
-            {
-                CardDataSO drawnCard = _deck[0];
-                //CardView cardView = _createdCards[0];
-                _drawnPile.Add(drawnCard);
-                _deck.RemoveAt(0);
-                //_createdCards.RemoveAt(0);
-                return drawnCard;
-            }
-
-            throw new InvalidOperationException("No cards left in the deck.");
+            Card drawnCard = deck[0];
+            deck.RemoveAt(0);
+            return drawnCard;
+            
         }
-        public List<CardDataSO> DrawCards(int count)
+        public List<Card> DrawCards(int count)
         {
-            List<CardDataSO> drawnCards = new List<CardDataSO>();
+            List<Card> drawnCards = new List<Card>();
             for (int i = 0; i < count; i++)
             {
                 drawnCards.Add(DrawCard());
             }
             return drawnCards;
         }
-
-        // Bỏ bài vào discard pile
-        public void DiscardCard(CardDataSO card)
+        public void AddCardToHand()
         {
-            _drawnPile.Add(card);
+            hand.AddRange(DrawCards(hand_size - hand.Count));
+            Sort();
         }
+        public void PlayHand()
+        {
+            NextRound?.Invoke();
+            var result = EvaluatorHand().ValidCards;
+            var validCards = EvaluatorHand().ValidCards;
+            var cards = hand.Where(x => validCards.Contains(x.data)).ToList();
 
-        // Khôi phục bộ bài từ discard pile
+            StartCoroutine(_anim.CalculateCard(cards, AddChip, AddMul, OnScoreChange));
+        }
+        
+        public void DiscardAndDraw()
+        {
+            var cards = hand.Where(x => x.isSelect == true).ToList();
+            discardPile.AddRange(cards);
+            deck.RemoveAll(x => cards.Contains(x));
+            hand.RemoveAll(x => cards.Contains(x));
+            StartCoroutine(_anim.MoveCardsToDeck(cards));
+            AddCardToHand();
+            //StartCoroutine(DiscardProcess(cards));
+        }
+        //private IEnumerator DiscardProcess(List<Card> cards)
+        //{
+        //    yield return (_anim.MoveCardsToDeck(cards));
+        //    AddCardToHand();
+        //}
+        public void Sort()
+        {
+            if (isSortBySuit)
+            {
+                hand = hand.OrderBy(x => x.data.suit).ThenBy(x => x.data.rank).ToList();
+            }
+            else
+            {
+                hand = hand.OrderBy(x => x.data.rank).ThenBy(x => x.data.suit).ToList();
+            }
+            StartCoroutine(_anim.FillToHand(hand));
+        }
+        public void Sort(bool isBySuit)
+        {
+            isSortBySuit = isBySuit;
+            Sort();
+        }
         private void RestoreDeckFromDiscardPile()
         {
-            _deck.AddRange(_drawnPile);
-            _drawnPile.Clear();
+            deck.AddRange(discardPile);
+            discardPile.Clear();
             Shuffle();
         }
-        public int RemainingCardCount => _deck.Count;
+        public int RemainingCardCount => deck.Count;
     }
 }

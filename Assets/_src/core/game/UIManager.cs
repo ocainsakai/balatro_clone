@@ -7,6 +7,7 @@ namespace Balatro.UI
         [SerializeField] GameObject playBtns;
         [SerializeField] GameObject blindPanel;
         [SerializeField] GameObject deck;
+        [SerializeField] public UIRun uiRun;
         //[SerializeField] GameObject phaseInfo;
         public void HideAll()
         {

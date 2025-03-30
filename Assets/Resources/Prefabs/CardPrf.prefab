@@ -295,6 +295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8486968489615590870}
+  - component: {fileID: 3202026384885295485}
   - component: {fileID: 2601863200672248568}
   m_Layer: 5
   m_Name: CardPrf
@@ -325,6 +326,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 75, y: 112.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3202026384885295485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5848999888730113104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5660b3ea9e66b548993000f48b819fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueText: {fileID: 3604124582618612130}
+  data: {fileID: 0}
+  uiCard: {fileID: 2601863200672248568}
+  _moveOffset: 20
+  isSelect: 0
 --- !u!114 &2601863200672248568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardBackgroundImage: {fileID: 6812235977544673346}
   cardMainImage: {fileID: 4773021323698785362}
-  valueText: {fileID: 3604124582618612130}
   flipAnimationDuration: 0.1
   flipCurve:
     serializedVersion: 2
@@ -367,5 +384,3 @@ MonoBehaviour:
     m_RotationOrder: 4
   defaultCardBack: {fileID: 163154373429064380, guid: ae4a36359dfedd2488ce7ae87f3054f4, type: 3}
   highlightedCardBack: {fileID: -1438021533542915631, guid: 8450c46328c0b5a4fa2c1e376e3f782f, type: 3}
-  _moveOffset: 20
-  isSelect: 0

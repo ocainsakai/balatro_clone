@@ -45,7 +45,8 @@ public static class PokerHandEvaluator
         if (hand.Count == 0) return new PokerHandResult
         {
             HandType = PokerHandType.None,
-            ValidCards = new List<CardDataSO>()
+            ValidCards = new List<CardDataSO>(),
+
         }; ;
         // Thứ tự ưu tiên các tay bài từ cao xuống thấp
         var evaluationRules = new Func<List<CardDataSO>, PokerHandResult>[]
