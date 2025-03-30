@@ -11,10 +11,19 @@ namespace Balatro.Core
         public static GameManager instance;
         [SerializeField] DeckManager deckManager;
         [SerializeField] HandManager handManager;
+        [SerializeField] BlindManager blindManager;
+
         [SerializeField] UIManager uiManager;
         [SerializeField] UIPhaseInfo phaseInfo;
 
         public int blindScore;
+        public int totalScore;
+        public int handCount; // hand manager
+        public int discardCount; // hand manager
+        public int money; // shop manager
+        public int round;
+        public int ante;
+
         public void Awake()
         {
             if (instance == null)
@@ -28,8 +37,17 @@ namespace Balatro.Core
         }
         public void Start()
         {
+            handManager.EndRound += HandManager_EndRound;
             NewGame();
         }
+
+        private void HandManager_EndRound()
+        {
+
+            StartSelectPhase();
+            //throw new System.NotImplementedException();
+        }
+
         public void NewGame()
         {
             StartSelectPhase();
@@ -38,7 +56,15 @@ namespace Balatro.Core
         {
             uiManager.ShowBlindUI();
             phaseInfo.UpdatePhase(Phase.SelectPhase);
+            blindManager.OnSelectBlind += BlindManager_OnSelectBlind;
+            blindManager.NextBlind();
         }
+
+        private void BlindManager_OnSelectBlind()
+        {
+            StartPlayPhase(blindManager.currentBlind, blindManager.blindScore);
+        }
+
         public void StartPlayPhase(BlindDataSO blindData, int blindScore)
         {
             uiManager.ShowPlayUI();

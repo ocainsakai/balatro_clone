@@ -1,35 +1,52 @@
-using Balatro.Core;
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Balatro.Blind {
     public class UIBlind : MonoBehaviour
     {
-        private TextMeshProUGUI blindNameText
-                => transform.Find("name").GetComponent<TextMeshProUGUI>();
-        private TextMeshProUGUI blindScore
-            => transform.Find("require").GetComponent<TextMeshProUGUI>();
-        private TextMeshProUGUI blindReward
-            => transform.Find("reward").GetComponent<TextMeshProUGUI>();
-        private Image icon => transform.Find("icon").GetComponent<Image>();
-        private Button select => transform.Find("select").GetComponent<Button>();
+        [SerializeField] TextMeshProUGUI nameBlind;
+        [SerializeField] Image iconBlind;
+        [SerializeField] TextMeshProUGUI scoreBlind;
+        [SerializeField] TextMeshProUGUI rewardBlind;
+        [SerializeField] Button selectBtn;
+        [SerializeField] TextMeshProUGUI selectBtnTxt;
+        public bool isDefeated;
+        public bool isSkipped;
+        public bool isLocked;
 
-        private TextMeshProUGUI blindDescriptionText;
-        private TextMeshProUGUI requiredScoreText;
-
-        public int _blindRequireScore;
-        public void UpdateBlindInfo(BlindDataSO blindData)
+        public void Initlize(BlindDataSO blindDataSO, int baseChips)
         {
-            blindNameText.text = blindData.blindName;
-            _blindRequireScore = (int)(blindData.scoreMultiplier * 300f);
-            blindScore.text = "Score at least: " + _blindRequireScore;
-            blindReward.text = "Reward: $" + blindData.reward;
-            icon.sprite = blindData.blindIcon;
-            select.onClick.AddListener(() => GameManager.instance.StartPlayPhase(blindData, _blindRequireScore));
-            select.GetComponentInChildren<TextMeshProUGUI>().text = "Select";
-            //blindDescriptionText.text = blindData.blindDescription;
-            //requiredScoreText.text = $"Required Score: {blindData.requiredScore}";
+            isLocked = true;
+            isDefeated = false;
+            isSkipped = false;
+            nameBlind.text = blindDataSO.name;
+            iconBlind.sprite = blindDataSO.blindIcon;
+            int blindScore = (int) (baseChips * blindDataSO.scoreMultiplier);
+            scoreBlind.text = $"Score at least: \n{blindScore}";
+            rewardBlind.text = $"Reward: ${blindDataSO.reward}";
+            selectBtnTxt.text = "Locked";
+            selectBtn.onClick.RemoveAllListeners();
+        }
+        public void Defeat()
+        {
+            isDefeated=true;
+            selectBtn.onClick.RemoveAllListeners();
+            selectBtnTxt.text = "Defeated";
+        }
+        public void Skip()
+        {
+            isSkipped=true;
+            selectBtn.onClick.RemoveAllListeners();
+            selectBtnTxt.text = "Skipped";
+        }
+        public void SelectBlind(UnityAction action)
+        {
+            isLocked = false;
+            selectBtn.onClick.AddListener(action);
+            selectBtnTxt.text = "Select";
         }
     }
 

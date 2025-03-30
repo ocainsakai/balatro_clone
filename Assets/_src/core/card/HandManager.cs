@@ -9,13 +9,16 @@ namespace Balatro.Cards
 {
     public class HandManager : MonoBehaviour
     {
+
         [SerializeField] private CardFactory _factory;
-        [SerializeField] UIPokerHand _uiHand;
+        [SerializeField] UIPokerHand _uiPokerHand;
         [SerializeField] UIRoundScore _uiScore;
         //[SerializeField] private CardsAnimator _anim;
         [SerializeField] private Transform handTrf;
         [SerializeField] private Transform deckTrf;
         private event Action CurrentSort;
+
+        public event Action EndRound;
         private List<CardView> _currentHand = new List<CardView>();
         public int MAX_HAND_SIZE = 8;
         public int hand_count => _currentHand.Count;
@@ -25,9 +28,10 @@ namespace Balatro.Cards
         public float _cardWidth = 50f;
 
 
-        private void Start()
+        private void Awake()
         {
             CurrentSort = SortHandByRank;
+
         }
         public void AddCardToHand(CardDataSO card)
         {
@@ -61,7 +65,7 @@ namespace Balatro.Cards
         {
             var hand = _currentHand.Where(x => x.isSelect).Select(x => x.currentCardData).ToList();
             var result = PokerHandEvaluator.EvaluateHand(hand);
-            _uiHand.UpdatePokerHand(result.HandType);
+            _uiPokerHand.UpdatePokerHand(result.HandType);
         }
         public IEnumerator CalculateSelected()
         {
@@ -72,17 +76,29 @@ namespace Balatro.Cards
             {
                 if (item.isSelect && result.ValidCards.Contains(item.currentCardData))
                 {
-                    _uiHand.UpdateChip(item.currentCardData.value);
+                    _uiPokerHand.UpdateChip(item.currentCardData.value);
                     yield return StartCoroutine(item.ShowValue());
                 }
             }
-            int score = (int) (_uiHand.chip * _uiHand.mul);
+            int score = (int) (_uiPokerHand.chip * _uiPokerHand.mul);
             _uiScore.PlusScore(score);
             if (_uiScore._totalScore >= GameManager.instance.blindScore)
             {
-                GameManager.instance.StartSelectPhase();
+                ResetHand();
+                EndRound?.Invoke();
+
             }
-            yield return RemoveSelected();
+            else
+            {
+                yield return RemoveSelected();
+            }
+        }
+        public void ResetHand()
+        {
+            _factory.ClearAllCards();
+            _currentHand.Clear();
+            _uiPokerHand.UpdatePokerHand(PokerHandType.None);
+            _uiScore.SetScore(0);
         }
         public IEnumerator RemoveSelected()
         {
@@ -107,7 +123,6 @@ namespace Balatro.Cards
             _currentHand = _currentHand.OrderBy(c => c.currentCardData.rank).ToList();
             SortProcess();
         }
-
         // Sắp xếp bài theo chất
         public void SortHandBySuit()
         {
