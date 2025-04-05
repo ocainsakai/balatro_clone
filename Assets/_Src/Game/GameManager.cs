@@ -8,7 +8,7 @@ namespace Core
     public class GameManager : MonoBehaviour
     {
         [SerializeField] DeckManager deckManager;
-        [SerializeField] CardContainer cardContainer;
+        [SerializeField] CardManager cardContainer;
 
         [SerializeField] IntVariable handSize;
     

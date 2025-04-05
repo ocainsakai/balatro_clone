@@ -10,7 +10,7 @@ namespace Card
 
         [SerializeField] CardView cardView;
         [SerializeField] TextMeshPro text;
-        [SerializeField] CardContainer cardContainer;
+        [SerializeField] CardManager cardContainer;
         public IStandardCard data { get; private set; }
         public string Suit => data.Suit;
 
@@ -24,7 +24,7 @@ namespace Card
 
         public bool isSelected;
 
-        public void SetInit(IStandardCard card, CardContainer container)
+        public void SetInit(IStandardCard card, CardManager container)
         {
             this.data = card;
             text.gameObject.SetActive(false);

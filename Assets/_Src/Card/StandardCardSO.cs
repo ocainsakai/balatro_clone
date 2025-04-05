@@ -5,7 +5,7 @@ namespace Card
     [CreateAssetMenu(menuName = "SO/StandardCardSO")]
     public class StandardCardSO : ScriptableObject, IStandardCard
     {
-        public IStandardCard data;
+        public IStandardCard data => this;
         public string Name => _name;
         public Sprite sprite => _sprite;
         public int Rank => _rank;
@@ -37,7 +37,6 @@ namespace Card
                     }
                 }
             }
-            this.data = this;
         }
 
         

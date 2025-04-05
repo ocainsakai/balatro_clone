@@ -6,7 +6,7 @@ using Poker;
 
 namespace Card
 {
-    public class CardContainer : MonoBehaviour
+    public class CardManager : MonoBehaviour
     {
         public List<StandardCard> hand = new List<StandardCard>();
         [SerializeField] PokerHandRuntime pokerHand;

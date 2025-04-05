@@ -7,7 +7,7 @@ namespace Card
     public class CardFactory : MonoBehaviour
     {
         [SerializeField] GameObject cardPrf;
-        [SerializeField] CardContainer cardContainer;
+        [SerializeField] CardManager cardContainer;
         public void CreatCard(IStandardCard card)
         {
             StandardCard newCard = Instantiate(cardPrf).GetComponent<StandardCard>();
