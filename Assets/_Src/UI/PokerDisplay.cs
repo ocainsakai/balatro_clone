@@ -15,7 +15,7 @@ public class PokerDisplay : MonoBehaviour
     {
         pokerLabel = new Label($"Poker Hand\n0 x 0")
         {
-            style = { fontSize = 24f, color = Color.white, position = Position.Absolute, top = 50, left = 20 }
+            style = { fontSize = 24f, color = Color.white, position = Position.Absolute, top = 80, left = 20 }
         };
         pokerDocument.rootVisualElement.Add( pokerLabel );
         pokerhand.OnPokerChanged += UpdatePokerDisplay;

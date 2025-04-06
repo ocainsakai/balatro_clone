@@ -13,7 +13,7 @@ namespace Poker
     }
     [CreateAssetMenu(menuName = "SO Variable/PokerHandSO")]
 
-    public class PokerHandRuntime : RuntimeScriptableObject, IPokerHand
+    public class PokerHandRuntime : RSO, IPokerHand
     {
         [SerializeField] IntVariable roundScore;
         [SerializeField] PokerHand _pokerHand = new PokerHand();

@@ -6,7 +6,5 @@ public interface IBlind
     Sprite Sprite { get; }
     int minimunAnte {  get; }
     float scoreMultiple { get; }
-    int BaseChips { get; }
-    int BlindScore { get => (int)(scoreMultiple * BaseChips); }
     int reward {  get; }
 }

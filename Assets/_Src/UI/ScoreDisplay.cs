@@ -1,32 +1,25 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class ScoreDisplay : MonoBehaviour
+public class ScoreDisplay : IntVarDisplayAbstract
 {
-    UIDocument scoreDocument;
-    Label scoreLabel;
-    [SerializeField] IntVariable roundScore;
 
-    private void Awake()
+    protected override void OnEnable()
     {
-         scoreDocument = GetComponent<UIDocument>();
-    }
-    private void OnEnable()
-    {
-        scoreLabel =  new Label($"Round Score: {roundScore.Value}")
+        label =  new Label($"Round Score: {intVariable.Value}")
         {
-            style = { fontSize = 24f, color = Color.white, position = Position.Absolute, top = 20, left = 20 }
+            style = { fontSize = 24f, color = Color.white, position = Position.Absolute, top = 50, left = 20 }
 
         };
-        scoreDocument.rootVisualElement.Add( scoreLabel );
-        roundScore.OnValueChanged += UpdateScoreDisPlay;
+        document.rootVisualElement.Add( label );
+        intVariable.OnValueChanged += UpdateDisPlay;
     }
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        roundScore.OnValueChanged -= UpdateScoreDisPlay;
+        intVariable.OnValueChanged -= UpdateDisPlay;
     }
-    void UpdateScoreDisPlay(int roundScore)
+    protected override void UpdateDisPlay(int roundScore)
     {
-        scoreLabel.text = $"Round Score: {roundScore}";
+        label.text = $"Round Score: {roundScore}";
     }
 }

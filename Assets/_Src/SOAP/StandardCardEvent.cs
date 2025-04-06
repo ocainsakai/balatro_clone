@@ -5,7 +5,7 @@ namespace Card
 {
     [CreateAssetMenu(fileName = "StandardCardEvent", menuName = "Scriptable Objects/StandardCardEvent")]
 
-    public class StandardCardEvent : GameEvent<IStandardCard>
+    public class StandardCardEvent : GameEvent<List<IStandardCard>>
     {
     }
 }

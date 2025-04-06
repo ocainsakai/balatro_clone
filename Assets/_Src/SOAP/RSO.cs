@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class RuntimeScriptableObject : ScriptableObject
+public abstract class RSO : ScriptableObject
 {
-    readonly static List<RuntimeScriptableObject> Instances = new List<RuntimeScriptableObject>();
+    readonly static List<RSO> Instances = new List<RSO>();
 
     private void OnEnable()
         => Instances.Add(this);

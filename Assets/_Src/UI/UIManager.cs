@@ -1,23 +1,16 @@
-﻿using Card;
+﻿
+using Core;
 using TMPro;
 using UnityEngine;
 
+
 public class UIManager : MonoBehaviour
 {
-    public IntVariable playerChips;
-    public IntVariable blindHealth;
-    public TextMeshProUGUI chipsText;
-    public TextMeshProUGUI blindHealthText;
-    public Transform handPanel;
-    public GameObject cardPrefab;
+    [SerializeField] GameObject actionBtn, blindPanel;
 
-    //public void UpdateChips() { chipsText.text = $"Chips: {playerChips.value}"; }
-    //public void UpdateBlindHealth() { blindHealthText.text = $"Blind HP: {blindHealth.value}"; }
-
-    public void DisplayCard(ICard card) 
+    public void UpdateUI(GameState state)
     {
-        GameObject cardObj = Instantiate(cardPrefab, handPanel);
-        cardObj.GetComponentInChildren<TextMeshProUGUI>().text = card.Name;
-        // Thêm logic chơi bài khi click
+        blindPanel.SetActive(state == GameState.Blinding);
+        actionBtn.SetActive(state != GameState.Blinding && state != GameState.Shopping);
     }
 }

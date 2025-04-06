@@ -1,8 +1,10 @@
 
 
+using System.Collections.Generic;
+
 namespace Card
 {
-    public class StandardCardEventListener : GameEventListener<IStandardCard>
+    public class StandardCardEventListener : GameEventListener<List<IStandardCard>>
     {
     }
 }

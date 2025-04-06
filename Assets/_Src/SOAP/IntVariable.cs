@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "SO Variable/IntVariable")]
 
-public class IntVariable : RuntimeScriptableObject
+public class IntVariable : RSO
 {
     [SerializeField] int initialValue;
     [SerializeField] int value;

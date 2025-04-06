@@ -1,7 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
+
 
 namespace Card
 {
@@ -10,9 +10,9 @@ namespace Card
 
         [SerializeField] CardView cardView;
         [SerializeField] TextMeshPro text;
-        [SerializeField] CardManager cardContainer;
+        [SerializeField] CardManager manager;
         public IStandardCard data { get; private set; }
-        public string Suit => data.Suit;
+        public Suit Suit => data.Suit;
 
         public int Rank => data.Rank;
 
@@ -24,13 +24,13 @@ namespace Card
 
         public bool isSelected;
 
-        public void SetInit(IStandardCard card, CardManager container)
+        public void SetInit(IStandardCard card, CardManager manager)
         {
             this.data = card;
             text.gameObject.SetActive(false);
             cardView.RenderArt(card);
             cardView.OnClicked += OnClickedHandler;
-            cardContainer = container;
+            this.manager = manager;
         }
         public void OnCalculate()
         {
@@ -41,7 +41,7 @@ namespace Card
         }
         private void OnClickedHandler()
         {
-            if (cardContainer.SelectedCount < 5 && !isSelected)
+            if (manager.SelectedCount < 5 && !isSelected)
             {
                 OnSelect();
             } else if (isSelected) 
@@ -53,13 +53,13 @@ namespace Card
         {
             isSelected = true;
             cardView.OnSelect();
-            cardContainer.UpdatePokerHand();
+            manager.UpdatePokerHand();
         }
         public void OnUnselect()
         {
             isSelected = false;
             cardView.OnUnselect();
-            cardContainer.UpdatePokerHand();
+            manager.UpdatePokerHand();
         }
         public void OnRemove()
         {

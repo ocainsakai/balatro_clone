@@ -9,10 +9,16 @@ namespace Card
     }
     public interface IStandardCard : ICard
     {
-        string Suit {  get; }
+        Suit Suit {  get; }
         int Rank { get; }
         int Value { get; }
     }
-    
+    public enum Suit {
+        Hearts,
+        Diamonds,
+        Clubs,
+        Spades
+    }
+
 }
 

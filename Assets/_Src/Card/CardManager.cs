@@ -3,32 +3,66 @@ using System.Linq;
 using UnityEngine;
 using DG.Tweening;
 using Poker;
+using System;
 
 namespace Card
 {
     public class CardManager : MonoBehaviour
     {
-        public List<StandardCard> hand = new List<StandardCard>();
+        [SerializeField] List<StandardCardSO> deck;
+        [SerializeField] CardFactory cardFactory;
         [SerializeField] PokerHandRuntime pokerHand;
+        [SerializeField] GameStateEvent gameStateEvent;
+        public List<StandardCard> hand = new List<StandardCard>();
+        public List<IStandardCard> playingdeck;
+        public List<IStandardCard> discardPile = new List<IStandardCard>();
+
         [SerializeField] float cardSpace = 1f;
-        [SerializeField] StandardCardEvent onDiscard;
-        [SerializeField] GameEvent onDiscardComplete;
+
+        public Action currentSort;
         public int HandCount => hand.Count;
+        public int handSize = 8;
         public int SelectedCount => hand.Where(x => x.isSelected).Count();
-        public void AddHand(IEnumerable<StandardCard> hand)
+        public bool canShuffe = false;
+        private void Start()
         {
-            foreach (var item in hand)
+            currentSort = SortByRank;
+            playingdeck = deck.Select(x => x.data).ToList();
+            ShuffleDeck();
+        }
+
+        #region DrawPhase
+        public void Draw()
+        {
+            int amount = handSize - hand.Count;
+            for (int i = 0; i < amount; i++)
             {
-                AddHand(item);
+                var cardPrf = cardFactory.CreatCard();
+                var card = DrawCard();
+                hand.Add(cardPrf);
+                cardPrf.SetInit(card, this);
             }
-            UpdatePositionCard();
+            currentSort?.Invoke();
         }
-        public void AddHand(StandardCard card)
+        public IStandardCard DrawCard()
         {
-            hand.Add(card);
-            card.transform.SetParent(transform, false);
-            UpdatePositionCard();
+            if (playingdeck.Count <= 0)
+            {
+                RestoreFormDiscardPile();
+            }
+            IStandardCard card = playingdeck[0];
+            playingdeck.RemoveAt(0);
+            return card;
         }
+        private void RestoreFormDiscardPile()
+        {
+            playingdeck.AddRange(discardPile);
+            discardPile.Clear();
+            ShuffleDeck();
+        }
+        #endregion
+
+        #region DiscardPhase
         public void RemoveSelectedCards()
         {
             for (int i = HandCount - 1; i >= 0; i--)
@@ -37,12 +71,15 @@ namespace Card
                 if (card.isSelected)
                 {
                     hand.Remove(card);
-                    onDiscard.Raise(card);
+                    discardPile.Add(card);
                     card.OnRemove();
                 }
             }
-            onDiscardComplete.Raise();
+            Draw();
         }
+        #endregion
+
+        #region PlayPhase
         public void CalculateSelected()
         {
             var cards = GetSelectedCards();
@@ -55,8 +92,9 @@ namespace Card
                 pokerHand.Chip += card.Value;
             }
             pokerHand.AddScore();
-            RemoveSelectedCards();
+            gameStateEvent.Raise(Core.GameState.Decide);
         }
+        #endregion
         public List<IStandardCard> GetSelectedCards()
         {
             var selected = hand.Where(x => x.isSelected).Select(x => x.data).ToList();
@@ -64,11 +102,14 @@ namespace Card
         }
         public void SortByRank()
         {
+            currentSort = SortByRank;
             hand = hand.OrderBy(x => x.Rank).ThenBy(x => x.Suit).ToList();
             UpdatePositionCard();
         }
         public void SortBySuit()
         {
+            currentSort = SortBySuit;
+
             hand = hand.OrderBy(x => x.Suit).ThenBy(x => x.Rank).ToList();
             UpdatePositionCard();
         }
@@ -76,9 +117,18 @@ namespace Card
         {
             for (int i = 0; i < hand.Count; i++)
             {
-                var target = transform.position + Vector3.right * i * cardSpace;
+                var target = cardFactory.transform.position + Vector3.right * i * cardSpace;
                 hand[i].transform.DOMove(target, 0.3f).SetEase(Ease.OutQuad);
                 hand[i].OnUnselect();
+            }
+        }
+        public void ShuffleDeck()
+        {
+            if (!canShuffe) return;
+            for (int i = playingdeck.Count - 1; i > 0; i--)
+            {
+                int randomIndex = UnityEngine.Random.Range(0, i + 1);
+                (playingdeck[i], playingdeck[randomIndex]) = (playingdeck[randomIndex], playingdeck[i]);
             }
         }
         public void UpdatePokerHand()
@@ -91,6 +141,18 @@ namespace Card
             {
                 pokerHand.Reset();
             }
+        }
+        public void ClearHand()
+        {
+            for (int i = HandCount - 1; i >= 0; i--)
+            {
+                var card = hand[i]; 
+                hand.Remove(card);
+                discardPile.Add(card);
+                card.OnRemove();
+            }
+            UpdatePokerHand();
+            RestoreFormDiscardPile();
         }
     }
 
