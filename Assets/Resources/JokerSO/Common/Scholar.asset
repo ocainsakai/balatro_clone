@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Scholar
   _sprite: {fileID: 8551193517656581986, guid: 3d8f38521acd486418d3a2c3abb8d97c, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

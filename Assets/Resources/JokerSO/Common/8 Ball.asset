@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 8 Ball
   _sprite: {fileID: 0}
-  _cost: 5
+  _price: 4
   _rarity: 0

@@ -13,6 +13,7 @@ namespace Core
         public static long BlindScore = 0;
         [SerializeField] CardManager cardManager;
         [SerializeField] BlindController blindController;
+        [SerializeField] ShopManager shopManager;
         [SerializeField] PokerHandRuntime currentPokerHand;
         [SerializeField] IntVariable roundScore;
         public GameStateEvent changeGameState;
@@ -50,7 +51,7 @@ namespace Core
                 cardManager.ClearHand();
                 blindController.Defeat();
                 roundScore.Value = 0;
-                changeGameState.Raise(GameState.Blinding);
+                changeGameState.Raise(GameState.Shopping);
             }
             else
             {
@@ -62,6 +63,7 @@ namespace Core
 
         private void HandleShopping()
         {
+            shopManager.ShowShop();
         }
 
         private void HandlePlaying()

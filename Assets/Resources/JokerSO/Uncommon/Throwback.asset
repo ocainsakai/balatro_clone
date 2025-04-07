@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Throwback
   _sprite: {fileID: -5652793355993927662, guid: 7164b2eea576b38499e22d7ecd1b0a80, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

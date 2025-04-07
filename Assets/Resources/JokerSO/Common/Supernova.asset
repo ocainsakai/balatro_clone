@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Supernova
   _sprite: {fileID: 999811161069109668, guid: 21a017739358e2448aec8f4db87ffe2a, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

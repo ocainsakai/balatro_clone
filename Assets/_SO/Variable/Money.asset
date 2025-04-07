@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eec925f48190384ebefb784a1475dec, type: 3}
-  m_Name: SelectedCard
+  m_Name: Money
   m_EditorClassIdentifier: 
   initialValue: 0
   value: 0

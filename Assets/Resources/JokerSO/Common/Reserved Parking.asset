@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Reserved Parking
   _sprite: {fileID: -7275876900384131018, guid: 8f16568fb3ff47a499531d06e505d6f5, type: 3}
-  _cost: 6
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Egg
   _sprite: {fileID: 4646649027328027380, guid: 2ca452abb720d8041b1ee278d07aa451, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

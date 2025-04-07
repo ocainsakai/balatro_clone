@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Troubadour
   _sprite: {fileID: -4145382667649995897, guid: c02821b1a3c65d44fa3e4677b2b610c1, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

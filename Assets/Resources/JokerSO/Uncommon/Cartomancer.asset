@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Cartomancer
   _sprite: {fileID: 2633566185022395962, guid: 2fc2703733fcd0b4c985d4d71e7e1c9b, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

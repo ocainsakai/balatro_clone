@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Crafty Joker
   _sprite: {fileID: -5827822502849322352, guid: 3830a83326bedb946a9585fa024edae5, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

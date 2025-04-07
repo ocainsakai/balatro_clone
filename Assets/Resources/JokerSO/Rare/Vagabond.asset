@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Vagabond
   _sprite: {fileID: -8932036726019845663, guid: 10489b8d49e7bda4bb89993b43fe7453, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

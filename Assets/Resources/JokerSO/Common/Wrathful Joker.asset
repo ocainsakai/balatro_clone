@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Wrathful Joker
   _sprite: {fileID: -7594460943501476882, guid: cb312fa25764b3443b2d491c123e03cf, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

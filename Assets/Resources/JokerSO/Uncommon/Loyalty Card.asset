@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Loyalty Card
   _sprite: {fileID: 3466422972552979294, guid: 23606827bda33204e9c46dfbd3470278, type: 3}
-  _cost: 5
+  _price: 6
   _rarity: 1

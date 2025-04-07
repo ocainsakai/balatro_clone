@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Splash
   _sprite: {fileID: 7209622655568544861, guid: 0c5226f299e3ed74fabf0baa255c1465, type: 3}
-  _cost: 3
+  _price: 4
   _rarity: 0

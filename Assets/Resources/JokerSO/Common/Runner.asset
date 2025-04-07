@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Runner
   _sprite: {fileID: -2343693395358084441, guid: 2348d38242f37f34daa17ff9560ece35, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

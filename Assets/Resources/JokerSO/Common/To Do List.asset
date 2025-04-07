@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: To Do List
   _sprite: {fileID: -9208550698491323514, guid: d63666a641bd342488dae1d262e0a66c, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

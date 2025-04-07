@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Baron
   _sprite: {fileID: -3225691040095213113, guid: 9d5f418b4cb917c4e84a6218dc689c30, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

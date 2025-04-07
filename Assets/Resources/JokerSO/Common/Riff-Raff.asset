@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Riff-Raff
   _sprite: {fileID: -1826286010208373076, guid: f1db9acc67b19894499f0009ff8ded18, type: 3}
-  _cost: 6
+  _price: 4
   _rarity: 0

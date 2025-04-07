@@ -3,9 +3,8 @@ using UnityEngine;
 
 namespace Joker
 {
-    public interface IJoker : ICard
+    public interface IJoker : IItem
     {
-        int Cost { get; }
         Rarity Rarity { get; }
 
     }

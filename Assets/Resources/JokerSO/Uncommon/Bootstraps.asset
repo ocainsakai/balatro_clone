@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Bootstraps
   _sprite: {fileID: 8050652275049220143, guid: 5ee065b8eae22eb428b52e87736a2a5c, type: 3}
-  _cost: 7
+  _price: 6
   _rarity: 1

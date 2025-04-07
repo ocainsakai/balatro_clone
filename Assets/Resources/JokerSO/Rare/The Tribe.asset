@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: The Tribe
   _sprite: {fileID: 4636037498675615429, guid: f3e573850c299ac46a01256367d6ca45, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

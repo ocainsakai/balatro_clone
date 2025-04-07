@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Space Joker
   _sprite: {fileID: 734225498140784284, guid: 422eb3e1afa63194ebc03a544054992c, type: 3}
-  _cost: 5
+  _price: 6
   _rarity: 1

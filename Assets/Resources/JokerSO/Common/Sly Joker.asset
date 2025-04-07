@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Sly Joker
   _sprite: {fileID: 7882986629688796295, guid: 60d95952f822c174f85ffb1ca2fd0a63, type: 3}
-  _cost: 3
+  _price: 4
   _rarity: 0

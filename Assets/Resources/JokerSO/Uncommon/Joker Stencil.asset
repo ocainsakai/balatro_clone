@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Joker Stencil
   _sprite: {fileID: 2317131182427343697, guid: 44df77b1b97eb9245b5d31ba7e7b0f2e, type: 3}
-  _cost: 8
+  _price: 6
   _rarity: 1

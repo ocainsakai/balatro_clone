@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Fibonacci
   _sprite: {fileID: 8512660398895670982, guid: a3b761eccb8240a4681bc7fa6af62daf, type: 3}
-  _cost: 8
+  _price: 6
   _rarity: 1

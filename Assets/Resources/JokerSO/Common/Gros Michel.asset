@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Gros Michel
   _sprite: {fileID: 4962261556956659655, guid: b04752ac55d78d14981727e473993487, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Banner
   _sprite: {fileID: 8192327527931970262, guid: 9b0ccf89aa24b214a92bad7a614d1e26, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

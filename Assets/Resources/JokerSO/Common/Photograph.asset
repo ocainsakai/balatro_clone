@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Photograph
   _sprite: {fileID: -1981477608458976387, guid: 1437a0d82941e104fab71b68f2a77c58, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

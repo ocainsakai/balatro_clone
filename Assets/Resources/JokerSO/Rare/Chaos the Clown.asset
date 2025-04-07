@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Chaos the Clown
   _sprite: {fileID: 8050234939547734469, guid: 829ae2abadfc47d448b9bf88036e3b55, type: 3}
-  _cost: 4
+  _price: 8
   _rarity: 2

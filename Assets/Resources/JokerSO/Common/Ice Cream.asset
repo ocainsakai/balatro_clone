@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Ice Cream
   _sprite: {fileID: 6236285840621759610, guid: 5354977daf1305a438566ef9a6ddde4f, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

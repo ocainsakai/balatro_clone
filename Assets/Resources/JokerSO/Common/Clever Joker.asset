@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Clever Joker
   _sprite: {fileID: -7283706065494777822, guid: 6369c51aab1e4d941a5a4410de9ec1cf, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

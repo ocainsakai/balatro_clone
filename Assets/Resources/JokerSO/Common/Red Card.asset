@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Red Card
   _sprite: {fileID: -1897089779688023734, guid: 20b41cfa184a90a4290c99ea5f5399c9, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

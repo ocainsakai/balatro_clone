@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Arrowhead
   _sprite: {fileID: 6873811871560124392, guid: 196c2c21379463647a2258e5f963652b, type: 3}
-  _cost: 7
+  _price: 6
   _rarity: 1

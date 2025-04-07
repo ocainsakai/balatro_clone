@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Acrobat
   _sprite: {fileID: -7919764736429401358, guid: 8f4dc16363244874abb5cfb400f158c0, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

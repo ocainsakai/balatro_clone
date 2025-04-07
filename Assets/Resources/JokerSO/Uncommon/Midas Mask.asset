@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Midas Mask
   _sprite: {fileID: -600411157886350366, guid: a31bf8b4bcb0c6445a5a8e8ea779c3f5, type: 3}
-  _cost: 7
+  _price: 6
   _rarity: 1

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Fortune Teller
   _sprite: {fileID: 9001773221224511823, guid: 7db588b6d9776ee4bab34d5978056ea1, type: 3}
-  _cost: 6
+  _price: 4
   _rarity: 0

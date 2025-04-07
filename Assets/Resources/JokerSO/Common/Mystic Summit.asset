@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mystic Summit
   _sprite: {fileID: -2621192161086351399, guid: dc4886103ced838438475866ac440e01, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

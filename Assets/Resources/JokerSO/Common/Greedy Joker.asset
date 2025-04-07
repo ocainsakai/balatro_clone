@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Greedy Joker
   _sprite: {fileID: -6195282023822285453, guid: 84574948c2639ec48bdf107333544c9a, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

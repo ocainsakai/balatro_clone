@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Driver's License
   _sprite: {fileID: 7778443113181949522, guid: c26d23a6d6137a74e86fd17a2cd71e52, type: 3}
-  _cost: 7
+  _price: 8
   _rarity: 2

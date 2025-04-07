@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Abstract Joker
   _sprite: {fileID: -4303015230579186692, guid: 3cc4406473561784794743682a2ad055, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: The Order
   _sprite: {fileID: 2966557492457161418, guid: 232e8c6ca5e1f744d88b76d1032ad498, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

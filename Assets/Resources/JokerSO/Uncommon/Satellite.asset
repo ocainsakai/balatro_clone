@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Satellite
   _sprite: {fileID: -8541936030981981254, guid: 5f5bc6122dd739441bcc4cf61c78f9fb, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

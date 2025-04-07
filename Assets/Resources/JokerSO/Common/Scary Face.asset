@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Scary Face
   _sprite: {fileID: -1684115596788340769, guid: 0af7195a2447ce84b82dbb079235b69b, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

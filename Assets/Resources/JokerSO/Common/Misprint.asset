@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Misprint
   _sprite: {fileID: -6463584582802337577, guid: af95de61863b8ad40bc11bbb3a060592, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

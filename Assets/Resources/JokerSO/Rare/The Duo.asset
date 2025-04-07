@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: The Duo
   _sprite: {fileID: 451974291176365717, guid: e18d645b070a5f24b913b1436cd5d608, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

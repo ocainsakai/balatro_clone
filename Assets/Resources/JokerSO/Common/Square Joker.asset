@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Square Joker
   _sprite: {fileID: -7492307489154682302, guid: 8ea0e188bcf2f244f8cf62539dcea5b5, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Droll Joker
   _sprite: {fileID: 4950012745589192814, guid: 59817fdad88554b4a9dec960f2c121d4, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

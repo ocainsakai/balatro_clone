@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Golden Joker
   _sprite: {fileID: 3666414651943449229, guid: 43900ebefdafbf4448a6fc97385b9a75, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

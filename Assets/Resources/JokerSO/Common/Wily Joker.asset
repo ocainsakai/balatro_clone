@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Wily Joker
   _sprite: {fileID: -1893518122348518990, guid: d4d2525e6aa708340b159fd44400f38c, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Drunkard
   _sprite: {fileID: -9156369517481835776, guid: 62839ba1ca43eae4aa1cc32eca4eb069, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Burnt Joker
   _sprite: {fileID: 2377652660606588562, guid: 863a96770b0951a40946197738ef2395, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

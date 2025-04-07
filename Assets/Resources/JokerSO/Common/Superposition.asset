@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Superposition
   _sprite: {fileID: 6008851596672756436, guid: 0be366f9c042baf4fb035050bad73ac1, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Hanging Chad
   _sprite: {fileID: 2189546126938635531, guid: c77a463deb5afb24a90b7244f63723cc, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Faceless Joker
   _sprite: {fileID: -614854782053177123, guid: 70c5338e3611bf447bf6d6940b098b44, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

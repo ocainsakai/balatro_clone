@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Delayed Gratification
   _sprite: {fileID: 3837501089089336035, guid: b46182841b7b1c0418fdf2b6ff36ecd9, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

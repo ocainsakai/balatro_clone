@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Lusty Joker
   _sprite: {fileID: 2886186811856916469, guid: 4dcac9d1430301a4fa21380b7dab34c0, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

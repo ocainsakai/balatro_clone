@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Popcorn
   _sprite: {fileID: -8615323330652010578, guid: 33a65e04ba823e244a204b20e74a8b2e, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

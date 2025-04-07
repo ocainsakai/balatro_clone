@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Devious Joker
   _sprite: {fileID: 1529671459107121919, guid: 3aee4528ef0bf984095d887fb52fca17, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

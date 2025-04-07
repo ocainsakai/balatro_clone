@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mr. Bones
   _sprite: {fileID: -8115230048854858340, guid: 152fa5cd12633294498e4605bdf5ff1a, type: 3}
-  _cost: 5
+  _price: 6
   _rarity: 1

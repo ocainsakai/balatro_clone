@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Even Steven
   _sprite: {fileID: 2842587984979163368, guid: 6b98f56bb2eeac34aac24dd7c2caa2fc, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

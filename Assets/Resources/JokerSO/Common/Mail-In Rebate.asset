@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mail-In Rebate
   _sprite: {fileID: -7667299133931434693, guid: b8e686053b9f5e542b24c2beb01da55c, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

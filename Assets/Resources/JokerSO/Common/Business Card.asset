@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Business Card
   _sprite: {fileID: -7783048215526926868, guid: 276ab6d87153efb4a8b0f7269d686cd5, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

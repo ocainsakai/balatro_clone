@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Shortcut
   _sprite: {fileID: 7806899418501417076, guid: 2e5ce002c67a7504491e3af198b0b372, type: 3}
-  _cost: 7
+  _price: 6
   _rarity: 1

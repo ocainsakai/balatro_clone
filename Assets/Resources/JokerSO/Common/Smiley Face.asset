@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Smiley Face
   _sprite: {fileID: 5904480596974440325, guid: 3bb3703bca0544b4596b61a957b18239, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

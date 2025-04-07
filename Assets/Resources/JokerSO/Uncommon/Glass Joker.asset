@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Glass Joker
   _sprite: {fileID: -1962220949601577376, guid: bf4fe6c72118b0140bc5417e557a48fa, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

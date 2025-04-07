@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Blue Joker
   _sprite: {fileID: 6663739397744640515, guid: 6a849e68aee9f9846b63d0cb37a564e0, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

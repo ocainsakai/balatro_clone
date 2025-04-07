@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Wee Joker
   _sprite: {fileID: -3278911343781088249, guid: 61bea997bb86d594f9cf482cfab9498d, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

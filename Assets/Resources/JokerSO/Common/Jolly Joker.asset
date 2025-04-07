@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Jolly Joker
   _sprite: {fileID: -4594177665464853269, guid: 392ce01512a38274eaf4d4e57593b29e, type: 3}
-  _cost: 3
+  _price: 4
   _rarity: 0

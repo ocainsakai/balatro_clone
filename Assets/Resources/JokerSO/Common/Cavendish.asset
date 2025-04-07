@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Cavendish
   _sprite: {fileID: 8048135036828756201, guid: f34ad3e4c171b19419fd0a135de12f72, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Dusk
   _sprite: {fileID: 1805132521770764697, guid: 489581aa216094949ad71f89464c1fb8, type: 3}
-  _cost: 5
+  _price: 6
   _rarity: 1

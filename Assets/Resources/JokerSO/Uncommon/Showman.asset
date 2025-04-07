@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Showman
   _sprite: {fileID: -4741547386279793440, guid: e0a2db761237e714e96398bb243fb6fb, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Walkie Talkie
   _sprite: {fileID: 4071030006771534203, guid: eb2ad314194188b48ac4404ae56eadaa, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

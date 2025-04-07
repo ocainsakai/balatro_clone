@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: DNA
   _sprite: {fileID: 6620728232874123085, guid: 6ee6f03c293f796469b07101836ffdb6, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

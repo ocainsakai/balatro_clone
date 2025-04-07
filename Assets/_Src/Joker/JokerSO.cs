@@ -7,15 +7,16 @@ namespace Joker
     {
         [SerializeField] string _name;
         [SerializeField] Sprite _sprite;
-        [SerializeField] int _cost;
+        [SerializeField] int _price;
         [SerializeField] Rarity _rarity;
-        public int Cost => _cost;
 
         public Rarity Rarity => _rarity;
 
         public string Name => _name;
 
         public Sprite sprite => _sprite;
+
+        public int Price => _price;
 
         void OnValidate()
         {

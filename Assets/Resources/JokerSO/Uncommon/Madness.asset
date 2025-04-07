@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Madness
   _sprite: {fileID: 5942626897892454440, guid: f8329874863867042a853635dbe2254d, type: 3}
-  _cost: 7
+  _price: 6
   _rarity: 1

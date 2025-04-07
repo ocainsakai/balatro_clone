@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Ancient Joker
   _sprite: {fileID: 1473959541122000683, guid: 490889d0a47ecdc4094c598d71180e9d, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

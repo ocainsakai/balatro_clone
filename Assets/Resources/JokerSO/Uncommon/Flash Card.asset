@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Flash Card
   _sprite: {fileID: 8251225840299543787, guid: 67bbb3b061690d540a6f5061be35c308, type: 3}
-  _cost: 5
+  _price: 6
   _rarity: 1

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Invisible Joker
   _sprite: {fileID: -3122315666125080794, guid: 71979f952c7036d419b1402826fa28eb, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

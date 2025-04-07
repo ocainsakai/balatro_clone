@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Swashbuckler
   _sprite: {fileID: 8276945887368290289, guid: 4dc3c5fe48a7d33409823657d2f1e4c4, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

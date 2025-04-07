@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Juggler
   _sprite: {fileID: -6144770158295417135, guid: db14430f6fdbf614db70204ea66dbee8, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -7,7 +7,7 @@ namespace Blind
     public class BlindController : MonoBehaviour
     {
         [SerializeField] GameStateEvent gameStateEvent;
-
+        [SerializeField] IntVariable money;
         [SerializeField] IntVariable baseChip;
         [SerializeField] BlindRSO blindRSO;
 
@@ -67,16 +67,19 @@ namespace Blind
             {
                 case 0:
                     small.state = BlindState.Defeated;
+                    money.Value += small.Data.reward;
                     big.state = BlindState.Ready;
                     blindIndex++;
                     break;
                 case 1:
                     big.state = BlindState.Defeated;
+                    money.Value += big.Data.reward;
                     boss.state = BlindState.Ready;
                     blindIndex++;
                     break;
                 case 2:
                     boss.state = BlindState.Defeated;
+                    money.Value += boss.Data.reward;
                     NewAnte(++ante);
                     break;
             }

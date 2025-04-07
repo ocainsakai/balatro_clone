@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Erosion
   _sprite: {fileID: 6276903435589812396, guid: 014382b2aa0140047b0da58a9ecc8166, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

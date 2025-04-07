@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Steel Joker
   _sprite: {fileID: 5967112567312193780, guid: 38cca8c0326a0d843acd0c979d6057d2, type: 3}
-  _cost: 7
+  _price: 6
   _rarity: 1

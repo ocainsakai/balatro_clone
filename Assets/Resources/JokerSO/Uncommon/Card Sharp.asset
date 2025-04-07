@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Card Sharp
   _sprite: {fileID: 5803299953013456186, guid: 5c6e2dae69026d14298cb273145b4cf1, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

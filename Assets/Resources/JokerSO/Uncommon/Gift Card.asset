@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Gift Card
   _sprite: {fileID: -5298412678048448185, guid: 4cc564aa9fa74334c848438202c1b7fb, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

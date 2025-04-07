@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Ride the Bus
   _sprite: {fileID: 9123849070959221149, guid: f46b8f966987b5142bbe8e7103914bb2, type: 3}
-  _cost: 6
+  _price: 4
   _rarity: 0

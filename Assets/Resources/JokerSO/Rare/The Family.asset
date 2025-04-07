@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: The Family
   _sprite: {fileID: 3750520498211523701, guid: bb85b714259ff7f4795e335374bd99dc, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Rocket
   _sprite: {fileID: 6711257252158638106, guid: 463710eccd5d08045897d26c59eeb6fd, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

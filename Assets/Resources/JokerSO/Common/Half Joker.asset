@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Half Joker
   _sprite: {fileID: 1431805080408342059, guid: 08547599b40ed314692b30ac869e3857, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

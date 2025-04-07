@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Blueprint
   _sprite: {fileID: 5396401844058233111, guid: 56fceac60264f684889fe41f814dd24c, type: 3}
-  _cost: 10
+  _price: 8
   _rarity: 2

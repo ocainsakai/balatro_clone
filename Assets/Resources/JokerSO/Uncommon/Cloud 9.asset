@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Cloud 9
   _sprite: {fileID: -3724938168950280541, guid: 5ba4a90447d79374f8a35c91e65b9473, type: 3}
-  _cost: 7
+  _price: 6
   _rarity: 1

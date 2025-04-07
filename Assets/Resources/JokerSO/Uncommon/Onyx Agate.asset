@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Onyx Agate
   _sprite: {fileID: -837653596273018865, guid: 5c43e00b1fde99d488cba31b8fe02340, type: 3}
-  _cost: 7
+  _price: 6
   _rarity: 1

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Stuntman
   _sprite: {fileID: -6248968540841733694, guid: ec5d8c47f4136084580a2a19aa954624, type: 3}
-  _cost: 7
+  _price: 8
   _rarity: 2

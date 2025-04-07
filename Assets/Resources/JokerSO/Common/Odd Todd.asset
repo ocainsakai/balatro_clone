@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Odd Todd
   _sprite: {fileID: -7773864921562936088, guid: f64bcda3fb19d8d42b437711ce101817, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

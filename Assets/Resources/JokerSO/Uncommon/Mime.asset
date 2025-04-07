@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mime
   _sprite: {fileID: -4028490565225318643, guid: e077d4ea3b113424f94181da1feb6b12, type: 3}
-  _cost: 5
+  _price: 6
   _rarity: 1

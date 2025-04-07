@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Zany Joker
   _sprite: {fileID: -6922994444778016828, guid: fc03fad09701df14a8d396a26f9f651f, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

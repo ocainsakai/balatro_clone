@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Hallucination
   _sprite: {fileID: 5468146724227442863, guid: f0708066dfc6cc740b1fc93daee8b8ca, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Gluttonous Joker
   _sprite: {fileID: 7141382320877178963, guid: 3c3bc2e593319894c9c0f9a552588912, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

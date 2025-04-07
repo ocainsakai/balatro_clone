@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: The Trio
   _sprite: {fileID: -5705853328631092076, guid: c2b1894941d75a545b1c322cfbfea962, type: 3}
-  _cost: 8
+  _price: 8
   _rarity: 2

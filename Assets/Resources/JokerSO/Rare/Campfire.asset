@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Campfire
   _sprite: {fileID: -3591475534189650280, guid: 22ec96b7b7b1bde4a9d7104dfcdc1fef, type: 3}
-  _cost: 9
+  _price: 8
   _rarity: 2

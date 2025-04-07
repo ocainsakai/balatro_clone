@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f26a0d6b67fba54bad7fe2dddce459c, type: 3}
-  m_Name: Poker Hand Runtime
+  m_Name: Poker Hand
   m_EditorClassIdentifier: 
   roundScore: {fileID: 11400000, guid: f9078292c49642a41b9a2676f64e579e, type: 2}
   _pokerHand:

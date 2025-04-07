@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Crazy Joker
   _sprite: {fileID: -2724651927285013857, guid: e3c3b6e9c6360454785c16dfca57c2b6, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

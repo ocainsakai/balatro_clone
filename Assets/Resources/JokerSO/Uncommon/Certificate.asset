@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Certificate
   _sprite: {fileID: -4757883138547082487, guid: 2420df395384c7546897fa6dcdafb44e, type: 3}
-  _cost: 6
+  _price: 6
   _rarity: 1

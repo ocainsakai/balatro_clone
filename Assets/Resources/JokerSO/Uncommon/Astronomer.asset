@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Astronomer
   _sprite: {fileID: -8384418636939420555, guid: 2f07e859cce35094db66424be6bf2436, type: 3}
-  _cost: 8
+  _price: 6
   _rarity: 1

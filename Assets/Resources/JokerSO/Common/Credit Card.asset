@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Credit Card
   _sprite: {fileID: 3309333472850757264, guid: a9cbb0656778e7444a752cf313a6d576, type: 3}
-  _cost: 1
+  _price: 4
   _rarity: 0

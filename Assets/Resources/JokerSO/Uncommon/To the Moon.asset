@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: To the Moon
   _sprite: {fileID: 3924898582990039477, guid: 63a8620029b20b343952db1da6b4a6c6, type: 3}
-  _cost: 5
+  _price: 6
   _rarity: 1

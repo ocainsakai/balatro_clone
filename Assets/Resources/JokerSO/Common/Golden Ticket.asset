@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Golden Ticket
   _sprite: {fileID: 1489475431357376205, guid: 1b1453c4d452d774abe4d942361cb280, type: 3}
-  _cost: 5
+  _price: 4
   _rarity: 0

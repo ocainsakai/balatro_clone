@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Mad Joker
   _sprite: {fileID: 7237334759477166287, guid: e569625d6ce0dae479fdce71cb698e3e, type: 3}
-  _cost: 4
+  _price: 4
   _rarity: 0

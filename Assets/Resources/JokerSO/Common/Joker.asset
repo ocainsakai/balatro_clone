@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Joker
   _sprite: {fileID: 6421856297837412101, guid: 4139f4ad67b16f54d918a9df54d67820, type: 3}
-  _cost: 2
+  _price: 4
   _rarity: 0
