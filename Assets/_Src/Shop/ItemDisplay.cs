@@ -7,12 +7,12 @@ using System;
 
 
 namespace Shop {
-    public class ItemDisplay : MonoBehaviour, IPointerClickHandler, IItem
+    public class ItemDisplay : MonoBehaviour, IPointerClickHandler, Item
     {
         [SerializeField] TextMeshProUGUI price;
         [SerializeField] Image image;
-        public Action<IItem> buy;
-        private IItem data;
+        public Action<Item> buy;
+        private Item data;
         public int Price => data.Price;
 
         public string Name => data.Name;
@@ -24,7 +24,7 @@ namespace Shop {
             buy?.Invoke(this);
         }
 
-        public void SetInit(IItem item)
+        public void SetInit(Item item)
         {
             this.data = item;
             this.price.text = $"${item.Price}";

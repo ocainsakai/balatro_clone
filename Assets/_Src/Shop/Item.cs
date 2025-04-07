@@ -1,7 +1,7 @@
 using Card;
 using UnityEngine;
 
-public interface IItem : ICard
+public interface Item : ICard
 {
     int Price {  get; }
 }

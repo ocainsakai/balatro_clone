@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Joker
 {
-    public interface IJoker : IItem
+    public interface IJoker : Item
     {
         Rarity Rarity { get; }
 

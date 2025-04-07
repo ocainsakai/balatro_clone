@@ -9,8 +9,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] IntVariable money;
     [SerializeField] List<JokerSO> jokers;
     [SerializeField] UI_Shop ui_Shop;
-    List<IItem> existItems = new List<IItem>();
-    public IItem RandomItem()
+    List<Item> existItems = new List<Item>();
+    public Item RandomItem()
     {
         var valids = jokers.Except(existItems).ToList();
         var item = valids[Random.Range(0, valids.Count())];
@@ -23,9 +23,9 @@ public class ShopManager : MonoBehaviour
         var item2 = ui_Shop.CreateItem(RandomItem());
         item2.buy = OnBuy;
     }
-    public void OnBuy(IItem item)
+    public void OnBuy(Item item)
     {
-        if (money.Value > item.Price) return;
+        if (money.Value < item.Price) return;
         money.Value -= item.Price;
     }
 }
