@@ -11,7 +11,6 @@ namespace Joker
     }
     public enum Rarity
     {
-        None = 0,
         Common,
         Uncommon,
         Rare,
