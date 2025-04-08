@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
-public abstract class RSO : ScriptableObject
+public abstract class RSO : ScriptableObject 
 {
     readonly static List<RSO> Instances = new List<RSO>();
 
@@ -12,6 +13,7 @@ public abstract class RSO : ScriptableObject
     {
         Instances.Remove(this);
     }
+
     protected abstract void OnReset();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

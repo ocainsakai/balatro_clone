@@ -1441,8 +1441,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1078236356}
-  - component: {fileID: 1078236355}
   - component: {fileID: 1078236357}
+  - component: {fileID: 1078236355}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -1497,6 +1497,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   round: {fileID: 11400000, guid: 1a77ab5d03b5d2f4aa2a235e54618663, type: 2}
+  round_score: {fileID: 11400000, guid: 0f8e774ee872fc148a4e2f578b03705f, type: 2}
+  chip: {fileID: 11400000, guid: 14c21be967852aa40bb9d306dbd48964, type: 2}
+  mult: {fileID: 11400000, guid: 93e150b2e17433d489a71b7f1abd5693, type: 2}
+  ante: {fileID: 11400000, guid: 5e34db80bfb25eb4cb3f22e725704560, type: 2}
+  poker: {fileID: 11400000, guid: 34e5ef26f030e4d4f8bdc2a568473f08, type: 2}
 --- !u!1 &1206528512
 GameObject:
   m_ObjectHideFlags: 0

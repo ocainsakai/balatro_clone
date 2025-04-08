@@ -23,6 +23,7 @@ namespace Balatro.Card
         public int SelectedCount =>selectedCards.Count;
         void Awake()
         {
+            round.Value = 0;
             Sort = () =>
             {
                 hand = hand.OrderBy(x => x.Rank).ThenBy(x => x.Suit).ToList();
@@ -79,6 +80,7 @@ namespace Balatro.Card
         }
         public void Play()
         {
+            if (hand == null || hand.Count == 0) return;
             var result = PokerEvaluator.Evaluator(selectedCards.ConvertAll(x => (ICard)x));
             if (result != null)
             {
@@ -109,6 +111,8 @@ namespace Balatro.Card
         }
         public void Discard()
         {
+            if (hand == null || hand.Count == 0) return;
+
             selectedCards.ForEach(x => { x.OnRemove(); });
             discardPile.AddRange(selectedCards);
             hand.RemoveAll(x => selectedCards.Contains(x));

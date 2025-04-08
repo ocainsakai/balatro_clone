@@ -2,6 +2,8 @@ using Balatro.Poker;
 using UnityEngine;
 using UnityEngine.Events;
 
+[CreateAssetMenu(fileName = "PokerVariable", menuName = "Scriptable Objects/PokerVariable")]
+
 public class PokerVariable : RSO
 {
     PokerHand _poker;

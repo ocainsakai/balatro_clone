@@ -6,8 +6,7 @@ public class IntVariable : RSO
 {
     [SerializeField] int initialValue;
     [SerializeField] int value;
-
-    public UnityAction<int> OnValueChanged = delegate { };
+    public UnityAction<int> OnValueChanged;
 
     public int Value
     {
