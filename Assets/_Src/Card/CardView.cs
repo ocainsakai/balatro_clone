@@ -1,39 +1,47 @@
+using Balatro.Cards.CardsRuntime;
 using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-
-namespace Card
+public class CardView : MonoBehaviour
 {
-    public class CardView : MonoBehaviour, ICard
+    private SpriteRenderer spriteRenderer;
+    private TextMeshPro textValue;
+    public event Action<CardView> OnSelected;
+
+    public bool isSelected =  false;
+    private void Awake()
     {
-        public event Action OnClicked;
-        private ICard data;
-        public string Name => data.Name;
-
-        public Sprite sprite => data.sprite;
-
-       
-        public void RenderArt(ICard card)
-        {
-            this.data = card;
-            GetComponent<SpriteRenderer>().sprite = sprite;
-            
-        }
-        public void OnSelect()
-        {
-            transform.DOMoveY(0.8f, 0.2f).SetEase(Ease.OutQuad);
-        }
-        public void OnUnselect()
-        {
-            transform.DOMoveY(0f, 0.2f).SetEase(Ease.OutQuad);
-        }
-        public void OnMouseDown()
-        {
-            OnClicked?.Invoke();
-        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        textValue = GetComponentInChildren<TextMeshPro>();
+    }
+    public void Setup(Sprite sprite, int value)
+    {
+        spriteRenderer.sprite = sprite;
+        textValue.text = $"+{value}";
+        textValue.gameObject.SetActive(false);
+    }
+    public void OnMouseDown()
+    {
+        OnSelected?.Invoke(this);
+    }
+    public void OnSeleted()
+    {
+        isSelected = true;
+        transform.DOMoveY(1.5f, 0.2f);
+    }
+    public void OnUnseleted()
+    {
+        isSelected = false;
+        transform.DOMoveY(0, 0.2f);
+    }
+    public void OnRemoved()
+    {
+        transform.DOScale(0, 0.2f).OnComplete(
+            () =>
+            {
+                Destroy(gameObject);
+            });
     }
 }
-
