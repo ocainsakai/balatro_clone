@@ -40,7 +40,8 @@ namespace Balatro.Cards.UI
         }
         public void OnScore()
         {
-            textValue.transform.DOMoveY(2f, 0.2f);
+            textValue.gameObject.SetActive(true);
+            textValue.GetComponent<RectTransform>().DOAnchorPosY(2f, 0.2f);
         }
         public void Remove()
         {

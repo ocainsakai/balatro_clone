@@ -12,14 +12,15 @@ public class ScoreManager : MonoBehaviour
 
     public void Score()
     {
-        StartCoroutine( BaseSelectScore());
+        StartCoroutine(BaseSelectScore());
         CompleteScore?.Invoke();
     }
     IEnumerator BaseSelectScore()
     {
-        foreach (var item in comboType.comboCard) {
-            comboType.chip.Value += item.GetValue();
-            yield return 0.2f;
+        foreach (var card in comboType.comboCard) {
+            comboType.chip.Value += card.GetValue();
+            card.CardView.OnScore();
+            yield return new WaitForSeconds(0.2f);
         }
         int amount = comboType.chip.Value * comboType.mult.Value;
         total_score.Value += amount;
