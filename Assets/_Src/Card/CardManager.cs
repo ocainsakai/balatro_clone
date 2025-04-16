@@ -13,20 +13,17 @@ namespace Balatro.Cards.System
         [SerializeField] public CardDatabase cardDatabase ;
         [SerializeField] CardsRSO handCards;
         [SerializeField] CardsRSO selectedCards;
-        public Deck deck;
-        public DiscardPile discardPile;
+        public Deck deck = new Deck();
+        public DiscardPile discardPile = new DiscardPile();
 
         int HandCount => handCards.List.Count;
         int HandSize = 8;
         private void Awake()
         {
-            //cardDatabase = Resources.Load<CardDatabase>(typeof(CardDatabase).ToString());
+            deck.shuffeLock = true;
         }
         private void Start()
         {
-            deck = new Deck();
-            deck.shuffeLock = true;
-            discardPile = new DiscardPile();
             deck.Initialize(cardDatabase.database);
             DrawCard();
         }
@@ -41,7 +38,9 @@ namespace Balatro.Cards.System
                     discardPile.Clear();
                 }
 
-                var cardData = deck.Draw();        
+                var cardData = deck.Draw();   
+                UnityEngine.Debug.Log("Card out deck: "+ cardData.name);
+
                 var card = cardFactory.CreateCard(cardData, _cardContainer);
                 card.CardView.OnSelected += OnCardSelect;
                 handCards.AddCard(card);
