@@ -20,8 +20,9 @@ namespace Balatro.Cards
                 {
                     this.Name = this.name;
                     Suit = Enum.TryParse<CardSuit>(token[0], out CardSuit suit) ? suit : CardSuit.Hearts;
-                    Rank = int.Parse(token[1]);
-                    Art = Resources.Load<Sprite>($"PNG/card-{token[0]}-{token[1]}");
+                    var _rank = int.Parse(token[1]);
+                    Rank = _rank  == 1 ? 14 : _rank;
+                    Art = Resources.Load<Sprite>($"Art/PNG/card-{token[0]}-{token[1]}");
                 }
             }
         }

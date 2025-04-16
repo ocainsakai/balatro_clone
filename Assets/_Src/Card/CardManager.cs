@@ -1,3 +1,4 @@
+using Balatro.Cards.UI;
 using UnityEngine;
 
 
@@ -5,18 +6,28 @@ namespace Balatro.Cards.System
 {
     public class CardManager : MonoBehaviour
     {
-        [SerializeField] HandData hand;
+        [Header("Spawn")]
+        [SerializeField] CardFactory cardFactory;
+        [SerializeField] Transform _cardContainer;
+
+        [SerializeField] public CardDatabase cardDatabase ;
+        [SerializeField] CardsRSO handCards;
+        [SerializeField] CardsRSO selectedCards;
         public Deck deck;
         public DiscardPile discardPile;
-        public CardDatabase cardDatabas => Resources.Load<CardDatabase>(typeof(CardDatabase).ToString());
 
-        int HandCount => hand.cards.Count;
+        int HandCount => handCards.List.Count;
         int HandSize = 8;
+        private void Awake()
+        {
+            //cardDatabase = Resources.Load<CardDatabase>(typeof(CardDatabase).ToString());
+        }
         private void Start()
         {
             deck = new Deck();
+            deck.shuffeLock = true;
             discardPile = new DiscardPile();
-            deck.Initialize(cardDatabas.database);
+            deck.Initialize(cardDatabase.database);
             DrawCard();
         }
         public void DrawCard()
@@ -24,19 +35,43 @@ namespace Balatro.Cards.System
             int amount = HandSize - HandCount;
             for (int i = 0; i < amount; i++)
             {
-                var cardData = deck.Draw();
-                if (cardData != null)
+                if (deck.isEmpty)
                 {
-                    hand.AddCard(cardData);
+                    deck.Initialize(discardPile.GetAllCards());
+                    discardPile.Clear();
                 }
+
+                var cardData = deck.Draw();        
+                var card = cardFactory.CreateCard(cardData, _cardContainer);
+                card.CardView.OnSelected += OnCardSelect;
+                handCards.AddCard(card);
             }
             
         }
-
-        public void DiscardCard(CardData card)
+        public void OnCardSelect(CardView card)
         {
-            hand.RemoveCard(card);
-            discardPile.AddCard(card);
+            var data = handCards.List.Find(x => x.CardView == card);
+            if (card.isSelected)
+            {
+                card.Deselect();
+                selectedCards.RemoveCard(data);
+
+            }
+            else if (selectedCards.List.Count < 5)
+            {
+                card.Select();
+                selectedCards.AddCard(data);
+            }
+        }
+        public void Discard()
+        {
+            foreach(var card in selectedCards.List)
+            {
+                handCards.RemoveCard(card);
+                discardPile.AddCard(card.data);
+            }
+            selectedCards.Clear();
+            DrawCard();
         }
     }
 }

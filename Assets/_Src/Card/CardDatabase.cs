@@ -1,9 +1,13 @@
-using Balatro.Cards;
+
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardDatabase", menuName = "Scriptable Objects/CardDatabase")]
-public class CardDatabase : ScriptableObject
+namespace Balatro.Cards
 {
-    public List<CardData> database;
+    [CreateAssetMenu(fileName = "CardDatabase", menuName = "Scriptable Objects/CardDatabase")]
+    public class CardDatabase : ScriptableObject
+    {
+        public List<CardData> database;
+    }
 }
+

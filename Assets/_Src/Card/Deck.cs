@@ -1,4 +1,4 @@
-using Balatro.Cards.CardsRuntime;
+
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,10 +9,15 @@ namespace Balatro.Cards.System
     public class Deck
     {
         private List<CardData> cards = new List<CardData>();
+        public bool isEmpty => cards.Count == 0;
+        public bool shuffeLock;
         public void Initialize(List<CardData> startingCards)
         {
             cards =  new List<CardData>(startingCards);
-            Shuffe();
+            if (!shuffeLock)
+            {
+                Shuffe();
+            }
         }
         public CardData Draw()
         {
