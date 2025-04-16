@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eec925f48190384ebefb784a1475dec, type: 3}
-  m_Name: Chip
+  m_Script: {fileID: 11500000, guid: 5faec7decc97266449e54be39d84aef0, type: 3}
+  m_Name: Cards_Hand
   m_EditorClassIdentifier: 
-  initialValue: 0
-  value: 0
+  List: []

@@ -13,7 +13,7 @@ namespace Balatro.Combo.Systems
         [SerializeField] List<ComboDefinition> definitions;
         [SerializeField] ComboTypeData highCard;
         [SerializeField] ComboTypeData none;
-        [SerializeField] ComboVariable ComboVariable;
+        [SerializeField] ComboTypeRSO ComboVariable;
 
         private void Awake()
         {
@@ -22,10 +22,9 @@ namespace Balatro.Combo.Systems
 
         private void SelectedCards_OnUpdated(List<Card> cards)
         {
-
-            var cardsData = cards.Select(x => x.data).ToList();
-            var comboCards = new List<CardData>();
-            ComboVariable.ComboType = Evalutor(cardsData, out comboCards);
+            var cardData = cards.Select(c => c.data).ToList();
+            ComboVariable.ComboType = Evalutor(cardData, out var matchedData);
+            ComboVariable.comboCard = cards.Where(c => matchedData.Contains(c.data)).ToList();
         }
 
         public ComboTypeData Evalutor(List<CardData> cards, out List<CardData> comboCard)

@@ -1,15 +1,19 @@
+using Balatro.Cards;
+using Balatro.Cards.CardsRuntime;
 using Balatro.Combo;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "SO Variable/ComboVariable")]
+[CreateAssetMenu(menuName = "RSO/ComboVariable")]
 
-public class ComboVariable : RSO
+public class ComboTypeRSO : RSO
 {
     [SerializeField] public ComboTypeData None;
     private ComboTypeData _comboType;
-    public IntVariable chip;
-    public IntVariable mult;
+    public IntRSO chip;
+    public IntRSO mult;
+    public List<Card> comboCard;
     public ComboTypeData ComboType
     {
         get => _comboType;

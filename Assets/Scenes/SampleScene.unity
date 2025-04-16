@@ -368,6 +368,52 @@ MonoBehaviour:
   handCards: {fileID: 11400000, guid: 9a78745604055534da99445968476954, type: 2}
   selectedCards: {fileID: 11400000, guid: ecbad97d72732cb4f997e5fcf1ed817f, type: 2}
   cardSpace: 2
+--- !u!1 &417512021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417512022}
+  - component: {fileID: 417512023}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &417512022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417512021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417512023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417512021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f2aca4ff53c7f49861c2d8a5cddf19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  total_score: {fileID: 11400000, guid: 43d980d8759420643858e94b9316a45e, type: 2}
+  comboType: {fileID: 11400000, guid: c230a654576204946bbdbef1aa4cdd88, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1113900f29d1db14f988eb0c1f91db38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboVariable: {fileID: 11400000, guid: 42a6a5f441c13ea4a94cac4eaf4a2609, type: 2}
+  comboVariable: {fileID: 11400000, guid: c230a654576204946bbdbef1aa4cdd88, type: 2}
+  total_score: {fileID: 11400000, guid: 43d980d8759420643858e94b9316a45e, type: 2}
 --- !u!114 &632200470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1264,7 +1311,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1432244068}
-  - component: {fileID: 1432244069}
   - component: {fileID: 1432244071}
   m_Layer: 0
   m_Name: ComboManager
@@ -1288,18 +1334,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1432244069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432244067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9b09871d9a8ff40b8cc1a8ab1e25d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1432244071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,7 +1358,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a2ff725d064f8f943b7134f02bef2727, type: 2}
   highCard: {fileID: 11400000, guid: b066a3dc6d4587543a3327512bf184d7, type: 2}
   none: {fileID: 11400000, guid: 57f3df46a4dd756458cb1a7b6ac312ec, type: 2}
-  ComboVariable: {fileID: 11400000, guid: 42a6a5f441c13ea4a94cac4eaf4a2609, type: 2}
+  ComboVariable: {fileID: 11400000, guid: c230a654576204946bbdbef1aa4cdd88, type: 2}
 --- !u!1 &1462880562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2162,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2117272375}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 417512023}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: Score
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2117272375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2175,6 +2221,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 299814569}
   - {fileID: 1432244068}
+  - {fileID: 417512022}
   - {fileID: 632200468}
   - {fileID: 545954958}
   - {fileID: 777606827}

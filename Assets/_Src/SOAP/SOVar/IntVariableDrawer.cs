@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-[CustomPropertyDrawer(typeof(IntVariable))]
+[CustomPropertyDrawer(typeof(IntRSO))]
 public class IntVariableDrawer : PropertyDrawer
 {
     public override VisualElement CreatePropertyGUI(SerializedProperty property)
@@ -11,7 +11,7 @@ public class IntVariableDrawer : PropertyDrawer
 
         var objectField = new ObjectField(property.displayName)
         {
-            objectType = typeof(IntVariable),
+            objectType = typeof(IntRSO),
         };
 
         objectField.BindProperty(property);
@@ -22,7 +22,7 @@ public class IntVariableDrawer : PropertyDrawer
         container.Add(valueLabel);
 
         objectField.RegisterValueChangedCallback(evt => {
-            var variable = evt.newValue as IntVariable;
+            var variable = evt.newValue as IntRSO;
             if (variable != null)
             {
                 valueLabel.text = $"Current value: {variable.Value}";
@@ -34,7 +34,7 @@ public class IntVariableDrawer : PropertyDrawer
 
         });
 
-        var currentVariable = property.objectReferenceValue as IntVariable;
+        var currentVariable = property.objectReferenceValue as IntRSO;
 
         if (currentVariable != null)
         {

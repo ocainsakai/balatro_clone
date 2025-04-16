@@ -1,29 +1,36 @@
 
 using Balatro.Combo;
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class ComboDisplay : MonoBehaviour
+public class HUD_Display : MonoBehaviour
 {
     UIDocument document;
     Label comboNameLabel;
     Label chipLabel;
     Label multLabel;
-    [SerializeField] ComboVariable comboVariable;
+    Label scoreLabel;
+    [SerializeField] ComboTypeRSO comboVariable;
+    [SerializeField] IntRSO total_score;
+
+    public int font_size = 24;
     private void Awake()
     {
         document = GetComponent<UIDocument>();
 
     }
-    private void Start()
-    {
-
-    }
     private void OnEnable()
     {
+
+        scoreLabel = new Label("Score: 0")
+        {
+            style = { fontSize = font_size, color = Color.blue }
+
+        };
         comboNameLabel = new Label("Poker Name")
         {
-            style = { fontSize = 8, color = Color.white,
+            style = { fontSize = font_size, color = Color.white,
             unityTextAlign = TextAnchor.MiddleCenter,
             whiteSpace = WhiteSpace.NoWrap,
             marginBottom = 0,
@@ -31,12 +38,12 @@ public class ComboDisplay : MonoBehaviour
         };
         chipLabel = new Label("0")
         {
-            style = { fontSize = 8, color = Color.blue }
+            style = { fontSize = font_size, color = Color.blue }
 
         };
         multLabel = new Label("0")
         {
-            style = { fontSize = 8, color = Color.red }
+            style = { fontSize = font_size, color = Color.red }
         };
 
         var chipRow = new VisualElement()
@@ -49,7 +56,7 @@ public class ComboDisplay : MonoBehaviour
             }
         };
         chipRow.Add(chipLabel);
-        chipRow.Add(new Label("x") { style = { fontSize = 8, color = Color.black } });
+        chipRow.Add(new Label("x") { style = { fontSize = font_size, color = Color.black } });
         chipRow.Add(multLabel);
 
         var container = new VisualElement()
@@ -64,13 +71,22 @@ public class ComboDisplay : MonoBehaviour
         };
         container.Add(comboNameLabel);
         container.Add(chipRow);
-        
+        container.Add(scoreLabel);
+
         document.rootVisualElement.Add(container);
 
         comboVariable.OnComboTypeChange += UpdateComboName;
         comboVariable.chip.OnValueChanged += UpdateChip;
         comboVariable.mult.OnValueChanged += UpdateMult;
+
+        total_score.OnValueChanged += UpdateScore;
     }
+
+    private void UpdateScore(int arg0)
+    {
+        scoreLabel.text = $"SCORE: {arg0}";
+    }
+
     private void OnDisable()
     {
         comboVariable.OnComboTypeChange -= UpdateComboName;

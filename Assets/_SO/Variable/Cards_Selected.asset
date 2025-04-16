@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5faec7decc97266449e54be39d84aef0, type: 3}
-  m_Name: Hand Card
+  m_Name: Cards_Selected
   m_EditorClassIdentifier: 
   List: []

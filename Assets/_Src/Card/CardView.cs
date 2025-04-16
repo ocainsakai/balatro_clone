@@ -38,6 +38,10 @@ namespace Balatro.Cards.UI
             isSelected = false;
             transform.DOMoveY(0, 0.2f);
         }
+        public void OnScore()
+        {
+            textValue.transform.DOMoveY(2f, 0.2f);
+        }
         public void Remove()
         {
             transform.DOScale(0, 0.2f).OnComplete(

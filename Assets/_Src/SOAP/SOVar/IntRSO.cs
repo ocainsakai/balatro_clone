@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "SO Variable/IntVariable")]
+[CreateAssetMenu(menuName = "RSO/IntVariable")]
 
-public class IntVariable : RSO
+public class IntRSO : RSO
 {
     [SerializeField] int initialValue;
     [SerializeField] int value;

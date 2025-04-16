@@ -14,6 +14,10 @@ namespace Balatro.Cards.CardsRuntime
             this.data = data;
             CardView.Setup(data.Art, GetValue(data));
         }
+        public int GetValue()
+        {
+            return GetValue(data);
+        }
         public int GetValue(CardData data)
         {
             return (data.Rank > 10) ? (data.Rank == 14) ? 11 : 10 : data.Rank;
