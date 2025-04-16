@@ -23,10 +23,10 @@ public class DeckView : MonoBehaviour
     private void Deck_OnDeckChanged()
     {
         var cards = cardManager.deck.GetCards();
-        Debug.Log(cards[0].Art.name);
+        //Debug.Log(cards[0].Art.name);
         if (cards ==  null) return;
         var arts = cards.Select(x => x.Art).ToList();
-        Debug.Log(arts[0].name);
+        //Debug.Log(arts[0].name);
         ModifiedCardsUI(arts, deckUi.transform);
         ReverseChildDisplay();
     }

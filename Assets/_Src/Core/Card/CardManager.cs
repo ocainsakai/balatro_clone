@@ -25,7 +25,7 @@ namespace Balatro.Cards.System
         private void Start()
         {
             deck.Initialize(cardDatabase.database);
-            DrawCard();
+            //DrawCard();
         }
         public void DrawCard()
         {
