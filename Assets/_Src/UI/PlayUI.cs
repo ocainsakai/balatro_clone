@@ -7,7 +7,7 @@ public class PlayUI : BasePhaseUI
     [SerializeField] GameObject actionBtns;
     [SerializeField] GameObject hud;
 
-    public override Type Phase => typeof(PlayPhase);
+    //public override Type Phase => typeof(PlayPhase);
 
     public override void Hide()
     {

@@ -11,7 +11,7 @@ namespace PhaseSystem
         public override void Enter()
         {
             base.Enter();
-            uiManager.ShowUIForPhase<PlayPhase>();
+            uiManager.ShowUIForPhase<PlayUI>();
 
         }
     }

@@ -24,7 +24,14 @@ public abstract class BaseManager : MonoBehaviour, IManager
     }
     public static T GetManager<T>() where T : BaseManager
     {
-        return instances.Find(x => x is T) as T;
+        var manager = instances.Find(x => x is T) as T;
+
+        if (manager == null)
+        {
+            Debug.LogWarning($"[Manager] Can't not find {typeof(T).Name}. Sure create at scene");
+        }
+
+        return manager;
     }
 
     public virtual void Initialize() { }
