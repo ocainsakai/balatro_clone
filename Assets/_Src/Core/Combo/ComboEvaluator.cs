@@ -1,4 +1,5 @@
 using Balatro.Cards;
+using Balatro.Cards.System;
 using Balatro.Combo.Logic;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,15 @@ namespace Balatro.Combo.Systems
         [SerializeField] ComboTypeData none;
         [SerializeField] ComboTypeRSO ComboVariable;
 
-        //override void Awake()
-        //{
-        //    SelectedCards.OnListChanged += SelectedCards_OnUpdated;
-        //}
-
-        private void SelectedCards_OnUpdated(List<Card> cards)
+        public override void Initialize()
         {
+            base.Initialize();
+            var handManager = GetManager<HandManager>();
+            handManager.OnSelect += SelectedCards_OnUpdated;
+        }
+        private void SelectedCards_OnUpdated()
+        {
+            var cards = GetManager<HandManager>().GetSelected();
             var cardData = cards.Select(c => c.data).ToList();
             ComboVariable.ComboType = Evalutor(cardData, out var matchedData);
             ComboVariable.comboCard = cards.Where(c => matchedData.Contains(c.data)).ToList();

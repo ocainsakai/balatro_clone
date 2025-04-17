@@ -424,6 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   total_score: {fileID: 11400000, guid: 43d980d8759420643858e94b9316a45e, type: 2}
+  require_score: {fileID: 11400000, guid: 2926b4f08d0bc2c44acae5cefdde178d, type: 2}
   comboType: {fileID: 11400000, guid: c230a654576204946bbdbef1aa4cdd88, type: 2}
 --- !u!1 &519420028
 GameObject:
@@ -963,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboVariable: {fileID: 11400000, guid: c230a654576204946bbdbef1aa4cdd88, type: 2}
   total_score: {fileID: 11400000, guid: 43d980d8759420643858e94b9316a45e, type: 2}
+  blind_score: {fileID: 11400000, guid: 2926b4f08d0bc2c44acae5cefdde178d, type: 2}
   font_size: 24
 --- !u!114 &632200470
 MonoBehaviour:

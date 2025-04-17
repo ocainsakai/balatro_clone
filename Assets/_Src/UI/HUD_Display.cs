@@ -1,6 +1,5 @@
 
 using Balatro.Combo;
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,8 +10,10 @@ public class HUD_Display : MonoBehaviour
     Label chipLabel;
     Label multLabel;
     Label scoreLabel;
+    Label blindLabel;
     [SerializeField] ComboTypeRSO comboVariable;
     [SerializeField] IntRSO total_score;
+    [SerializeField] IntRSO blind_score;
 
     public int font_size = 24;
     private void Awake()
@@ -23,9 +24,14 @@ public class HUD_Display : MonoBehaviour
     private void OnEnable()
     {
 
-        scoreLabel = new Label("Score: 0")
+        scoreLabel = new Label($"Score: {total_score.Value}")
         {
-            style = { fontSize = font_size, color = Color.blue }
+            style = { fontSize = font_size, color = Color.white }
+
+        };
+        blindLabel = new Label($"Blind: {blind_score.Value}")
+        {
+            style = { fontSize = font_size, color = Color.white }
 
         };
         comboNameLabel = new Label("Poker Name")
@@ -71,6 +77,7 @@ public class HUD_Display : MonoBehaviour
         };
         container.Add(comboNameLabel);
         container.Add(chipRow);
+        container.Add(blindLabel);
         container.Add(scoreLabel);
 
         document.rootVisualElement.Add(container);
@@ -80,6 +87,14 @@ public class HUD_Display : MonoBehaviour
         comboVariable.mult.OnValueChanged += UpdateMult;
 
         total_score.OnValueChanged += UpdateScore;
+        blind_score.OnValueChanged += UpdateBlind;
+    }
+
+    private void UpdateBlind(int arg0)
+    {
+        Debug.Log("blind Chnaged");
+        blindLabel.text = $"Blind: {arg0}";
+
     }
 
     private void UpdateScore(int arg0)
@@ -92,6 +107,9 @@ public class HUD_Display : MonoBehaviour
         comboVariable.OnComboTypeChange -= UpdateComboName;
         comboVariable.chip.OnValueChanged -= UpdateChip;
         comboVariable.mult.OnValueChanged -= UpdateMult;
+
+        total_score.OnValueChanged -= UpdateScore;
+        blind_score.OnValueChanged -= UpdateBlind;
     }
     void UpdateChip(int chip)
     {

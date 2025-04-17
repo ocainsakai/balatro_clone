@@ -5,12 +5,14 @@ using UnityEngine.Events;
 public class BetRSO : RSO
 {
     [SerializeField] BetOption init;
+    [SerializeField] IntRSO blind;
     private BetOption _option;
     public BetOption Option
     {
         get => _option;
         set {
             _option = value;
+            blind.Value = value.requiredScore;
             OnOptionChanged?.Invoke(value);
         }
     }

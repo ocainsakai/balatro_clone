@@ -47,6 +47,11 @@ namespace Balatro.Cards.System
         {
             playingDeck = playingDeck.OrderBy(c => UnityEngine.Random.value).ToList();
         }
+        public void ClearDeck()
+        {
+            discardPile.Clear();
+            playingDeck?.Clear();
+        }
     }
 }
 

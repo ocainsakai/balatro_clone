@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979ad1dbd6d7e2b4198d40e0f44aed9d, type: 3}
   m_Name: CurrentBet
   m_EditorClassIdentifier: 
-  init: {fileID: 0}
+  init: {fileID: 11400000, guid: 27289123762ab164ebc082df9e05e694, type: 2}
+  blind: {fileID: 11400000, guid: 2926b4f08d0bc2c44acae5cefdde178d, type: 2}

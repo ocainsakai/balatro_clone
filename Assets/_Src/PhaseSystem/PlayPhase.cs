@@ -9,6 +9,12 @@ namespace PhaseSystem
         public PlayPhase(PhaseManager manager) : base(manager)
         {
         }
+        public override void Exit()
+        {
+            base.Exit();
+            manager.GetManager<HandManager>().ClearHand();
+            manager.GetManager<DeckManager>().ClearDeck();
+        }
         public override void Enter()
         {
             base.Enter();

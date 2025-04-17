@@ -14,8 +14,9 @@ namespace Balatro.Cards.UI
         public Transform cardContainer;
         public List<Card> handCards;
         SortType sortType;
-        public void Sort()
+        public void Sort(List<Card> handCards)
         {
+            this.handCards = handCards; 
             switch (sortType)
             {
                 case SortType.ByRank:

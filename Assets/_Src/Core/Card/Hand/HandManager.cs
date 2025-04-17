@@ -1,5 +1,6 @@
 using Balatro.Cards.UI;
 using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Balatro.Cards.System
         [SerializeField] CardFactory cardFactory;
         [SerializeField] HandView handView;
 
+        public event Action OnSelect;
 
         public List<Card> handCards;
         public int HandSzie = 8;
@@ -20,7 +22,6 @@ namespace Balatro.Cards.System
         public override void Initialize()
         {
             base.Initialize();
-            handView.handCards = handCards;
         }
         public List<Card> GetSelected()
         {
@@ -31,10 +32,13 @@ namespace Balatro.Cards.System
             if (card.isSelected)
             {
                 card.Deselect();
+                OnSelect?.Invoke();
             }
             else if (SelectCount < 5)
             {
                 card.Select();
+                OnSelect?.Invoke();
+
             }
         }
         public void Draw()
@@ -45,25 +49,56 @@ namespace Balatro.Cards.System
                 var card = cardFactory.CreateCard(cardData, OnCardSelect);
                 handCards.Add(card);
             }
-            handView.Sort();
+            
+            handView.Sort(handCards);
         }
         public void Discard()
         {
             var selected = GetSelected();
+            int completed = 0;
+
             foreach (var card in selected)
             {
-                handCards.Remove(card);
-                card.transform.DOMove(GetManager<DeckManager>().transform.position,0.3f)
-                            .SetEase(Ease.OutQuad)
-                            .OnComplete( () =>
-                            {
-                                card.Remove();
-                            }) ;
-            }
-            //handCards.RemoveAll(x => x.CardView.isSelected);
-            //selected.ForEach(x => { x.CardView.Remove(); });
+                // Stop any previous tween to avoid conflicts
+                card.transform.DOKill();
 
-            Draw();
+                card.transform.DOMove(GetManager<DeckManager>().transform.position, 0.3f)
+                    .SetEase(Ease.OutQuad)
+                    .OnComplete(() =>
+                    {
+                        card.Remove();
+                        completed++;
+                        if (completed >= selected.Count)
+                        {
+                            handCards.RemoveAll(x => selected.Contains(x));
+                            Draw();
+                            OnSelect?.Invoke();
+                        }
+                    });
+            }
+        }
+        public void ClearHand()
+        {
+            var cards = handCards;
+            int completed = 0;
+
+            foreach (var card in cards)
+            {
+                // Stop any previous tween to avoid conflicts
+                card.transform.DOKill();
+
+                card.transform.DOMove(GetManager<DeckManager>().transform.position, 0.3f)
+                    .SetEase(Ease.OutQuad)
+                    .OnComplete(() =>
+                    {
+                        card.Remove();
+                        completed++;
+                        if (completed >= HandCount)
+                        {
+                            handCards.Clear();
+                        }
+                    });
+            }
         }
     }
 
