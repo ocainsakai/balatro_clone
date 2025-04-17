@@ -11,7 +11,7 @@ namespace Balatro.Cards.System
     {
         private List<CardData> cards = new List<CardData>();
         public bool isEmpty => cards.Count == 0;
-        public bool shuffeLock;
+        public bool shuffeLock = true;
         public event Action OnDeckChanged;
         public void Initialize(List<CardData> startingCards)
         {

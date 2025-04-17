@@ -8,7 +8,7 @@ namespace PhaseSystem
         public override void Enter()
         {
             base.Enter();
-            UIManager.Instance.ShowUIForPhase(this);
+            uiManager.ShowUIForPhase<ShopPhase>();
         }
     }
 

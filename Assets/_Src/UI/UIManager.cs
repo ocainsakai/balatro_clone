@@ -1,24 +1,17 @@
+
+
 using PhaseSystem;
-using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager : BaseManager
 {
-    
-    public static UIManager Instance { get; private set; }
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    public void ShowUIForPhase(BasePhase phase)
+    public void ShowUIForPhase<T>() where T : BasePhase
     {
         
         foreach (BasePhaseUI ui in BasePhaseUI.Instances)
         {
-            var type = ui.Phase;
-            //Debug.Log("show ui " + phase.GetType());
-            ui.Turn(phase.GetType() == type);
+            ui.Turn(ui is T);
         }
     }
+
 }

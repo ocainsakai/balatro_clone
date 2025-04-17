@@ -4,13 +4,14 @@ namespace PhaseSystem
 {
     public class PlayPhase : BasePhase
     {
+
         public PlayPhase(PhaseManager manager) : base(manager)
         {
         }
         public override void Enter()
         {
             base.Enter();
-            UIManager.Instance.ShowUIForPhase(this);
+            uiManager.ShowUIForPhase<PlayPhase>();
 
         }
     }

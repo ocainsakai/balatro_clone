@@ -13,15 +13,7 @@ namespace Balatro.Combo
         private void OnValidate()
         {
             //var _name = 
-            this.Name = AddSpacesToSentence(name);
-        }
-        private string AddSpacesToSentence(string text)
-        {
-            if (string.IsNullOrWhiteSpace(text))
-                return string.Empty;
-
-            var newText = System.Text.RegularExpressions.Regex.Replace(text, "(?<!^)([A-Z])", " $1");
-            return newText.Trim();
+            this.Name = TxtUltil.AddSpacesToSentence(name);
         }
 
     }

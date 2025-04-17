@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Balatro.Cards.System
 {
-    public class CardManager : MonoBehaviour
+    public class CardManager : BaseManager
     {
         [Header("Spawn")]
         [SerializeField] CardFactory cardFactory;
@@ -18,14 +18,15 @@ namespace Balatro.Cards.System
 
         int HandCount => handCards.List.Count;
         int HandSize = 8;
-        private void Awake()
+        //private void Start()
+        //{
+        //    Initialize();
+        //}
+        public override void Initialize()
         {
-            deck.shuffeLock = true;
-        }
-        private void Start()
-        {
+            base.Initialize();
             deck.Initialize(cardDatabase.database);
-            //DrawCard();
+
         }
         public void DrawCard()
         {
