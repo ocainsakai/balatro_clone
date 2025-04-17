@@ -3,7 +3,7 @@ namespace PhaseSystem
     public abstract class BasePhase : IPhase
     {
         protected PhaseManager manager;
-        protected UIManager uiManager => BaseManager.GetManager<UIManager>();
+        protected UIManager uiManager => manager.GetManager<UIManager>();
         public BasePhase(PhaseManager manager)
         {
             this.manager = manager;

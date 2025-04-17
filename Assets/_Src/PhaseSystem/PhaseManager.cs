@@ -1,15 +1,9 @@
 namespace PhaseSystem
 {
-    using UnityEngine;
 
-    public class PhaseManager : MonoBehaviour, IManager
+    public class PhaseManager : BaseManager
     {
         private IPhase currentPhase;
-
-        public void Start()
-        {
-            Initialize();
-        }
 
         public void ChangePhase(IPhase newPhase)
         {
@@ -29,21 +23,12 @@ namespace PhaseSystem
             ChangePhase(new ShopPhase(this));
         }
 
-        public void Initialize()
+        public override void Initialize()
         {
             ChangePhase(new BetPhase(this));
 
         }
 
-        public void ResetManager()
-        {
-            //throw new System.NotImplementedException();
-        }
-
-        public void Cleanup()
-        {
-            //throw new System.NotImplementedException();
-        }
     }
 
 }

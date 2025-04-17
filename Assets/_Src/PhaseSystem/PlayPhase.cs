@@ -1,3 +1,4 @@
+using Balatro.Cards.System;
 using UnityEngine;
 
 namespace PhaseSystem
@@ -12,7 +13,7 @@ namespace PhaseSystem
         {
             base.Enter();
             uiManager.ShowUIForPhase<PlayUI>();
-
+            manager.GetManager<HandManager>().Draw();
         }
     }
 }

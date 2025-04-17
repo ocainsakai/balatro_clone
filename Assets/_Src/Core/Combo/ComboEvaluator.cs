@@ -1,5 +1,4 @@
 using Balatro.Cards;
-using Balatro.Cards.CardsRuntime;
 using Balatro.Combo.Logic;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +6,7 @@ using UnityEngine;
 
 namespace Balatro.Combo.Systems
 {
-    public class ComboEvaluator : MonoBehaviour
+    public class ComboEvaluator : BaseManager
     {
         [SerializeField] CardsRSO SelectedCards;
         [SerializeField] List<ComboDefinition> definitions;
@@ -15,10 +14,10 @@ namespace Balatro.Combo.Systems
         [SerializeField] ComboTypeData none;
         [SerializeField] ComboTypeRSO ComboVariable;
 
-        private void Awake()
-        {
-            SelectedCards.OnListChanged += SelectedCards_OnUpdated;
-        }
+        //override void Awake()
+        //{
+        //    SelectedCards.OnListChanged += SelectedCards_OnUpdated;
+        //}
 
         private void SelectedCards_OnUpdated(List<Card> cards)
         {

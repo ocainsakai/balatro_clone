@@ -3,7 +3,7 @@ namespace PhaseSystem
 {
     public class BetPhase : BasePhase
     {
-        BetManager betManager => BaseManager.GetManager<BetManager>();
+        BetManager betManager => manager.GetManager<BetManager>();
         public BetPhase(PhaseManager manager) : base(manager)
         {
         }

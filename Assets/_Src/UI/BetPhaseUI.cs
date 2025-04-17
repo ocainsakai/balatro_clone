@@ -1,19 +1,23 @@
 using PhaseSystem;
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class BetPhaseUI : BasePhaseUI
 {
     [SerializeField] GameObject betPanel;
-    //public override Type Phase => typeof(BetPhase);
+    public event UnityAction<BetOption> OnBetPhaseClick;
     public void UpdateBetPanel(List<BetOption> options)
     {
         for (int i = 0; i < options.Count; i++)
         {
             var option = options[i];
             var optionUI = betPanel.transform.GetChild(i);
+            var optionBtn = optionUI.GetComponent<Button>();
+            optionBtn.onClick.AddListener(() => OnBetPhaseClick?.Invoke(option));
+
             var optionText = optionUI.GetComponentInChildren<TextMeshProUGUI>();
             optionText.text = $"{option.betName}\n" +
                             $"Blind: {option.requiredScore}\n" +

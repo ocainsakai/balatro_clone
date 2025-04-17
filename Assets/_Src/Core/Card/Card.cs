@@ -1,6 +1,7 @@
 using Balatro.Cards.UI;
+using System;
 using UnityEngine;
-namespace Balatro.Cards.CardsRuntime
+namespace Balatro.Cards
 {
     public class Card : MonoBehaviour
     {
@@ -9,10 +10,11 @@ namespace Balatro.Cards.CardsRuntime
         public bool isPlayed;
         public bool isCombo;
 
-        public void Setup(CardData data)
+        public void Setup(CardData data, Action<CardView> onCardClicked)
         {
             this.data = data;
             CardView.Setup(data.Art, GetValue(data));
+            CardView.OnSelected += onCardClicked;
         }
         public int GetValue()
         {
@@ -22,6 +24,11 @@ namespace Balatro.Cards.CardsRuntime
         {
             return (data.Rank > 10) ? (data.Rank == 14) ? 11 : 10 : data.Rank;
         }
+        public void Remove()
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
 

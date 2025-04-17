@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5faec7decc97266449e54be39d84aef0, type: 3}
-  m_Name: Cards_Selected
+  m_Script: {fileID: 11500000, guid: 979ad1dbd6d7e2b4198d40e0f44aed9d, type: 3}
+  m_Name: CurrentBet
   m_EditorClassIdentifier: 
-  List: []
+  init: {fileID: 0}

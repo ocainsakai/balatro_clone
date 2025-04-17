@@ -1,5 +1,4 @@
-using Balatro.Cards;
-using Balatro.Cards.CardsRuntime;
+
 using Balatro.Cards.System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using UnityEngine.UI;
 
 public class DeckView : MonoBehaviour
 {
-    [SerializeField] CardManager cardManager;
+    [SerializeField] PlayManager cardManager;
     [SerializeField] GameObject deckUi;
     [SerializeField] GameObject cardUIPrf;
     bool isShowed;
@@ -17,18 +16,17 @@ public class DeckView : MonoBehaviour
     private void Awake()
     {
         isShowed = true;
-        cardManager.deck.OnDeckChanged += Deck_OnDeckChanged;
         Toggle();
     }
     private void Deck_OnDeckChanged()
     {
-        var cards = cardManager.deck.GetCards();
+        //var cards = cardManager.deck.GetCards();
         //Debug.Log(cards[0].Art.name);
-        if (cards ==  null) return;
-        var arts = cards.Select(x => x.Art).ToList();
-        //Debug.Log(arts[0].name);
-        ModifiedCardsUI(arts, deckUi.transform);
-        ReverseChildDisplay();
+        //if (cards ==  null) return;
+        //var arts = cards.Select(x => x.Art).ToList();
+        ////Debug.Log(arts[0].name);
+        //ModifiedCardsUI(arts, deckUi.transform);
+        //ReverseChildDisplay();
     }
     public void Toggle()
     {

@@ -18,6 +18,10 @@ namespace Balatro.Cards.UI
             spriteRenderer = GetComponent<SpriteRenderer>();
             textValue = GetComponentInChildren<TextMeshPro>();
         }
+        private void OnDestroy()
+        {
+            OnSelected -= OnSelected;
+        }
         public void Setup(Sprite sprite, int value)
         {
             spriteRenderer.sprite = sprite;
@@ -42,14 +46,6 @@ namespace Balatro.Cards.UI
         {
             textValue.gameObject.SetActive(true);
             textValue.GetComponent<RectTransform>().DOAnchorPosY(2f, 0.2f);
-        }
-        public void Remove()
-        {
-            transform.DOScale(0, 0.2f).OnComplete(
-                () =>
-                {
-                    Destroy(transform.parent.gameObject);
-                });
         }
     }
 }

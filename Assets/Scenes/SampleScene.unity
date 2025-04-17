@@ -162,14 +162,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 299814568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d06d9090c07a634f9900b42ed561d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 24f45f2fa0f6adc4e8e0127ed632b45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardFactory: {fileID: 412159372}
-  _cardContainer: {fileID: 412159371}
-  cardDatabase: {fileID: 11400000, guid: e8ba8aa7830eaf143800238a877a97cb, type: 2}
-  handCards: {fileID: 11400000, guid: 9a78745604055534da99445968476954, type: 2}
-  selectedCards: {fileID: 11400000, guid: ecbad97d72732cb4f997e5fcf1ed817f, type: 2}
 --- !u!1 &327662594
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,10 +310,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412159371}
+  - component: {fileID: 412159374}
   - component: {fileID: 412159372}
   - component: {fileID: 412159373}
   m_Layer: 0
-  m_Name: CardContainer
+  m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,10 +360,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03597f1095a738c49ac4f2ca867b4785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardContainer: {fileID: 412159371}
-  handCards: {fileID: 11400000, guid: 9a78745604055534da99445968476954, type: 2}
-  selectedCards: {fileID: 11400000, guid: ecbad97d72732cb4f997e5fcf1ed817f, type: 2}
   cardSpace: 2
+  cardContainer: {fileID: 412159371}
+  handCards: []
+--- !u!114 &412159374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412159370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec3aef549887c94bb31aa3bed1d1c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardFactory: {fileID: 412159372}
+  handView: {fileID: 412159373}
+  handCards: []
+  HandSzie: 8
 --- !u!1 &417512021
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,13 +678,14 @@ GameObject:
   - component: {fileID: 582197300}
   - component: {fileID: 582197299}
   - component: {fileID: 582197301}
+  - component: {fileID: 582197302}
   m_Layer: 0
   m_Name: Deck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &582197298
 Transform:
   m_ObjectHideFlags: 0
@@ -797,7 +809,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582197297}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b06b2e46896453c44a2ef61fa0aad21e, type: 3}
   m_Name: 
@@ -805,6 +817,21 @@ MonoBehaviour:
   cardManager: {fileID: 299814570}
   deckUi: {fileID: 1971747607}
   cardUIPrf: {fileID: 7822798376540908627, guid: 83127a00cfcff1849812faba70007afb, type: 3}
+--- !u!114 &582197302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582197297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f0006009872bf4288deb0ffb80d229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDatabase: {fileID: 11400000, guid: e8ba8aa7830eaf143800238a877a97cb, type: 2}
+  deckView: {fileID: 582197301}
+  shuffeLock: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,8 +2999,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299814570}
-        m_TargetAssemblyTypeName: Balatro.Cards.System.CardManager, Assembly-CSharp
+      - m_Target: {fileID: 412159374}
+        m_TargetAssemblyTypeName: Balatro.Cards.System.HandManager, Assembly-CSharp
         m_MethodName: Discard
         m_Mode: 1
         m_Arguments:
@@ -3052,6 +3079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: 790780884a1ed1144876bbe0af754ada, type: 2}
+  currentBet: {fileID: 11400000, guid: db58932d3e498374588be0aab3c23833, type: 2}
 --- !u!4 &2002606189
 Transform:
   m_ObjectHideFlags: 0
@@ -3348,7 +3376,7 @@ SceneRoots:
   - {fileID: 1432244068}
   - {fileID: 417512022}
   - {fileID: 1159986214}
+  - {fileID: 2002606189}
   - {fileID: 2001608721}
   - {fileID: 545954958}
   - {fileID: 777606827}
-  - {fileID: 2002606189}

@@ -16,13 +16,18 @@ public abstract class BaseManager : MonoBehaviour, IManager
 
         if (!instances.Contains(this))
             instances.Add(this);
+        
+        //Initialize();
     }
-
+    protected virtual void Start()
+    {
+        Initialize();
+    }
     protected virtual void OnDestroy()
     {
         instances.Remove(this);
     }
-    public static T GetManager<T>() where T : BaseManager
+    public T GetManager<T>() where T : BaseManager
     {
         var manager = instances.Find(x => x is T) as T;
 

@@ -1,4 +1,4 @@
-using Balatro.Cards.CardsRuntime;
+using Balatro.Cards;
 using UnityEngine;
 [CreateAssetMenu(fileName = "CardsRSO", menuName = "RSO/CardsRSO")]
 
