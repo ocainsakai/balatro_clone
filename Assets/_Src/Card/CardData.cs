@@ -16,20 +16,50 @@ public class CardData : ScriptableObject
     {
         if (!string.IsNullOrEmpty(this.name))
         {
-            _cardName = this.name;
             _cardID = this.GetHashCode().ToString();
             var token = name.Split(' ');
             if (token.Length > 1)
             {
-                Suit = Enum.TryParse<CardSuit>(token[0], out Suit) ? Suit : CardSuit.Hearts;
-                int _rank = int.Parse(token[1]);
-                Rank = _rank == 1 ? CardRank.Ace : (CardRank)_rank;
-                _image = Resources.Load<Sprite>($"Art/PNG/Card-{token[0]}-{_rank}");
+                Suit = ParseSuit(name);
+                Rank = ParseRank(name);
+                int i = Rank == CardRank.Ace ? 1 : (int)Rank;
+                _image = Resources.Load<Sprite>($"Art/PNG/Card-{Suit}-{i}");
 
             }
+            _cardName = Rank + " Of " + Suit;
         }
     }
 #endif
+    //public static CardRank ParseRank(int rank)
+    //{
+
+    //}
+    public static CardRank ParseRank(string name)
+    {
+        foreach (var word in name.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+        {
+            if (int.TryParse(word, out int num))
+            {
+                if (Enum.IsDefined(typeof(CardRank), num))
+                    return (CardRank)num;
+            }
+            if (Enum.TryParse<CardRank>(word, true, out var rank))
+                return rank;
+        }
+        Debug.LogWarning($"Cannot parse rank from {name}, defaulting to Two");
+        return CardRank.Two;
+    }
+    public static CardSuit ParseSuit(string name)
+    {
+        foreach (var word in name.Split(' ', StringSplitOptions.RemoveEmptyEntries))
+        {
+            if (Enum.TryParse<CardSuit>(word, true, out var suit))
+                return suit;
+        }
+        Debug.LogWarning($"Cannot parse suit from {name}, defaulting to Hearts");
+
+        return CardSuit.Hearts;
+    }
 }
 
 public enum CardSuit

@@ -1,30 +1,44 @@
+using DG.Tweening;
 using System;
+using UniRx;
 using UnityEngine;
 
 public class CardView : MonoBehaviour
 {
-    public event Action OnClicked;
+    //public event Action OnClicked;
+    private ReactiveCommand<Unit> _onClicked;
+    public IReactiveCommand<Unit> OnClicked => _onClicked;
     public SpriteRenderer spriteRenderer => GetComponent<SpriteRenderer>();
     public void Init(Sprite sprite)
     {
         spriteRenderer.sprite = sprite;
     }
+    private void Awake()
+    {
+        _onClicked = new ReactiveCommand<Unit>();
+    }
     public void OnMouseDown()
     {
-        OnClicked?.Invoke();
+
+        _onClicked.Execute(Unit.Default);
     }
 
     public void SelectCard()
     {
-        Debug.Log("select me");
+        Debug.Log("on select");
+        spriteRenderer.color = Color.blue;
+        transform.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutBack);
     }
     public void DeselectCard()
     {
-        Debug.Log("deselect me");
+        spriteRenderer.color = Color.white;
+        transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.InBack);
 
     }
     public void DestroyCard()
     {
-
+        Destroy(gameObject);
     }
+
+    
 }

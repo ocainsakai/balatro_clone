@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StandardCards
   m_EditorClassIdentifier: 
   data:
-  - {fileID: 11400000, guid: 0cb2290e034938b4e8e8e2592da9f61a, type: 2}
+  - {fileID: 11400000, guid: a67aa38aee44c4d42a98015f8736056f, type: 2}
   - {fileID: 11400000, guid: e5f1c753bd473c4478abeef670fc3a7d, type: 2}
   - {fileID: 11400000, guid: 32a579d523bbda144a5c0a26f3a48138, type: 2}
   - {fileID: 11400000, guid: 42c99698a277fd34eadd0e79c68946c7, type: 2}
@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a147b52f7c1650e40b0fa276e399a820, type: 2}
   - {fileID: 11400000, guid: 07ca178d893c8ca4586031ef141a3118, type: 2}
   - {fileID: 11400000, guid: 60d1c8ccd59e35c4f988e78122d712f4, type: 2}
-  - {fileID: 11400000, guid: dc2016a57c9108f46925468dc19a219d, type: 2}
+  - {fileID: 11400000, guid: 2a69f17015264434d87b0c001c1449fb, type: 2}
   - {fileID: 11400000, guid: 739795840b5974d4ca1aa4783db36a90, type: 2}
   - {fileID: 11400000, guid: 4edd4c64dfb17b0429f230acc47ec545, type: 2}
   - {fileID: 11400000, guid: 2abdc06d0d267004bab3d7b463a493d2, type: 2}
@@ -39,7 +39,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb0a2a86fe738fe4cbd96f25b4bf6c09, type: 2}
   - {fileID: 11400000, guid: ebe6a573487c00b4290e2b46bc5fac77, type: 2}
   - {fileID: 11400000, guid: 127109473bd0d3b45baa1939e8d387f5, type: 2}
-  - {fileID: 11400000, guid: 0f1f8f9da4ca6954a878c806c950f015, type: 2}
+  - {fileID: 11400000, guid: d3dc25a85cffd3747a46b71b0a9d9b20, type: 2}
   - {fileID: 11400000, guid: 3ebdc533501da74448160f35610cc8c7, type: 2}
   - {fileID: 11400000, guid: fc9f850570b70934f827e7ef72978817, type: 2}
   - {fileID: 11400000, guid: f528348116b8d8841b709ab4bb371f23, type: 2}
@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e2705539564ab34b83c99a74f3faa9c, type: 2}
   - {fileID: 11400000, guid: fc147ccc4a8253241a1500720a9c1a94, type: 2}
   - {fileID: 11400000, guid: e2e4ab035ff71aa43ab17de031301fe5, type: 2}
-  - {fileID: 11400000, guid: 2914bd30422e4f644afcea13d94ed4f0, type: 2}
+  - {fileID: 11400000, guid: d2eae43cbc69df24db0303080a83e53f, type: 2}
   - {fileID: 11400000, guid: 68bbeadcc7e9e044cbda0252790bc46b, type: 2}
   - {fileID: 11400000, guid: cb549108872914e45a64e10962765f6e, type: 2}
   - {fileID: 11400000, guid: 19bac5a3d9310ba47aeab89f3fbd6bb2, type: 2}

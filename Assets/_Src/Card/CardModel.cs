@@ -1,31 +1,33 @@
 using UnityEngine;
-
+using UniRx;
 public class CardModel
 {
     public readonly CardData cardData;
-    public readonly CardView cardView;
-    private ICardCollection cardCollection;
-    public bool isSelected;
-    public CardModel(CardData cardData, CardView cardView, ICardCollection cardCollection)
+    public ICardCollection cardCollection;
+
+    public ReactiveProperty<bool> IsSelected { get; private set; }
+
+    public CardModel(CardData cardData, ICardCollection cardCollection)
     {
         this.cardData = cardData;
-        this.cardView = cardView;
         this.cardCollection = cardCollection;
-        cardView.Init(cardData._image);
-        cardView.OnClicked += CardView_OnClicked;
+        ResetState();
     }
-
-    private void CardView_OnClicked()
+    public void ResetState()
     {
-        if (isSelected)
+        IsSelected = new ReactiveProperty<bool>(false);
+
+    }
+    public void CardView_OnClicked()
+    {
+        if (IsSelected.Value)
         {
-            isSelected = false;
-            cardView.DeselectCard();
+            IsSelected.Value = (false);
         }
         else if (cardCollection.CanSelect())
         {
-            isSelected = true;
-            cardView.SelectCard();
+            IsSelected.Value = (true);
         }
+        
     }
 }
