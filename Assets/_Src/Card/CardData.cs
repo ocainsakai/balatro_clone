@@ -71,6 +71,7 @@ public enum CardSuit
 }
 public enum CardRank
 {
+    LowAce = 1,
     Two = 2,
     Three = 3,
     Four = 4,

@@ -5,7 +5,8 @@ public class CardModel
     public readonly CardData cardData;
     public ICardCollection cardCollection;
 
-    public ReactiveProperty<bool> IsSelected { get; private set; }
+    public bool IsInCombo = false;
+    public ReactiveProperty<bool> IsSelected { get; private set; } = new ReactiveProperty<bool>(false);
 
     public CardModel(CardData cardData, ICardCollection cardCollection)
     {
@@ -15,14 +16,15 @@ public class CardModel
     }
     public void ResetState()
     {
-        IsSelected = new ReactiveProperty<bool>(false);
-
+        IsSelected.Value = (false);
+        IsInCombo = false;
     }
     public void CardView_OnClicked()
     {
+        Debug.Log(IsSelected.Value);
         if (IsSelected.Value)
-        {
-            IsSelected.Value = (false);
+        { 
+            ResetState();
         }
         else if (cardCollection.CanSelect())
         {

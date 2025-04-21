@@ -1,25 +1,22 @@
 ﻿using UnityEngine;
 using UniRx;
+using System.Collections.Generic;
 
 public class CardSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _cardPrf;
     [SerializeField] private Transform _cardContainer;
 
-    public CardView SpawnCard(CardModel card)
+    private Dictionary<CardModel, CardView> _viewMap = new();
+
+    public CardView SpawnCard(CardModel card, BaseCardCollection baseCardCollection)
     {
         CardView view = InstantiateCard(card);
         if (view == null) return null;
-
-        // Bước 2: Khởi tạo CardView
         InitializeCardView(view, card);
+        SetupCardInteractions(view, card, baseCardCollection);
 
-        // Bước 3: Gán sự kiện và subscription
-        SetupCardInteractions(view, card);
-
-        //// Bước 4: Sắp xếp lại
-        //RepositionCards();
-
+        _viewMap[card] = view;
         return view;
     }
 
@@ -54,24 +51,31 @@ public class CardSpawner : MonoBehaviour
         view.Init(card.cardData?._image);
     }
 
-    private void SetupCardInteractions(CardView view, CardModel card)
+    private void SetupCardInteractions(CardView view, CardModel card, BaseCardCollection baseCardCollection)
     {
-        // Gán sự kiện click
+ 
         view.OnClicked.Subscribe(_ => card.CardView_OnClicked()).AddTo(view);
 
-        // Subscribe IsSelected để điều khiển Select/Deselect
+   
         card.IsSelected.Subscribe(isSelected =>
         {
             if (isSelected)
+            {
+                Debug.Log("is select");
                 view.SelectCard();
+            }
             else
+            {
                 view.DeselectCard();
+            }
         }).AddTo(view);
+        baseCardCollection.OnCardRemoved.Subscribe(removedCard =>
+        {
+            if (_viewMap.TryGetValue(removedCard, out var view))
+            {
+                view.DestroyCard();
+                _viewMap.Remove(removedCard);
+            }
+        });
     }
-
-    //private void RepositionCards()
-    //{
-    //    // Sắp xếp lại nếu dùng HorizontalGridLayout
-    //    _cardContainer.GetComponent<HorizontalGridLayout>()?.RepositionChildren();
-    //}
 }

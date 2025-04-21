@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayZone : MonoBehaviour, ICardSorter
 {
-    [SerializeField] GridLayout layout;
+    [SerializeField] GridLayoutGO layout;
     public event Action OnSort;
     enum SortType
     {
@@ -30,6 +30,7 @@ public class PlayZone : MonoBehaviour, ICardSorter
 
     public void SortByRank()
     {
+        type = SortType.Rank;
         var sorted = GetAllChildren(transform)
             .OrderBy(child => CardData.ParseRank(child.name))
             .ThenBy(child => CardData.ParseSuit(child.name))
@@ -46,6 +47,7 @@ public class PlayZone : MonoBehaviour, ICardSorter
 
     public void SortBySuit()
     {
+        type = SortType.Suit;
         var sorted = GetAllChildren(transform)
             .OrderBy(child => CardData.ParseSuit(child.name))
             .ThenBy(child => CardData.ParseRank(child.name))

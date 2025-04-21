@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CardView : MonoBehaviour
 {
-    //public event Action OnClicked;
     private ReactiveCommand<Unit> _onClicked;
     public IReactiveCommand<Unit> OnClicked => _onClicked;
     public SpriteRenderer spriteRenderer => GetComponent<SpriteRenderer>();
@@ -27,18 +26,17 @@ public class CardView : MonoBehaviour
     {
         Debug.Log("on select");
         spriteRenderer.color = Color.blue;
-        transform.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutBack);
+        transform?.DOScale(Vector3.one * 1.1f, 0.3f).SetEase(Ease.OutBack);
     }
     public void DeselectCard()
     {
         spriteRenderer.color = Color.white;
-        transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.InBack);
+        transform?.DOScale(Vector3.one, 0.3f).SetEase(Ease.InBack);
 
     }
     public void DestroyCard()
     {
+        transform.SetParent(null);
         Destroy(gameObject);
     }
-
-    
 }

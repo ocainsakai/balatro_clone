@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
+using UniRx;
 using UnityEngine;
 
 public interface ICardCollection 
 {
-    List<CardModel> collection {  get; }
-    List<CardModel> GetAllCards() => collection;
+    List<CardModel> collection { get;  } 
+    List<CardModel> GetAllCards() => collection.ToList();
 
     CardModel DrawCard(int id);
     CardModel DrawCard();
@@ -14,6 +16,6 @@ public interface ICardCollection
     void SetCollection(List<CardData> collection);
     void RemoveCard(CardModel card);
     void RemoveCards(List<CardModel> cards);
-    void RemoveAllCards();
+    void ClearCards();
     void Shuffe();
 }

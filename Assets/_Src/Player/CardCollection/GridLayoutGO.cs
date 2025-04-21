@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [ExecuteAlways]
-public class GridLayout : MonoBehaviour
+public class GridLayoutGO : MonoBehaviour
 {
     [Header("Grid Settings")]
     [SerializeField] private float spacingX = 2f; // Khoảng cách ngang
@@ -78,7 +78,7 @@ public class GridLayout : MonoBehaviour
 
             if (useAnimation && !Application.isEditor || Application.isPlaying)
             {
-                child.DOLocalMove(localPos, animationDuration).SetEase(animationEase);
+                child?.DOLocalMove(localPos, animationDuration).SetEase(animationEase);
             }
             else
             {
@@ -121,7 +121,7 @@ public class GridLayout : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        RepositionChildren(); // Cập nhật ngay khi thay đổi giá trị trong editor
+        RepositionChildren();
     }
 #endif
 }

@@ -5,11 +5,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] CardDatabase cardDatabase;
     [SerializeField] CardSpawner spawner;
     [SerializeField] PlayZone handZone;
-
+    [SerializeField] PokerHandUI PokerUI;
     Hand hand;
     Deck deck;
     DiscardPile discardPile;
-    //CardView.Spawner cardSpawner;
+    PokerHandEvaluator handEvaluator;
     int HandCount => hand.collection.Count;
     int HandSize = 8;
     private void Awake()
@@ -17,22 +17,29 @@ public class PlayerManager : MonoBehaviour
         hand = new();
         deck = new();
         discardPile = new();
-    }
-    private void Start()
-    {
+        handEvaluator = new PokerHandEvaluator();
         handZone.OnSort += hand.DeselectAll;
         deck?.SetCollection(cardDatabase.data);
-        DrawCards();
+        hand.OnCardSelectionChanged.Subscribe(x =>
+        {
+            var poker = handEvaluator.Evaluate(hand.GetSelected());
+            PokerUI.Show(poker);
+            Debug.Log(hand.GetComboCards().Count);
+        }).AddTo(this);
     }
+
     public void DrawCards()
     {
         int amount = HandSize - HandCount;
-        Debug.Log(amount);
+        if (amount > deck.collection.Count) {
+            deck.AddCards(discardPile.collection);
+            discardPile.ClearCards();
+        }
         for (int i = 0; i < amount; i++)
         {
             var card = deck.DrawCard();
             hand.AddCard(card);
-            spawner.SpawnCard(card);
+            var view = spawner.SpawnCard(card, hand);
         }
         handZone.Sort();
     }
@@ -41,7 +48,7 @@ public class PlayerManager : MonoBehaviour
         var cards = hand.GetSelected();
         discardPile.AddCards(cards);
         hand.RemoveSelected();
-        Debug.Log(hand.collection.Count);
+        DrawCards();
     }
     public void SortByRank()
     {
