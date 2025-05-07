@@ -20,7 +20,12 @@ namespace Game.Jokers
                 viewModel.Add(joker);
                 cardFactory.CreateJoker(joker, transform);
             }
-            StartCoroutine( _layout.RepositionChildren());
+            Repo();
+        }
+        async void Repo()
+        {
+            await
+            _layout.RepositionChildren();
         }
     }
 }

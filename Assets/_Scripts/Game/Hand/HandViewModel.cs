@@ -1,22 +1,39 @@
 using Game.Cards;
-using System.Collections;
+using Game.Cards.Decks;
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
+using VContainer;
 using static Game.Cards.CardsSorter;
 
 namespace Game.Player.Hands
 {
-    public class HandViewModel
+    public class HandViewModel : CardCollection
     {
-        private ReactiveCollection<Card> _cards = new ReactiveCollection<Card>();
-        public IReadOnlyReactiveCollection<Card> Cards => _cards;
-
         public Subject<Card> OnCardStateChanged = new Subject<Card>();
         private ReactiveProperty<bool> CanSelectCard = new ReactiveProperty<bool>();
-        public int Count => _cards.Count;
-
-        public HandViewModel()
+        private Deck deck;
+        [Inject] 
+        public HandViewModel(PlayManager playManager, Deck deck)
+        {
+            this.deck = deck;
+            InitSelectCondition();
+            playManager.OnDraw.Subscribe(x => DrawHand());
+            playManager.OnDiscard.Subscribe();
+        }
+        public void DrawHand()
+        {
+            deck.Shuffle();
+            int amount = 8 - Count;
+            for (int i = 0; i < amount; i++)
+            {
+                var card = deck.GetFirst();
+                card.State.Subscribe(x => OnCardStateChanged.OnNext(card));
+                Add(card);
+            }
+            ResetAllCards();   
+        }
+        private void InitSelectCondition()
         {
             OnCardStateChanged.Subscribe(x =>
             {
@@ -24,6 +41,7 @@ namespace Game.Player.Hands
             });
             CanSelectCard.Subscribe(x => SetCanSelectCards(CanSelectCard.Value));
         }
+
         private void SetCanSelectCards(bool canSelect)
         {
             foreach (var card in _cards)
@@ -35,41 +53,21 @@ namespace Game.Player.Hands
         {
             return _cards.Where(x => x.State.Value == state);
         }
-        public void Add(Card card)
-        {
-            _cards.Add(card);
-            card.State.Subscribe(x => OnCardStateChanged.OnNext(card));
-        }
-        public void Remove(Card card)
-        {
-            _cards.Remove(card);
-        }
+
         public void ResetAllCards()
         {
             foreach (var card in Cards)
             {
-                card.State.Value = CardState.OnHand;
-                card.CanSelect = true;
+                card.State.Value = CardState.Hold;
             }
+            SetCanSelectCards(true);
         }
-        public IEnumerator Sort()
+        public void RemoveCardInState(CardState cardState)
         {
-            Sort(CardsSorter.currentType);
-            yield return null;
-        }
-        public void Sort(SortType sortType)
-        {
-            if (Cards.Count == 0) return;
-            ResetAllCards();
-            var sortedCards = (sortType == SortType.ByRank) ? CardsSorter.SortByRank(Cards) : CardsSorter.SortBySuit(Cards);
-            for (int i = 0; i < sortedCards.Count(); i++)
+            for (int i = _cards.Count - 1; i >= 0; i--)
             {
-                var card = sortedCards.ElementAt(i);
-                int currentIndex = _cards.IndexOf(card);
-                if (currentIndex != i)
-                {
-                    _cards.Move(currentIndex, i);
-                }
+                var card = _cards[i];
+                if (card.State.Value == cardState) _cards.RemoveAt(i);
             }
         }
     }

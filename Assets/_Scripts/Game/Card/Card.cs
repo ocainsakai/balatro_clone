@@ -6,7 +6,7 @@ namespace Game.Cards
 {
     public enum CardState
     {
-        OnHand,
+        Hold,
         Selected,
         Played,
         Scored,
@@ -21,10 +21,11 @@ namespace Game.Cards
 
         public bool CanSelect;
        
-        public ReactiveProperty<CardState> State = new ReactiveProperty<CardState>(CardState.OnHand) ;
+        public ReactiveProperty<CardState> State = new ReactiveProperty<CardState>(CardState.Hold) ;
         public Card(CardData data)
         {
             Data = data;
         }
+        
     }
 }

@@ -4,21 +4,26 @@ using System.Linq;
 
 namespace Game.Cards.Decks
 {
-    public class Deck
+    public class Deck : CardCollection
     {
-        public IEnumerable<CardData> _cards;
-        public List<Card> cards = new List<Card>();
-        public Deck() { 
-            _cards = Resources.Load<CardDatabase>(nameof(CardDatabase)).cardList;
-            foreach (var cardData in _cards)
+        public IEnumerable<CardData> _cardData;
+        public Deck() {
+            _cardData = Resources.Load<CardDatabase>(nameof(CardDatabase)).cardList;
+            foreach (var cardData in _cardData)
             {
                 var card = new Card(cardData);
-                cards.Add(card);
+                _cards.Add(card);
             }
         }
         public void Shuffle()
         {
-            cards = cards.OrderBy(x => UnityEngine.Random.value).ToList();
+            var cards = new List<Card>(Cards);
+            cards = cards.OrderBy(x => Random.value).ToList();
+            for (int i = 0; i <  Count; i++)
+            {
+                int newIndex = cards.IndexOf(_cards[i]);
+                _cards.Move(i, newIndex);
+            }
         }
     }
 }

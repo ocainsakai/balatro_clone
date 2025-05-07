@@ -477,8 +477,9 @@ GameObject:
   - component: {fileID: 1781309157}
   - component: {fileID: 1781309159}
   - component: {fileID: 1781309160}
+  - component: {fileID: 1781309161}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: LeftPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,6 +543,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2e9a931c1955c44a14a1fd77950647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1781309161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781309156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f01124b7dcafc04bbeb077df3ee4d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1837754588
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1837754590}
-  - component: {fileID: 1837754589}
+  - component: {fileID: 1837754591}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -559,19 +572,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1837754589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837754588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a844928d6eb4ff4a9bdaafd15262ae8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 9068732181678178213, guid: 7800e67a83522ee4e837a19df1ce2b44, type: 3}
 --- !u!4 &1837754590
 Transform:
   m_ObjectHideFlags: 0
@@ -587,6 +587,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1837754591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837754588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4c5010773083a4bb33d64b80c1935e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 3733468437545788566, guid: 7800e67a83522ee4e837a19df1ce2b44, type: 3}
 --- !u!1 &1907766994
 GameObject:
   m_ObjectHideFlags: 0

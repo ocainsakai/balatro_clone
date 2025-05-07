@@ -1,31 +1,57 @@
-using UnityEngine;
+
 using VContainer;
 using UniRx;
 using Game.Cards;
-using System.Collections;
-using Game.Pokers;
+
+using System.Threading.Tasks;
+using System.Linq;
 namespace Game.System.Score
 {
     public class ScoreManagerView : GridViewBase
     {
         [Inject] ScoreManager scoreManager;
         [Inject] CardFactory cardFactory;
+
+        AsyncProcess drawProcess = new AsyncProcess();
+        AsyncProcess discardProcess = new AsyncProcess();
+        AsyncProcess scoreProcess = new AsyncProcess();
         private void Awake()
         {
-            scoreManager.OnScore.Subscribe(x => this.AddProcess(OnScoreCard(x.Card)));
-            scoreManager.PlayedCards.ObserveAdd().Subscribe(x => this.AddProcess(OnCardAdd(x.Value)));
+            scoreManager.OnScore.Subscribe(x => scoreProcess.Enqueue(() => OnScoreCard(x.Card)));
+            scoreManager.Cards.ObserveAdd().Subscribe(x =>
+            {
+                drawProcess.Enqueue(() => OnCardAdd(x.Value),
+                    () => scoreManager.Score());
+            });
+            scoreManager.Cards.ObserveCountChanged().Subscribe( x =>
+            {
+                discardProcess.Enqueue(() => OnCountChanged(),
+                    async () => await _layout.RepositionChildren());
+            }).AddTo(this);
         }
-        private IEnumerator OnScoreCard(Card card)
+        private async Task OnScoreCard(Card card)
         {
             var cardView = cardFactory.GetCardFormPool(card);
             cardView.ShowValue();
-            yield return new WaitForSeconds(0.2f);
+            await Task.Delay(200);
         }
-        private IEnumerator OnCardAdd(Card card)
+        private async Task OnCardAdd(Card card)
         {
             var cardView = cardFactory.GetCardFormPool(card);
             cardView.transform.SetParent(transform);
-            yield return (_layout.RepositionChildren());
+            await (_layout.RepositionChildren());
+        }
+        private async Task OnCountChanged()
+        {
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+                var cardView = transform.GetChild(i).GetComponent<CardView>();
+                var card = cardView.GetCard();
+                if (!scoreManager.Cards.Contains(card))
+                {
+                   await cardView.OnDiscard();
+                }
+            }
         }
     }
 }

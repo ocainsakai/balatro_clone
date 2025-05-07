@@ -1,6 +1,5 @@
-using DG.Tweening;
 using Game.Cards;
-using System.Collections;
+using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 using VContainer;
@@ -12,34 +11,45 @@ namespace Game.Player.Hands
     {
         [Inject] CardFactory _cardFactory;
         [Inject] HandViewModel hand;
-        [Inject] GameManager gameManager;
+        [Inject] PlayManager gameManager;
+
+        private AsyncProcess drawProcess = new AsyncProcess();
+        //private AsyncProcess moveProcess = new AsyncProcess();
+        private AsyncProcess removeProcess = new AsyncProcess();
         private void Awake()
         {
-            hand.Cards.ObserveAdd().Subscribe(x => this.AddProcess(OnCardDrawn(x))).AddTo(this);
-            hand.Cards.ObserveMove().Subscribe(x => this.AddProcess(OnCardMoved(x))).AddTo(this);
-            hand.Cards.ObserveRemove().Subscribe(x => this.AddProcess(_layout.RepositionChildren()));
-            gameManager.OnDiscard.Subscribe(x => this.AddProcess(OnCardDiscarded(x))).AddTo(this);
+            hand.Cards.ObserveAdd().Subscribe(x =>
+                drawProcess.Enqueue(() => Draw(x),() => hand.Sort(CardsSorter.SortType.ByRank))).AddTo(this);
+            hand.Cards.ObserveMove().Subscribe(async x => await OnCardMoved(x)).AddTo(this);
+            hand.Cards.ObserveRemove().Subscribe(x => removeProcess.Enqueue(() => _layout.RepositionChildren()));
+            gameManager.OnDiscard.Subscribe(async x => await Discard()).AddTo(this);
         }
         
 
-        private IEnumerator OnCardMoved(CollectionMoveEvent<Card> moveEvent)
+        private async Task OnCardMoved(CollectionMoveEvent<Card> moveEvent)
         {
+            Debug.Log(moveEvent);
             Transform card = _layout.transform.GetChild(moveEvent.OldIndex);
             card.SetSiblingIndex(moveEvent.NewIndex);
-            StartCoroutine( _layout.RepositionChildren());
-            yield return null;
-
+            await _layout.RepositionChildren();
         }
-        private IEnumerator OnCardDrawn(CollectionAddEvent<Card> cardEvent)
+ 
+        private async Task Draw(CollectionAddEvent<Card> cardEvent)
         {
             var cardData = cardEvent.Value;
             _cardFactory.CreateCard(cardData, transform);
-            yield return _layout.RepositionChildren();
+            await _layout.RepositionChildren();
         }
-        private IEnumerator OnCardDiscarded(Card card)
+        private async Task Discard()
         {
-            _cardFactory.ReturnCardToPool(card);
-            yield return _layout.RepositionChildren();
+            foreach (var item in hand.Cards)
+            {
+                if (item.State.Value != CardState.Hold)
+                {
+                    var cardView = _cardFactory.GetCardFormPool(item);
+                    await cardView.OnDiscard();
+                }
+            }
         }
 
     }

@@ -1,6 +1,5 @@
 ﻿using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -35,10 +34,10 @@ public class GridLayoutGO : MonoBehaviour
             Invoke( "RepositionChildren", 0.2f);
         }
     }
-    public IEnumerator RepositionChildren()
+    public async Task RepositionChildren()
     {
         if (transform.childCount == 0)
-            yield return null;
+            await Task.Yield();
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -89,7 +88,7 @@ public class GridLayoutGO : MonoBehaviour
                 child.localPosition = localPos;
             }
         }
-        yield return new WaitForSeconds(animationDuration);
+        await Task.Delay(200);
     }
 
     private Vector2 CalculateChildSizeFromBounds()

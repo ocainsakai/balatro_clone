@@ -15,13 +15,14 @@ namespace Game
         {
             base.Configure(builder);
             builder.RegisterComponentInHierarchy<HandView>();
-            builder.RegisterComponentInHierarchy<GameManager>();
+            builder.RegisterComponentInHierarchy<PlayManager>();
             builder.RegisterComponentInHierarchy<CardFactory>();
             builder.Register<Deck>(Lifetime.Singleton);
             builder.Register<HandViewModel>(Lifetime.Singleton);
             builder.Register<PokerViewModel>(Lifetime.Singleton);
             builder.Register<ScoreManager>(Lifetime.Singleton);
             builder.Register<JokerViewModel>(Lifetime.Singleton);
+            builder.Register<BlindManager>(Lifetime.Singleton);
         }
     }
 }

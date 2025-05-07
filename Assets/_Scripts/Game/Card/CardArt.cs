@@ -11,7 +11,7 @@ public class CardArt : MonoBehaviour
         this._card = card;
         card.State.Subscribe(x =>
         {
-            if (x == CardState.OnHand)
+            if (x == CardState.Hold)
             {
                 transform.DOLocalMoveY(0, 0.1f);
             }
@@ -26,9 +26,9 @@ public class CardArt : MonoBehaviour
     {
         if (_card.State.Value == CardState.Selected)
         {
-            _card.State.Value = CardState.OnHand;
+            _card.State.Value = CardState.Hold;
         }
-        else if (_card.State.Value == CardState.OnHand && _card.CanSelect)
+        else if (_card.State.Value == CardState.Hold && _card.CanSelect)
         {
             _card.State.Value = CardState.Selected;
 

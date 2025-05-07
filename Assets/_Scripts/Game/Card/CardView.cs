@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Threading.Tasks;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -18,6 +19,13 @@ namespace Game.Cards
             text.gameObject.SetActive(true);
             text.text = $"+{cardArt._card.Value}";
             text.transform.DOLocalMoveY(1.5f, 0.2f);
+        }
+        public async Task OnDiscard()
+        {
+            await transform.DOScale(0, 0.2f).AsyncWaitForCompletion();
+
+            transform.parent = null;
+            Destroy(gameObject);
         }
     }
 }

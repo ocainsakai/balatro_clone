@@ -1,9 +1,7 @@
-using Game.Cards;
 using Game.Pokers;
 using Game.System.Score;
 using System.Collections;
 using UniRx;
-using Unity.VisualScripting;
 using UnityEngine;
 using VContainer;
 
@@ -38,8 +36,6 @@ namespace Game.Jokers
                     }
                 }
             }
-            // temp
-            //
             scoreManager.ScoreCalculate();
         }
         private void OnScoreHandle(OnScoreContext context)

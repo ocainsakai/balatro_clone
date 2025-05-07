@@ -27,7 +27,7 @@ namespace Game.Pokers
             });
             handViewModel.OnCardStateChanged.Subscribe(x =>
             {
-                if (x.State.Value == CardState.OnHand || x.State.Value == CardState.Selected)
+                if (x.State.Value == CardState.Hold || x.State.Value == CardState.Selected)
                 {
                     
                     var result = PokerEvaluator.Evaluate(handViewModel.GetCardInState(CardState.Selected).ToList());
