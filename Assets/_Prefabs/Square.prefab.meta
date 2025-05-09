@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Action.prefab.meta
+guid: a7db352f3985fd647a8fd0379864c645
+========
+guid: 7800e67a83522ee4e837a19df1ce2b44
+>>>>>>>> c336efcf3c80f89d54d90f483cf3ed7223a1afe5:Assets/_Prefabs/Square.prefab.meta
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

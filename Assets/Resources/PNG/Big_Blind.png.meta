@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 0abfedcef02562a4994df151be5b8c2c
+<<<<<<<< HEAD:Assets/Resources/PNG/Big_Blind.png.meta
+guid: c7baabab641a4cf45ba2d7998c6cdc23
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3027475031206827474
     second: Big_Blind_0
+========
+guid: ccfecb91c4ca25844ba9618b94e767bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8158265256486050621
+    second: cover_0
+>>>>>>>> c336efcf3c80f89d54d90f483cf3ed7223a1afe5:Assets/Resources/playingcards/cover.png.meta
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<<< HEAD:Assets/Resources/PNG/Big_Blind.png.meta
       name: Big_Blind_0
+========
+      name: cover_0
+>>>>>>>> c336efcf3c80f89d54d90f483cf3ed7223a1afe5:Assets/Resources/playingcards/cover.png.meta
       rect:
         serializedVersion: 2
         x: 0
         y: 0
+<<<<<<<< HEAD:Assets/Resources/PNG/Big_Blind.png.meta
         width: 64
         height: 64
+========
+        width: 315
+        height: 250
+>>>>>>>> c336efcf3c80f89d54d90f483cf3ed7223a1afe5:Assets/Resources/playingcards/cover.png.meta
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +133,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<<< HEAD:Assets/Resources/PNG/Big_Blind.png.meta
       spriteID: e2a6d86df7f3cf5d0800000000000000
       internalID: -3027475031206827474
+========
+      spriteID: d3b1344c60bf73170800000000000000
+      internalID: 8158265256486050621
+>>>>>>>> c336efcf3c80f89d54d90f483cf3ed7223a1afe5:Assets/Resources/playingcards/cover.png.meta
       vertices: []
       indices: 
       edges: []
@@ -134,7 +157,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cover_0: 8158265256486050621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

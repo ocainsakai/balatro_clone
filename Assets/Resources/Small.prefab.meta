@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: d3c84be096ea49b4f8ca09371f3e1e08
+<<<<<<<< HEAD:Assets/Resources/Small.prefab.meta
+guid: 7b5c116b49f8a3b47b6dd74c9e312ef8
+========
+guid: 83e62d9bd1979624ea74219121ee8084
+>>>>>>>> c336efcf3c80f89d54d90f483cf3ed7223a1afe5:Assets/_Prefabs/Joker Prefab.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

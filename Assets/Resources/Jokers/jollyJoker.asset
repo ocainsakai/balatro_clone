@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f2efcc5dad6e942869096fbb45e0e3, type: 3}
+  m_Name: jollyJoker
+  m_EditorClassIdentifier: 
+  LogicID: JollyJoker
+  Name: Jolly Joker
+  Artwork: {fileID: -4594177665464853269, guid: 392ce01512a38274eaf4d4e57593b29e, type: 3}
+  Description: 
+  effectData:
+  - rid: 6407944079347548455
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944079347548455
+      type: {class: EffectPlusMult, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Mult: 8

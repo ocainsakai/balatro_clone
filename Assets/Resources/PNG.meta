@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 66e83eec80980dc40bb2f1424e338753
+<<<<<<<< HEAD:Assets/Resources/PNG.meta
+guid: 4596a7c5cb23d444b82d39f6853d8568
+========
+guid: 14dcecb7e2f5df84aa08489c55fe7f40
+>>>>>>>> c336efcf3c80f89d54d90f483cf3ed7223a1afe5:Assets/Resources/Art.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

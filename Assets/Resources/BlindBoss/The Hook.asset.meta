@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: ca8e2756e06fa6349b40e18b170ac27f
+<<<<<<<< HEAD:Assets/Resources/BlindBoss/The Hook.asset.meta
+guid: 11c5a2c5aac18af4d91adf53db53c2e0
+========
+guid: e95411cd104e4784a995def98c900884
+>>>>>>>> c336efcf3c80f89d54d90f483cf3ed7223a1afe5:Assets/Resources/CardDatabase.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
