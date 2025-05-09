@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Two_Diamonds
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 58051926
+    Part2: 1265195805
+    Part3: 2281281694
+    Part4: 2541126187
+  Name: Two Of Diamonds
+  Artwork: {fileID: -6014251829394900164, guid: dd265ef14640f5342821425808ac1c2d, type: 3}
   Description: 
   Rank: 2
   Suit: 1
   Effect:
-    rid: -2
+    rid: 6407944088556667181
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667181
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 2

@@ -8,7 +8,8 @@ namespace Game.Cards
     {
         [SerializeField] private CardView cardPrefab;
         [SerializeField] private JokerCardView jokerPrefab;
-        public List<CardView> pooling = new List<CardView>();
+        //public List<CardView> pooling = new List<CardView>();
+        public Dictionary<SerializableGuid, CardView> cardViews = new Dictionary<SerializableGuid, CardView>();
         public JokerCardView CreateJoker(JokerCard joker, Transform parent)
         {
             var jokerView = Instantiate(jokerPrefab, transform.position, Quaternion.identity, parent);
@@ -17,7 +18,7 @@ namespace Game.Cards
         }
         public CardView CreateCard(Card card, Transform parent)
         {
-            var cardView = GetCardFormPool(card);
+            var cardView = GetCardFormID(card.CardID);
             if (cardView == null)
             {
                 cardView = Instantiate(cardPrefab, transform.position,Quaternion.identity,parent);
@@ -27,26 +28,22 @@ namespace Game.Cards
                 cardView.gameObject.SetActive(true);
             }
             cardView.SetData(card);
-            pooling.Add(cardView);
+            //pooling.Add(cardView);
+            cardViews[card.CardID] = cardView;
             return cardView;
         }
         public void ReturnCardToPool(Card card)
         {
-            var cardView = GetCardFormPool(card);
+            var cardView = GetCardFormID(card.CardID);
             if (cardView != null)
             {
                 cardView.transform.SetParent(transform);
                 cardView.gameObject.SetActive(false);
             }
         }
-        public CardView GetCardFormPool(Card card)
+        public CardView GetCardFormID(SerializableGuid cardID)
         {
-            foreach (var item in pooling)
-            {
-                if (item.GetCard().Data == card.Data)
-                    return item;
-            }
-            return null;
+            return cardViews[cardID];
         }
     }
 }

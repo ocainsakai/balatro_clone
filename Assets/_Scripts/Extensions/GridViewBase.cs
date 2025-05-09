@@ -39,7 +39,7 @@ public abstract class GridViewBase<T> : MonoBehaviour
             });
             _cards.OnDiscardCard.Subscribe(x =>
             {
-                mainProces.Enqueue(() => cardFactory.GetCardFormPool(x).OnDiscard());
+                mainProces.Enqueue(() => cardFactory.GetCardFormID(x.CardID).OnDiscard());
             });
         }
     }
@@ -47,14 +47,14 @@ public abstract class GridViewBase<T> : MonoBehaviour
     {
         for (int i = 0;  i < _cards.Count; i ++)
         {
-            var cardView = cardFactory.GetCardFormPool(_cards.Cards[i]);
+            var cardView = cardFactory.GetCardFormID(_cards.Cards[i].CardID);
             cardView.transform.SetSiblingIndex(i);
         }
         await _layout.RepositionChildren();
     }
     protected async Task OnCardAdd(Card card)
     {
-        var cardView = cardFactory.GetCardFormPool(card);
+        var cardView = cardFactory.GetCardFormID(card.CardID);
         if (cardView == null)
         {
             cardView = cardFactory.CreateCard(card, transform);

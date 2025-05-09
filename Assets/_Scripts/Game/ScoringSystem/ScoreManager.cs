@@ -15,8 +15,8 @@ namespace Game.System.Score
         private HandViewModel handViewModel;
         private ReactiveProperty<int> roundScore = new();
         public IReadOnlyReactiveProperty<int> RoundScore => roundScore;
-        public Subject<OnScoreContext> OnScore = new Subject<OnScoreContext>();
-        public Subject<PostScoreContext> PostScore = new Subject<PostScoreContext>();
+        public Subject<ConditionContext> OnScore = new Subject<ConditionContext>();
+        public Subject<ConditionContext> PostScore = new Subject<ConditionContext>();
         public Subject<Unit> OnRoundEnd = new Subject<Unit>();
         [Inject]
         public ScoreManager(PokerViewModel pokerViewModel, PlayManager playManager, HandViewModel handViewModel, BlindManager blindManager)
@@ -34,14 +34,14 @@ namespace Game.System.Score
             for (int i = 0; i < handViewModel.Count; i++)
             {
                 var card = handViewModel.Cards[i];
-                if (card.State.Value == CardState.Selected)
+                if (card.State.Value == CardState.Select)
                 {
                     temp.Add(card);
                 }
             }
             foreach(var card in temp)
             {
-                card.State.Value = CardState.Played;
+                card.State.Value = CardState.Play;
                 Add(card);
                 handViewModel.Remove(card);
             }
@@ -52,16 +52,16 @@ namespace Game.System.Score
         {
             foreach (var card in _cards)
             {
-                OnScoreContext onScoreContext = new OnScoreContext(card);
+                ConditionContext onScoreContext = new ConditionContext(card.CardID);
                 if (PokerEvaluator.comboCards.Contains(card.Data))
                 {
-                    viewModel.ApplyEffect(card.GetType());
+                    card.Apply(viewModel);
                     OnScore.OnNext(onScoreContext);
                 }
             }
-            PostScoreContext postScoreContext = new PostScoreContext(_cards.Select(x => x.Data).ToList());
-            PostScore.OnNext(postScoreContext);
-            ScoreCalculate();
+            //PostScoreContext postScoreContext = new PostScoreContext(_cards.Select(x => x.Data).ToList());
+            //PostScore.OnNext(postScoreContext);
+            //ScoreCalculate();
         }
         public void ScoreCalculate()
         {

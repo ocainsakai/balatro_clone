@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60624a490b3aefc45b81b50258f90f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 596780316}
 --- !u!1 &1781309156
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4c5010773083a4bb33d64b80c1935e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 3733468437545788566, guid: 7800e67a83522ee4e837a19df1ce2b44, type: 3}
+  cardPrefab: {fileID: 3733468437545788566, guid: a7db352f3985fd647a8fd0379864c645, type: 3}
 --- !u!1 &1907766994
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,8 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26d7c15b8c69a24698b0fb190629de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 3733468437545788566, guid: 7800e67a83522ee4e837a19df1ce2b44, type: 3}
-  jokerPrefab: {fileID: 3894143491433407561, guid: 83e62d9bd1979624ea74219121ee8084, type: 3}
+  cardPrefab: {fileID: 3733468437545788566, guid: a7db352f3985fd647a8fd0379864c645, type: 3}
+  jokerPrefab: {fileID: 3894143491433407561, guid: cf628e51a9aae6a4fbd25ca7b2cab6ef, type: 3}
   pooling: []
 --- !u!1 &1993680691
 GameObject:

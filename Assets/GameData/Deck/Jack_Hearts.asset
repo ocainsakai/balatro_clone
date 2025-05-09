@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Jack_Hearts
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 2062396446
+    Part2: 1079937831
+    Part3: 2506258340
+    Part4: 615658648
+  Name: Jack Of Hearts
+  Artwork: {fileID: -7272930264268907403, guid: c977b6b7c87c3ac4597c8de0a0395f97, type: 3}
   Description: 
   Rank: 11
   Suit: 0
   Effect:
-    rid: -2
+    rid: 6407944088556667195
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667195
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 10

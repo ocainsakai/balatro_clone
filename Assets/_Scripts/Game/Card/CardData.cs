@@ -1,5 +1,6 @@
 using System;
 using Game.Jokers;
+using UnityEditor;
 using UnityEngine;
 
 namespace Game.Cards
@@ -7,6 +8,7 @@ namespace Game.Cards
     [CreateAssetMenu(fileName = "CardData", menuName = "Scriptable Objects/CardData")]
     public class CardData : ScriptableObject
     {
+        public SerializableGuid CardDataId;
         public string Name;
         public Sprite Artwork;
         public string Description;
@@ -15,7 +17,14 @@ namespace Game.Cards
         public int Value => (int) Rank == 14 ? 11 : (int) Rank > 10 ? 10 : (int)Rank;
 
         [SerializeReference]
-        public EffectData Effect; 
+        public EffectData Effect;
+
+#if UNITY_EDITOR
+        public void RegenerateGuid()
+        {
+            CardDataId = SerializableGuid.NewGuid();
+            EditorUtility.SetDirty(this); // Mark as changed so Unity will save
+        }
         void OnValidate()
         {
             if (!string.IsNullOrEmpty(this.name))
@@ -35,6 +44,8 @@ namespace Game.Cards
                 Effect = new EffectPlusChip() {Chip = Value};
             }
         }
+#endif
+
     }
     public enum CardSuit
     {

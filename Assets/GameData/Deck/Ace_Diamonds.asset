@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Ace_Diamonds
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 3164501738
+    Part2: 1195272727
+    Part3: 1556784814
+    Part4: 2604124222
+  Name: Ace Of Diamonds
+  Artwork: {fileID: 9213952401200370327, guid: 63c4116c4b6aae94885c400255314553, type: 3}
   Description: 
   Rank: 14
   Suit: 1
   Effect:
-    rid: -2
+    rid: 6407944088556667205
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667205
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 11

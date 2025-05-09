@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Nine_Clubs
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 866610689
+    Part2: 1335211947
+    Part3: 2084695988
+    Part4: 2500881458
+  Name: Nine Of Clubs
+  Artwork: {fileID: 5542213809070044991, guid: 2ed879e1a7f1e1749ac9b6ea91c0f10c, type: 3}
   Description: 
   Rank: 9
   Suit: 2
   Effect:
-    rid: -2
+    rid: 6407944088556667179
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667179
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 9

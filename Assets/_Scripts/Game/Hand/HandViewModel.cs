@@ -36,7 +36,7 @@ namespace Game.Player.Hands
             for (int i = Count - 1; i >= 0; i--)
             {
                 var card = _cards[i];
-                if (card.State.Value == CardState.Selected)
+                if (card.State.Value == CardState.Select)
                 {
                     OnDiscardCard.OnNext(card);
                     _cards.RemoveAt(i);
@@ -61,7 +61,7 @@ namespace Game.Player.Hands
         {
             OnCardStateChanged.Subscribe(x =>
             {
-                CanSelectCard.Value = GetCardInState(CardState.Selected).Count() < 5;
+                CanSelectCard.Value = GetCardInState(CardState.Select).Count() < 5;
             });
             CanSelectCard.Subscribe(x => SetCanSelectCards(CanSelectCard.Value));
         }

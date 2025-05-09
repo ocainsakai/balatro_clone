@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Nine_Diamonds
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 1909406463
+    Part2: 1098523799
+    Part3: 321159843
+    Part4: 129718368
+  Name: Nine Of Diamonds
+  Artwork: {fileID: -7012663909080327202, guid: 6b1c24d2ebf5ac04fb490737be2ae5b9, type: 3}
   Description: 
   Rank: 9
   Suit: 1
   Effect:
-    rid: -2
+    rid: 6407944088556667222
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667222
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 9

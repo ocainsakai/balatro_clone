@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Five_Clubs
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 2402872467
+    Part2: 1220024001
+    Part3: 3350794917
+    Part4: 3363788911
+  Name: Five Of Clubs
+  Artwork: {fileID: 5290955734620469090, guid: 469bf15a1c24b804cb37244b035b1aa4, type: 3}
   Description: 
   Rank: 5
   Suit: 2
   Effect:
-    rid: -2
+    rid: 6407944088556667193
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667193
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 5

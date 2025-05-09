@@ -11,11 +11,32 @@ public static class CardGenerator
 {
 #if UNITY_EDITOR
     public static string folderPath = "Assets/GameData/Deck";
-    public static List<CardData> generatedDeck;
+    
 
     /// <summary>
     /// Generate and save a full standard deck (52 cards).
     /// </summary>
+    /// pu
+    public static void RegenerateGUID()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:CardData", new[] { folderPath });
+
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            CardData card = AssetDatabase.LoadAssetAtPath<CardData>(path);
+
+            if (card != null)
+            {
+                card.RegenerateGuid(); 
+            }
+        }
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+
+
+    }
     public static void GenerateDeck()
     {
         if (!Directory.Exists(folderPath))
@@ -23,7 +44,6 @@ public static class CardGenerator
             Directory.CreateDirectory(folderPath);
         }
 
-        generatedDeck = new List<CardData>();
 
         foreach (CardSuit suit in System.Enum.GetValues(typeof(CardSuit)))
         {
@@ -47,13 +67,11 @@ public static class CardGenerator
                 assetPath = AssetDatabase.GenerateUniqueAssetPath(assetPath);
 
                 AssetDatabase.CreateAsset(newCard, assetPath);
-                generatedDeck.Add(newCard);
             }
         }
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        Debug.Log($"Deck generated with {generatedDeck.Count} cards.");
     }
 #endif
 }

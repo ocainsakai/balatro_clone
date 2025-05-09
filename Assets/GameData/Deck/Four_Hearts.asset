@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Four_Hearts
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 2941850892
+    Part2: 1249079831
+    Part3: 3208241305
+    Part4: 2305914447
+  Name: Four Of Hearts
+  Artwork: {fileID: 6412624488069510536, guid: 2105bf12ae4dc4b4d8562be5a494a138, type: 3}
   Description: 
   Rank: 4
   Suit: 0
   Effect:
-    rid: -2
+    rid: 6407944088556667213
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667213
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 4

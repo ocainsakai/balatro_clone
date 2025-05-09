@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Two_Spades
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 2024432967
+    Part2: 1116874891
+    Part3: 3735275684
+    Part4: 1737988415
+  Name: Two Of Spades
+  Artwork: {fileID: -2566685888177535599, guid: 176d049574d5b744bbee4ed589a27dc9, type: 3}
   Description: 
   Rank: 2
   Suit: 3
   Effect:
-    rid: -2
+    rid: 6407944088556667203
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667203
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 2

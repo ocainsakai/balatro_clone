@@ -8,7 +8,7 @@ namespace Game.Jokers
 
     public class JokerCardData : ScriptableObject
     {
-        public string LogicID;
+        //public string LogicID;
         public string Name;
         public Sprite Artwork;
         public string Description;

@@ -17,8 +17,8 @@ namespace Game.Jokers
         public JokerViewModel(ScoreManager scoreManager, PokerViewModel pokerViewModel)
         {
             this.pokerViewModel = pokerViewModel;
-            scoreManager.OnScore.Subscribe(x => OnScoreHandle(x));
-            scoreManager.PostScore.Subscribe(x => PostScoreHandle(x));
+            //scoreManager.OnScore.Subscribe(x => OnScoreHandle(x));
+            //scoreManager.PostScore.Subscribe(x => PostScoreHandle(x));
         }
         private void PostScoreHandle(PostScoreContext context)
         {

@@ -19,8 +19,11 @@ namespace Editor
 
             if (GUILayout.Button("Generate Deck"))
             {
-                
                 CardGenerator.GenerateDeck();
+            }
+            if (GUILayout.Button("Regenerate GUID"))
+            {
+                CardGenerator.RegenerateGUID();
             }
         }
     }

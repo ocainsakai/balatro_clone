@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eceead5200f1704dbf41289d88b3ba5, type: 3}
   m_Name: Queen_Hearts
   m_EditorClassIdentifier: 
-  Name: 
-  Artwork: {fileID: 0}
+  CardDataId:
+    Part1: 787912549
+    Part2: 1275362022
+    Part3: 1199635846
+    Part4: 3084014206
+  Name: Queen Of Hearts
+  Artwork: {fileID: -1766300541523665513, guid: 3a6a18dfec1f4cf48a112a1dbf79f78f, type: 3}
   Description: 
   Rank: 12
   Suit: 0
   Effect:
-    rid: -2
+    rid: 6407944088556667186
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6407944088556667186
+      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Chip: 10

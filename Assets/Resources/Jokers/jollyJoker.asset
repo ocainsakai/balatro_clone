@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f2efcc5dad6e942869096fbb45e0e3, type: 3}
   m_Name: jollyJoker
   m_EditorClassIdentifier: 
-  LogicID: JollyJoker
   Name: Jolly Joker
   Artwork: {fileID: -4594177665464853269, guid: 392ce01512a38274eaf4d4e57593b29e, type: 3}
   Description: 
-  effectData:
-  - rid: 6407944079347548455
+  effectsData:
+  - rid: 6407944087842324608
+  activeConditions:
+  - rid: 6407944087842325129
   references:
     version: 2
     RefIds:
-    - rid: 6407944079347548455
+    - rid: 6407944087842324608
       type: {class: EffectPlusMult, ns: Game.Jokers, asm: Assembly-CSharp}
       data:
         Mult: 8
+    - rid: 6407944087842325129
+      type: {class: HasPairCondition, ns: , asm: Assembly-CSharp}
+      data: 

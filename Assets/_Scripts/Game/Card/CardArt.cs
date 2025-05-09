@@ -15,7 +15,7 @@ public class CardArt : MonoBehaviour
             {
                 transform.DOLocalMoveY(0, 0.1f);
             }
-            else if (x == CardState.Selected)
+            else if (x == CardState.Select)
             {
                 transform.DOLocalMoveY(0.5f, 0.1f);
             }
@@ -24,13 +24,13 @@ public class CardArt : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        if (_card.State.Value == CardState.Selected)
+        if (_card.State.Value == CardState.Select)
         {
             _card.State.Value = CardState.Hold;
         }
         else if (_card.State.Value == CardState.Hold && _card.CanSelect)
         {
-            _card.State.Value = CardState.Selected;
+            _card.State.Value = CardState.Select;
 
         }
     }
