@@ -16,3 +16,12 @@ MonoBehaviour:
   Name: Joker
   Artwork: {fileID: 6421856297837412101, guid: 4139f4ad67b16f54d918a9df54d67820, type: 3}
   Description: 
+  effectData:
+  - rid: 6407944079347548454
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944079347548454
+      type: {class: EffectPlusMult, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Mult: 4

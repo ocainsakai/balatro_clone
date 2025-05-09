@@ -22,11 +22,6 @@ namespace Editor
                 
                 CardGenerator.GenerateDeck();
             }
-
-            if (GUILayout.Button("Print Deck"))
-            {
-                CardGenerator.PrintDeck();
-            }
         }
     }
 }

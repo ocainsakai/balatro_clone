@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Jokers
@@ -11,5 +13,11 @@ namespace Game.Jokers
         public Sprite Artwork;
         public string Description;
 
+        [SerializeReference, SubclassSelector]
+        public List<EffectData> effectsData;
+
+        [SerializeReference, SubclassSelector]
+        public List<EffectCondition> activeConditions;
     }
+
 }

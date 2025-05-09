@@ -6,17 +6,16 @@ using VContainer;
 
 namespace Game.Jokers
 {
-    public class JokerView : GridViewBase
+    public class JokerView : GridViewBase<JokerView>
     {
-        [Inject] CardFactory cardFactory;
         [Inject] JokerViewModel viewModel;
         [SerializeField] List<JokerCardData> starting;
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             foreach (var item in starting)
             {
-                var logic = JokerLogicFactory.CreateLogic(item.LogicID);
-                var joker = new JokerCard(item, logic);
+                var joker = new JokerCard(item);
                 viewModel.Add(joker);
                 cardFactory.CreateJoker(joker, transform);
             }

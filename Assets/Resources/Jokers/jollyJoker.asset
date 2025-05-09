@@ -16,3 +16,12 @@ MonoBehaviour:
   Name: Jolly Joker
   Artwork: {fileID: -4594177665464853269, guid: 392ce01512a38274eaf4d4e57593b29e, type: 3}
   Description: 
+  effectData:
+  - rid: 6407944079347548455
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944079347548455
+      type: {class: EffectPlusMult, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Mult: 8

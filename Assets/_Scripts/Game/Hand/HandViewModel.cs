@@ -3,8 +3,9 @@ using Game.Cards.Decks;
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
+using UnityEngine;
 using VContainer;
-using static Game.Cards.CardsSorter;
+//using static Game.Cards.CardsSorter;
 
 namespace Game.Player.Hands
 {
@@ -19,7 +20,29 @@ namespace Game.Player.Hands
             this.deck = deck;
             InitSelectCondition();
             playManager.OnDraw.Subscribe(x => DrawHand());
-            playManager.OnDiscard.Subscribe();
+            playManager.OnDiscard.Subscribe(x => Discard());
+        }
+        public void Clear()
+        {
+            for (int i = Count - 1; i >= 0; i--)
+            {
+                var card = Cards[i];
+                _cards.RemoveAt(i);
+                OnDiscardCard.OnNext(card);
+            }
+        }
+        public void Discard()
+        {
+            for (int i = Count - 1; i >= 0; i--)
+            {
+                var card = _cards[i];
+                if (card.State.Value == CardState.Selected)
+                {
+                    OnDiscardCard.OnNext(card);
+                    _cards.RemoveAt(i);
+                }
+            }
+            DrawHand();
         }
         public void DrawHand()
         {
@@ -31,7 +54,8 @@ namespace Game.Player.Hands
                 card.State.Subscribe(x => OnCardStateChanged.OnNext(card));
                 Add(card);
             }
-            ResetAllCards();   
+            ResetAllCards();
+            Sort(CardsSorter.SortType.ByRank);
         }
         private void InitSelectCondition()
         {
@@ -53,7 +77,10 @@ namespace Game.Player.Hands
         {
             return _cards.Where(x => x.State.Value == state);
         }
-
+        public void Reset()
+        {
+            
+        }
         public void ResetAllCards()
         {
             foreach (var card in Cards)

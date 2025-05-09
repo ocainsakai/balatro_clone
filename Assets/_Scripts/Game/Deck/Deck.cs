@@ -17,12 +17,11 @@ namespace Game.Cards.Decks
         }
         public void Shuffle()
         {
-            var cards = new List<Card>(Cards);
-            cards = cards.OrderBy(x => Random.value).ToList();
-            for (int i = 0; i <  Count; i++)
+            var shuffled = _cards.OrderBy(x => Random.value).ToList();
+            _cards.Clear();
+            foreach (var card in shuffled)
             {
-                int newIndex = cards.IndexOf(_cards[i]);
-                _cards.Move(i, newIndex);
+                _cards.Add(card);
             }
         }
     }

@@ -1,10 +1,10 @@
 using Game.Cards;
 using Game.Jokers;
 using Game.Player.Hands;
-using System.Collections.Generic;
+using System;
 using System.Linq;
+using System.Reflection;
 using UniRx;
-using UnityEngine;
 using VContainer;
 
 namespace Game.Pokers
@@ -37,16 +37,13 @@ namespace Game.Pokers
             });
         }
         public void ApplyEffect(object effect) {
-            if (effect is IEffectPlusMult)
+            if (effect is EffectPlusMult)
             {
-                Debug.Log("+Mult");
-                Mult.Value += (effect as IEffectPlusMult).Mult;
+                Mult.Value += (effect as EffectPlusMult).Mult;
             }
-            if (effect is IEffectPlusChip)
+            if (effect is EffectPlusChip)
             {
-                Debug.Log("+Chip");
-
-                Chip.Value += (effect as IEffectPlusChip).Chip;
+                Chip.Value += (effect as EffectPlusChip).Chip;
             }
         }
 

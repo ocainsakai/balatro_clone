@@ -3,10 +3,8 @@ namespace Game.Jokers
     public class JokerCard
     {
         public JokerCardData Data;
-        public IJokerLogic jokerLogic;
-        public JokerCard(JokerCardData data, IJokerLogic logic) {
+        public JokerCard(JokerCardData data) {
             this.Data = data;
-            this.jokerLogic = logic;
         }
     }
 }

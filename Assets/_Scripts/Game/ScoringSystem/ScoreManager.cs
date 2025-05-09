@@ -17,14 +17,16 @@ namespace Game.System.Score
         public IReadOnlyReactiveProperty<int> RoundScore => roundScore;
         public Subject<OnScoreContext> OnScore = new Subject<OnScoreContext>();
         public Subject<PostScoreContext> PostScore = new Subject<PostScoreContext>();
-        //public Subject<int> OnScoreCalculated = new Subject<int>();
+        public Subject<Unit> OnRoundEnd = new Subject<Unit>();
         [Inject]
         public ScoreManager(PokerViewModel pokerViewModel, PlayManager playManager, HandViewModel handViewModel, BlindManager blindManager)
         {
             this.blindManager = blindManager;
             this.viewModel = pokerViewModel;
             this.handViewModel = handViewModel;
-            playManager.OnPlayed.Subscribe( x => OnPlayHandle());
+            playManager.OnPlayed.Subscribe(x => OnPlayHandle());
+
+
         }
         private void OnPlayHandle()
         {
@@ -43,6 +45,7 @@ namespace Game.System.Score
                 Add(card);
                 handViewModel.Remove(card);
             }
+            Score();
         }
 
         public void Score()
@@ -52,21 +55,24 @@ namespace Game.System.Score
                 OnScoreContext onScoreContext = new OnScoreContext(card);
                 if (PokerEvaluator.comboCards.Contains(card.Data))
                 {
-                    viewModel.ApplyEffect(card);
+                    viewModel.ApplyEffect(card.GetType());
                     OnScore.OnNext(onScoreContext);
                 }
             }
             PostScoreContext postScoreContext = new PostScoreContext(_cards.Select(x => x.Data).ToList());
             PostScore.OnNext(postScoreContext);
+            ScoreCalculate();
         }
         public void ScoreCalculate()
         {
             roundScore.Value += (viewModel.Chip.Value * viewModel.Mult.Value);
-            //OnScoreCalculated.OnNext(roundScore.Value);
             if (roundScore.Value >= blindManager.targetScore)
             {
-
-            } else
+                handViewModel.Clear();
+                _cards.Clear();
+                OnRoundEnd.OnNext(Unit.Default);
+            }
+            else
             {
                 _cards.Clear();
                 handViewModel.DrawHand();

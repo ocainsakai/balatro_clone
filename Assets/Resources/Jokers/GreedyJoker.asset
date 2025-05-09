@@ -16,3 +16,18 @@ MonoBehaviour:
   Name: Greed Joker
   Artwork: {fileID: -6195282023822285453, guid: 84574948c2639ec48bdf107333544c9a, type: 3}
   Description: 
+  effectsData:
+  - rid: 6407944079347548594
+  activeConditions:
+  - rid: 6407944079347548641
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944079347548594
+      type: {class: EffectPlusMult, ns: Game.Jokers, asm: Assembly-CSharp}
+      data:
+        Mult: 3
+    - rid: 6407944079347548641
+      type: {class: SuitCondition, ns: , asm: Assembly-CSharp}
+      data:
+        CardSuit: 0

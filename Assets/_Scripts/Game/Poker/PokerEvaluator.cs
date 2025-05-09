@@ -16,7 +16,7 @@ namespace Game.Pokers
         {
             var result = new PokerResult() { poker = PokerDatabase.None};
             if (cards.Count == 0 ) return result;
-            var ranks = cards.Select(c => c.Data.Rank).ToList();
+            var ranks = cards.Select(c => (int) c.Data.Rank).ToList();
             var suits = cards.Select(c => c.Data.Suit).ToList();
 
             var rankGroups = ranks.GroupBy(r => r).OrderByDescending(g => g.Count()).ThenByDescending(g => g.Key).ToList();
@@ -29,7 +29,7 @@ namespace Game.Pokers
             {
                 var flushSuit = suitGroups[0].Key;
                 result.comboCards = cards
-                    .Where(c => c.Data.Suit == flushSuit && straightRanks.Contains(c.Data.Rank))
+                    .Where(c => c.Data.Suit == flushSuit && straightRanks.Contains((int)c.Data.Rank))
                     .Select(c => c.Data)
                     .ToList();
 
@@ -39,7 +39,7 @@ namespace Game.Pokers
             if (rankGroups[0].Count() == 4)
             {
                 result.poker = PokerDatabase.FourOfAKind;
-                result.comboCards = cards.Where(c => c.Data.Rank == rankGroups[0].Key)
+                result.comboCards = cards.Where(c =>(int)c.Data.Rank == rankGroups[0].Key)
                     .Select(c => c.Data)
                     .ToList();
                 return result;
@@ -50,7 +50,7 @@ namespace Game.Pokers
             {
                 result.poker = PokerDatabase.FullHouse;
                 result.comboCards = cards.Where(c =>
-                    c.Data.Rank == rankGroups[0].Key || c.Data.Rank == rankGroups[1].Key)
+                   (int)  c.Data.Rank == rankGroups[0].Key || (int) c.Data.Rank == rankGroups[1].Key)
                     .Select(c => c.Data)
                     .ToList();
                 return result;
@@ -76,7 +76,7 @@ namespace Game.Pokers
             {
                 result.poker = PokerDatabase.Straight;
                 result.comboCards = cards
-                    .Where(c => straightRanks.Contains(c.Data.Rank))
+                    .Where(c => straightRanks.Contains((int)c.Data.Rank))
                     .Select(c => c.Data)
                     .ToList();
                 return result;
@@ -86,7 +86,7 @@ namespace Game.Pokers
             if (rankGroups[0].Count() == 3)
             {
                 result.poker = PokerDatabase.ThreeOfAKind;
-                result.comboCards = cards.Where(c => c.Data.Rank == rankGroups[0].Key).Select(c => c.Data).ToList();
+                result.comboCards = cards.Where(c => (int)c.Data.Rank == rankGroups[0].Key).Select(c => c.Data).ToList();
                 return result;
             }
 
@@ -95,7 +95,7 @@ namespace Game.Pokers
             {
                 result.poker = PokerDatabase.TwoPair;
                 var pairRanks = new[] { rankGroups[0].Key, rankGroups[1].Key };
-                result.comboCards = cards.Where(c => pairRanks.Contains(c.Data.Rank)).Select(c => c.Data).ToList();
+                result.comboCards = cards.Where(c => pairRanks.Contains((int)c.Data.Rank)).Select(c => c.Data).ToList();
                 return result;
             }
 
@@ -103,7 +103,7 @@ namespace Game.Pokers
             if (rankGroups[0].Count() == 2)
             {
                 result.poker = PokerDatabase.Pair;
-                result.comboCards = cards.Where(c => c.Data.Rank == rankGroups[0].Key).Select(c => c.Data).ToList();
+                result.comboCards = cards.Where(c => (int)c.Data.Rank == rankGroups[0].Key).Select(c => c.Data).ToList();
                 return result;
             }
 

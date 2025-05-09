@@ -17,3 +17,10 @@ MonoBehaviour:
   Description: 
   Rank: 12
   Suit: 0
+  Effect:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

@@ -11,14 +11,11 @@ namespace Game.Cards
         Played,
         Scored,
     }
-    public class Card : IEffectPlusChip
+    public class Card : EffectPlusChip
 
     {
         public CardData Data;
-        public int Value => Data.Rank == 14 ? 11 : Data.Rank > 10 ? 10 : Data.Rank;
-
-        public int Chip => Value;
-
+        
         public bool CanSelect;
        
         public ReactiveProperty<CardState> State = new ReactiveProperty<CardState>(CardState.Hold) ;

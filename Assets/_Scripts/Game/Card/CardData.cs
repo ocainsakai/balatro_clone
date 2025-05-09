@@ -1,3 +1,5 @@
+using System;
+using Game.Jokers;
 using UnityEngine;
 
 namespace Game.Cards
@@ -8,50 +10,55 @@ namespace Game.Cards
         public string Name;
         public Sprite Artwork;
         public string Description;
-        public int Rank;
-        public int Suit;
+        public CardRank Rank;
+        public CardSuit Suit;
+        public int Value => (int) Rank == 14 ? 11 : (int) Rank > 10 ? 10 : (int)Rank;
 
+        [SerializeReference]
+        public EffectData Effect; 
         void OnValidate()
         {
             if (!string.IsNullOrEmpty(this.name))
             {
                 var token = name.Split('_');
-                if (token.Length > 1)
+                if (token.Length > 1)   
                 {
                     Suit = CardParser.ParseSuit(name);
                     Rank = CardParser.ParseRank(name);
                     int i = Rank == CardRank.Ace ? 1 : (int)Rank;
 
-                    var sprites = Resources.Load<Sprite>($"Art/PNG/card-{CardParser.GetSuitName(Suit)}-{i}");
+                    var sprites = Resources.Load<Sprite>($"Art/PNG/card-{Suit.ToString()}-{i}");
                     Artwork = sprites;
 
                 }
-                Name = CardParser.GetRankName(Rank) + " Of " + CardParser.GetSuitName(Suit);
+                Name = (Rank) + " Of " + (Suit);
+                Effect = new EffectPlusChip() {Chip = Value};
             }
         }
     }
-    public struct CardSuit
+    public enum CardSuit
     {
-        public const int Hearts = 0;
-        public const int Diamonds = 1;
-        public const int Clubs = 2;
-        public const int Spades = 3;
+        Hearts = 0,
+        Diamonds = 1,
+        Clubs = 2,
+        Spades = 3,
     }
-    public struct CardRank
+    public enum CardRank
     {
-        public const int LowAce = 1;
-        public const int Two = 2;
-        public const int Three = 3;
-        public const int Four = 4;
-        public const int Five = 5;
-        public const int Six = 6;
-        public const int Seven = 7;
-        public const int Eight = 8;
-        public const int Nine = 9;
-        public const int Ten = 10;
-        public const int Jack = 11;
-        public const int Queen = 12;
-        public const int King = 13;
-        public const int Ace = 14;
+        LowAce = 1,
+        Two = 2,
+        Three = 3,
+        Four = 4,
+        Five = 5,
+        Six = 6,
+        Seven = 7,
+        Eight = 8,
+        Nine = 9,
+        Ten = 10,
+        Jack = 11,
+        Queen = 12,
+        King = 13,
+        Ace = 14
     }
+
 }

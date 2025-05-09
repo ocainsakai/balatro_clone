@@ -18,9 +18,6 @@ namespace Game
         public Subject<Unit> OnDiscard = new Subject<Unit>();   
         public Subject<Unit> OnPlayed = new Subject<Unit>();
 
-
-        private List<Card> discardsPile = new();
-
         private void Awake()
         {
             blindManager.CurrentAnte.Value++;
