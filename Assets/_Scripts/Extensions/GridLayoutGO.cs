@@ -1,5 +1,7 @@
-﻿using DG.Tweening;
-using System.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using System.Collections.Generic;
+//using System.Threading.Tasks;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -29,16 +31,18 @@ public class GridLayoutGO : MonoBehaviour
     public enum VerticalAlignment { Top, Middle, Bottom }
     private void Start()
     {
-        if (autoRepositionOnStart)
+        if (autoRepositionOnStart && useAnimation)
         {
             Invoke( "RepositionChildren", 0.2f);
         }
     }
-    public async Task RepositionChildren()
+    public async UniTask RepositionChildren()
     {
+        List<UniTask> tasks = new List<UniTask>();
         if (transform.childCount == 0)
-            await Task.Yield();
+            await UniTask.Yield();
 
+        //Debug.Log(transform.childCount);
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).DOKill(); 
@@ -52,43 +56,46 @@ public class GridLayoutGO : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Transform child = transform.GetChild(i);
-            int row = i / columns;
-            int col = i % columns;
+            Vector3 localPos = CalculatePosition(columns, rows, childSize, i);
 
-            // Tính vị trí cơ bản
-            float xPos = col * (childSize.x + spacingX) + padding.x;
-            float yPos = -row * (childSize.y + spacingY) - padding.y;
-
-            // Căn chỉnh ngang
-            if (horizontalAlignment == HorizontalAlignment.Center)
-                xPos += (columns - 1) * (childSize.x + spacingX) * -0.5f;
-            else if (horizontalAlignment == HorizontalAlignment.Right)
-                xPos += (columns - 1) * (childSize.x + spacingX) * -1f;
-
-            // Căn chỉnh dọc
-            if (verticalAlignment == VerticalAlignment.Middle)
-                yPos += (rows - 1) * (childSize.y + spacingY) * 0.5f;
-            else if (verticalAlignment == VerticalAlignment.Bottom)
-                yPos += (rows - 1) * (childSize.y + spacingY);
-
-            // Cập nhật vị trí
-            Vector3 localPos = new Vector3(xPos, yPos, 0f);
-            if (centerPivot)
-            {
-                localPos.x -= (columns - 1) * (childSize.x + spacingX) * 0.5f;
-                localPos.y += (rows - 1) * (childSize.y + spacingY) * 0.5f;
-            }
-
-            if (useAnimation && !Application.isEditor || Application.isPlaying)
-            {
-                child?.DOLocalMove(localPos, animationDuration).SetEase(animationEase);
-            }
-            else
-            {
-                child.localPosition = localPos;
-            }
+            tasks.Add(child.DOLocalMove(localPos, animationDuration)
+                            .SetEase(animationEase)
+                            .AsyncWaitForCompletion()
+                            .AsUniTask());
         }
-        await Task.Delay(200);
+        await UniTask.WhenAll(tasks);
+    }
+
+    private Vector3 CalculatePosition(int columns, int rows, Vector2 childSize, int i)
+    {
+        int row = i / columns;
+        int col = i % columns;
+
+        // Tính vị trí cơ bản
+        float xPos = col * (childSize.x + spacingX) + padding.x;
+        float yPos = -row * (childSize.y + spacingY) - padding.y;
+
+        // Căn chỉnh ngang
+        if (horizontalAlignment == HorizontalAlignment.Center)
+            xPos += (columns - 1) * (childSize.x + spacingX) * -0.5f;
+        else if (horizontalAlignment == HorizontalAlignment.Right)
+            xPos += (columns - 1) * (childSize.x + spacingX) * -1f;
+
+        // Căn chỉnh dọc
+        if (verticalAlignment == VerticalAlignment.Middle)
+            yPos += (rows - 1) * (childSize.y + spacingY) * 0.5f;
+        else if (verticalAlignment == VerticalAlignment.Bottom)
+            yPos += (rows - 1) * (childSize.y + spacingY);
+
+        // Cập nhật vị trí
+        Vector3 localPos = new Vector3(xPos, yPos, 0f);
+        if (centerPivot)
+        {
+            localPos.x -= (columns - 1) * (childSize.x + spacingX) * 0.5f;
+            localPos.y += (rows - 1) * (childSize.y + spacingY) * 0.5f;
+        }
+
+        return localPos;
     }
 
     private Vector2 CalculateChildSizeFromBounds()

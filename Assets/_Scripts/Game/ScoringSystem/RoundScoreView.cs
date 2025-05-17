@@ -6,7 +6,7 @@ namespace Game.System.Score
 {
     public class RoundScoreView : MonoBehaviour
     {
-        [Inject] ScoreManager scoreManager;
+        [Inject] ScoreSystem scoreManager;
         private UIDocument document;
         private Label roundScore;
 

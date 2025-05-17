@@ -12,12 +12,11 @@ namespace Game.Jokers
         public string Name;
         public Sprite Artwork;
         public string Description;
-
-        [SerializeReference, SubclassSelector]
-        public List<EffectData> effectsData;
-
-        [SerializeReference, SubclassSelector]
-        public List<EffectCondition> activeConditions;
+        public Trigger trigger;
     }
-
+    public enum Trigger
+    {
+        Independent,
+        OnScore,
+    }
 }

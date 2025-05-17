@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f2efcc5dad6e942869096fbb45e0e3, type: 3}
   m_Name: GreedyJoker
   m_EditorClassIdentifier: 
-  LogicID: GreedyJoker
   Name: Greed Joker
   Artwork: {fileID: -6195282023822285453, guid: 84574948c2639ec48bdf107333544c9a, type: 3}
   Description: 
+  trigger: 1
   effectsData:
   - rid: 6407944079347548594
   activeConditions:
@@ -30,4 +30,4 @@ MonoBehaviour:
     - rid: 6407944079347548641
       type: {class: SuitCondition, ns: , asm: Assembly-CSharp}
       data:
-        CardSuit: 0
+        CardSuit: 1

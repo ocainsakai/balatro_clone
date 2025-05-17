@@ -3,15 +3,12 @@ using TMPro;
 using UnityEngine;
 using UniRx;
 using VContainer;
-using System.Collections;
-using DG.Tweening;
 using UnityEngine.UIElements;
 public class PokerView : MonoBehaviour
 {
 
     [Inject] PokerViewModel viewModel;
     private UIDocument document;
-
     private Label pokerName;
     private Label pokerChip;
     private Label pokerMult;

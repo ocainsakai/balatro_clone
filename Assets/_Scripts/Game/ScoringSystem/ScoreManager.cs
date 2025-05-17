@@ -1,83 +1,61 @@
-using Game.Cards;
-using Game.Player.Hands;
-using Game.Pokers;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+using Game.Cards;
+using Game.Pokers;
 using UniRx;
+using UnityEngine;
 using VContainer;
 
-namespace Game.System.Score
+public class ScoreManager : CardCollctionView
 {
-    public class ScoreManager : CardCollection
+    [Inject] HandManager handManager;
+    [Inject] PokerViewModel pokerViewModel;
+    private void Update()
     {
-        private BlindManager blindManager;
-        private PokerViewModel viewModel;
-        private HandViewModel handViewModel;
-        private ReactiveProperty<int> roundScore = new();
-        public IReadOnlyReactiveProperty<int> RoundScore => roundScore;
-        public Subject<ConditionContext> OnScore = new Subject<ConditionContext>();
-        public Subject<ConditionContext> PostScore = new Subject<ConditionContext>();
-        public Subject<Unit> OnRoundEnd = new Subject<Unit>();
-        [Inject]
-        public ScoreManager(PokerViewModel pokerViewModel, PlayManager playManager, HandViewModel handViewModel, BlindManager blindManager)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            this.blindManager = blindManager;
-            this.viewModel = pokerViewModel;
-            this.handViewModel = handViewModel;
-            playManager.OnPlayed.Subscribe(x => OnPlayHandle());
-
-
+            PLayCards();
         }
-        private void OnPlayHandle()
-        {
-            var temp = new List<Card>();
-            for (int i = 0; i < handViewModel.Count; i++)
-            {
-                var card = handViewModel.Cards[i];
-                if (card.State.Value == CardState.Select)
-                {
-                    temp.Add(card);
-                }
-            }
-            foreach(var card in temp)
-            {
-                card.State.Value = CardState.Play;
-                Add(card);
-                handViewModel.Remove(card);
-            }
-            Score();
-        }
-
-        public void Score()
-        {
-            foreach (var card in _cards)
-            {
-                ConditionContext onScoreContext = new ConditionContext(card.CardID);
-                if (PokerEvaluator.comboCards.Contains(card.Data))
-                {
-                    card.Apply(viewModel);
-                    OnScore.OnNext(onScoreContext);
-                }
-            }
-            //PostScoreContext postScoreContext = new PostScoreContext(_cards.Select(x => x.Data).ToList());
-            //PostScore.OnNext(postScoreContext);
-            //ScoreCalculate();
-        }
-        public void ScoreCalculate()
-        {
-            roundScore.Value += (viewModel.Chip.Value * viewModel.Mult.Value);
-            if (roundScore.Value >= blindManager.targetScore)
-            {
-                handViewModel.Clear();
-                _cards.Clear();
-                OnRoundEnd.OnNext(Unit.Default);
-            }
-            else
-            {
-                _cards.Clear();
-                handViewModel.DrawHand();
-            }
-        }
-       
     }
+    protected override async UniTask AddProcess(IList<CollectionAddEvent<Card>> buffer)
+    {
+        await base.AddProcess(buffer);
+        await StartScore();
+    }
+    private void PLayCards()
+    {
+        var select = handManager.GetSelectCards();
+        foreach (var card in select)
+        {
+            _cards.Add(card);
+            handManager.Remove(card);
+        }
+    }
+
+    protected override void OnAddCard(Card card)
+    {
+        card.State.Value = CardState.Play;
+        base.OnAddCard(card);
+    }
+  
+
+
+   
+    public Subject<Card> OnScore = new Subject<Card>();
+    private async UniTask StartScore()
+    {
+        foreach (var item in _cards.Items)
+        {
+            if (pokerViewModel.ComboCards.Contains(item.Data.CardDataId))
+            {
+                item.State.Value = CardState.Score;
+               
+                OnScore.OnNext(item);
+            }
+        }
+        await UniTask.Yield();
+    }
+
 }

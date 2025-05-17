@@ -11,7 +11,7 @@ namespace Game.Pokers
             public PokerData poker;
             public List<CardData> comboCards;
         }
-        public static List<CardData> comboCards = new List<CardData>();
+        public static List<SerializableGuid> comboCardsID = new List<SerializableGuid>();
         public static PokerResult Evaluate(List<Card> cards)
         {
             var result = new PokerResult() { poker = PokerDatabase.None};

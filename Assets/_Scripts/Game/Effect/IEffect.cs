@@ -1,9 +1,7 @@
-using Game.Pokers;
+using UnityEngine;
 
-namespace Game
+public interface IEffect
 {
-    public interface IEffect
-    {
-        public void Apply(PokerViewModel system);
-    }
+    
 }
+public class 

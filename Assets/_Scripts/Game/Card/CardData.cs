@@ -16,8 +16,8 @@ namespace Game.Cards
         public CardSuit Suit;
         public int Value => (int) Rank == 14 ? 11 : (int) Rank > 10 ? 10 : (int)Rank;
 
-        [SerializeReference]
-        public EffectData Effect;
+        //[SerializeReference]
+        //public IEffect Effect;
 
 #if UNITY_EDITOR
         public void RegenerateGuid()
@@ -41,7 +41,7 @@ namespace Game.Cards
 
                 }
                 Name = (Rank) + " Of " + (Suit);
-                Effect = new EffectPlusChip() {Chip = Value};
+                //Effect = new EffectPlusChip() {Chip = Value};
             }
         }
 #endif

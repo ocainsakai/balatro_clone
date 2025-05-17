@@ -1,4 +1,3 @@
-using Game.Jokers;
 using System.Collections.Generic;
 using UniRx;
 
@@ -11,31 +10,26 @@ namespace Game.Cards
         Play,
         Score,
     }
-    public class Card : EffectPlusChip
+    public class Card
     {
-        public static Dictionary<SerializableGuid, Card> _cards = new Dictionary<SerializableGuid, Card>();
         public SerializableGuid CardID;
         public CardData Data;
+        public ReactiveProperty<CardState> State = new ReactiveProperty<CardState>(CardState.Hold);
+        public ReactiveProperty<bool> IsFlip = new ReactiveProperty<bool>(false);
         
-        public bool CanSelect;
-       
-        public ReactiveProperty<CardState> State = new ReactiveProperty<CardState>(CardState.Hold) ;
+        public static bool CanSelect;
+        public static Subject<Card> Select = new Subject<Card>();
+
+        private static Dictionary<SerializableGuid, Card> _cardDict = new Dictionary<SerializableGuid, Card>();
+        public static Card GetCard(SerializableGuid cardId)
+        {
+            return _cardDict.TryGetValue(cardId, out Card result) ? result : null;
+        }
         public Card(CardData data)
         {
             CardID = SerializableGuid.NewGuid();
-            _cards[CardID] = this;
+            _cardDict[CardID] = this;
             Data = data;
-        }
-        public void Dispose()
-        {
-            // Unregister from static dictionary
-            if (_cards.ContainsKey(CardID))
-            {
-                _cards.Remove(CardID);
-            }
-
-            // Clean up Rx or other managed data if needed
-            State.Dispose();
         }
     }
 }

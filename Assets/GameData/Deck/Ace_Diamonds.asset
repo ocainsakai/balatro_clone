@@ -22,12 +22,3 @@ MonoBehaviour:
   Description: 
   Rank: 14
   Suit: 1
-  Effect:
-    rid: 6407944088556667205
-  references:
-    version: 2
-    RefIds:
-    - rid: 6407944088556667205
-      type: {class: EffectPlusChip, ns: Game.Jokers, asm: Assembly-CSharp}
-      data:
-        Chip: 11

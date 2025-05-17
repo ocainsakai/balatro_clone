@@ -1,57 +1,40 @@
 using Game.Cards;
+using System.Collections.Generic;
 using System.Linq;
 using UniRx;
 using static Game.Cards.CardsSorter;
 
-//public interface ICardCollection {
-//    public IReadOnlyReactiveCollection<Card> Cards { get; }
-//    public bool Contains(Card card);
-//};
-public abstract class CardCollection
+public class CardCollection : ItemCollection<Card>
 {
-    protected ReactiveCollection<Card> _cards = new ReactiveCollection<Card>();
-    public IReadOnlyReactiveCollection<Card> Cards => _cards;
-    
     public Subject<Unit> Sorted = new Subject<Unit>();
-    public Subject<Card> OnDiscardCard = new Subject<Card>();
-
-    public int Count => _cards.Count;
-    public bool Contains(Card card)
-    {
-        return _cards.Contains(card);
-    }
-    public void Add(Card card)
-    {
-        _cards.Add(card);
-    }
-    public void Remove(Card card)
-    {
-        //OnDiscardCard.OnNext(card);
-        _cards.Remove(card);
-    }
-    public Card GetFirst()
-    {
-        return TakeCard(0);
-    }
-    public Card TakeCard(int index)
-    {
-        var card = _cards[index];
-        _cards.RemoveAt(index);
-        return card;
-    }
     public void Sort(SortType sortType)
     {
-        if (Cards.Count == 0) return;
-        var sortedCards = (sortType == SortType.ByRank) ? CardsSorter.SortByRank(Cards) : CardsSorter.SortBySuit(Cards);
+        if (Count == 0) return;
+        var sortedCards = (sortType == SortType.ByRank) ? CardsSorter.SortByRank(Items) : CardsSorter.SortBySuit(Items);
         for (int i = 0; i < sortedCards.Count(); i++)
         {
             var card = sortedCards.ElementAt(i);
-            int currentIndex = _cards.IndexOf(card);
+            int currentIndex = _items.IndexOf(card);
             if (currentIndex != i)
             {
-                _cards.Move(currentIndex, i);
+                _items.Move(currentIndex, i);
             }
         }
         Sorted.OnNext(Unit.Default);
+    }
+    public List<Card> GetCardState(CardState state)
+    {
+        return _items.Where(x => x.State.Value == state).ToList();
+    }
+    public void RemoveCardState(CardState state)
+    {
+        for (int i = Count - 1; i >= 0; i--)
+        {
+            var card = _items[i];
+            if (card.State.Value == state)
+            {
+                _items.RemoveAt(i);
+            }
+        }
     }
 }

@@ -9,5 +9,14 @@ namespace Game.Jokers
         {
             spriteRenderer.sprite = data.Data.Artwork;
         }
+
+        public static JokerCardView Create(JokerCard data, Transform parent)
+        {
+            var prefabs = Resources.Load<JokerCardView>("_Prefabs/JokerPrefab");
+            var jokerView = Instantiate(prefabs, parent);
+            jokerView.SetData(data);
+            return jokerView;
+
+        }
     }
 }
