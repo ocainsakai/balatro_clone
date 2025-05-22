@@ -14,13 +14,6 @@
       "dependencies": {},
       "hash": "f938fc5d9a9ef46a1669289450d38e17cb39567c"
     },
-    "com.push-pop.unitymvvm": {
-      "version": "https://github.com/push-pop/Unity-MVVM.git#upm",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "65a72798b572db7ef2121e6ff6bc3430cfc46b35"
-    },
     "com.unity.2d.animation": {
       "version": "10.1.3",
       "depth": 1,
