@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: King_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1476553587
-    Part2: 1145253253
-    Part3: 2673923229
-    Part4: 3217709529
-  CardName: King Of Clubs
+    Part1: 870492096
+    Part2: 1328314024
+    Part3: 2521100949
+    Part4: 3410546499
   Rank: 13
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: 8365082249225311916, guid: 66406122372f3d54e88f5fc5c9b3b38a, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794726
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794726
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

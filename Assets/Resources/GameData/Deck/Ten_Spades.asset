@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Ten_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1761101307
-    Part2: 1193265271
-    Part3: 1236743577
-    Part4: 1580302815
-  CardName: Ten Of Spades
+    Part1: 4065857698
+    Part2: 1318297387
+    Part3: 1227167663
+    Part4: 831898425
   Rank: 10
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: 3937407040690299881, guid: 2dd2175160f6c594eb6eb3506033a7cf, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794736
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794736
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

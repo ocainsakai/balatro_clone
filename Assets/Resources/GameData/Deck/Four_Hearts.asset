@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Four_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 973412258
-    Part2: 1194524335
-    Part3: 2703336122
-    Part4: 1117862438
-  CardName: Four Of Hearts
+    Part1: 2275673217
+    Part2: 1103732313
+    Part3: 1309547404
+    Part4: 3688236194
   Rank: 4
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 6412624488069510536, guid: 2105bf12ae4dc4b4d8562be5a494a138, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794691
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794691
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 4

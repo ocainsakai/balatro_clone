@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Jack_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2038403664
-    Part2: 1228173518
-    Part3: 3669438884
-    Part4: 486882731
-  CardName: Jack Of Hearts
+    Part1: 1780399355
+    Part2: 1183522760
+    Part3: 1194372284
+    Part4: 2259586529
   Rank: 11
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: -7272930264268907403, guid: c977b6b7c87c3ac4597c8de0a0395f97, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794698
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794698
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

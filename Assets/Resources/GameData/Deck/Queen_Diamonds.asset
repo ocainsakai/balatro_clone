@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Queen_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 3082066370
-    Part2: 1153145840
-    Part3: 1091318711
-    Part4: 1883290148
-  CardName: Queen Of Diamonds
+    Part1: 701893109
+    Part2: 1096983528
+    Part3: 1261303464
+    Part4: 3768633254
   Rank: 12
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: -7298341867934554027, guid: b7b66064759870a4c89a3c24f5416c2f, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794712
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794712
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

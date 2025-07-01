@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Five_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 113662883
-    Part2: 1153268545
-    Part3: 903400853
-    Part4: 2909034311
-  CardName: Five Of Clubs
+    Part1: 1209374891
+    Part2: 1113790184
+    Part3: 2403630738
+    Part4: 3712505788
   Rank: 5
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: 5290955734620469090, guid: 469bf15a1c24b804cb37244b035b1aa4, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794718
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794718
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 5

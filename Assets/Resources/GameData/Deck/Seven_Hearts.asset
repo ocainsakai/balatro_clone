@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Seven_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2795327040
-    Part2: 1288250423
-    Part3: 3435794575
-    Part4: 3175535565
-  CardName: Seven Of Hearts
+    Part1: 3615215205
+    Part2: 1218938866
+    Part3: 3217929862
+    Part4: 2976651997
   Rank: 7
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: -7124409537721979863, guid: 5eb2b887d1e83c04ea001eb291e78982, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794694
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794694
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 7

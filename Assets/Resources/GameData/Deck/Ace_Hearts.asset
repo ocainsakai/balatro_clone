@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Ace_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2470154128
-    Part2: 1239360188
-    Part3: 3608431801
-    Part4: 2866594393
-  CardName: Ace Of Hearts
+    Part1: 4212941009
+    Part2: 1203959945
+    Part3: 3476788149
+    Part4: 94311150
   Rank: 14
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 4289747667477137320, guid: 5647a52582d41054180618bfd3623161, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794701
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794701
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 11

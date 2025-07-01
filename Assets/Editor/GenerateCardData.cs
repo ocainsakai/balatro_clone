@@ -29,12 +29,13 @@ public class GenerateCardData : EditorWindow
         }
     }
 #if UNITY_EDITOR
-    public static string CardDataFolderPath = "Assets/Resources/GameData/Deck";
     public static string SpriteFolderPath = "Assets/Resources/Art/PNG";
+    public static string CardDataFolderPath = "Assets/Resources/GameData/Deck";
 
     /// <summary>
     /// Generate and save a full standard deck (52 cards).
     /// </summary>
+    #region REGENERATE
     public static void Regenerate(Action<CardData> func)
     {
         string[] guids = AssetDatabase.FindAssets("t:CardData", new[] { CardDataFolderPath });
@@ -57,14 +58,12 @@ public class GenerateCardData : EditorWindow
                 int rank = (int)card.Rank;
                 rank = rank == 14 ? 1 : rank;
 
-                string spritePath = Path.Combine(SpriteFolderPath, $"card -{card.Suit}-{rank}.png");
+                string spritePath = Path.Combine(SpriteFolderPath, $"card-{card.Suit}-{rank}.png");
                 card.Art = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
             }
         };
         Regenerate(func);
     }
-
-    
     public static void RegenerateGUID()
     {
         Action<CardData> func = (card) =>
@@ -76,6 +75,7 @@ public class GenerateCardData : EditorWindow
         };
         Regenerate(func);
     }
+    #endregion
     public static void GenerateDeck()
     {
         if (!Directory.Exists(CardDataFolderPath))
@@ -103,10 +103,9 @@ public class GenerateCardData : EditorWindow
                 newCard.Suit = suit;
                 // set art
                 int _rank = (int) rank == 14 ? 1 : (int) rank;
-                string spritePath = Path.Combine(SpriteFolderPath,  $"card -{ suit}-{ _rank}.png" ) ;
+                string spritePath = Path.Combine(SpriteFolderPath,  $"card-{ suit}-{ _rank}.png" ) ;
                 Sprite spriteAsset = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
                 newCard.Art = spriteAsset;
-
                 // Save as .asset file (ensure no name conflict)
                 string assetPath = Path.Combine(CardDataFolderPath, assetName + ".asset");
                 assetPath = AssetDatabase.GenerateUniqueAssetPath(assetPath);

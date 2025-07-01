@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Seven_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2751891025
-    Part2: 1301054774
-    Part3: 3301593494
-    Part4: 529136030
-  CardName: Seven Of Diamonds
+    Part1: 644344633
+    Part2: 1105562667
+    Part3: 401880221
+    Part4: 2663898899
   Rank: 7
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: 772679925971894921, guid: 1e3094cf43fd30048a53b6befa4f8a96, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794707
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794707
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 7

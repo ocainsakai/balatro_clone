@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Three_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 3908041234
-    Part2: 1245874945
-    Part3: 29048505
-    Part4: 2318976680
-  CardName: Three Of Hearts
+    Part1: 1642302428
+    Part2: 1081865673
+    Part3: 1947820202
+    Part4: 489603027
   Rank: 3
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: -8295627335049275314, guid: 05fdf3e62aa725b45b265cb5116725e5, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794690
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794690
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 3

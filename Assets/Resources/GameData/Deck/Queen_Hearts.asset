@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Queen_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2534489971
-    Part2: 1124143024
-    Part3: 932400038
-    Part4: 1475364663
-  CardName: Queen Of Hearts
+    Part1: 2389385559
+    Part2: 1229884205
+    Part3: 3385125768
+    Part4: 55412766
   Rank: 12
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: -1766300541523665513, guid: 3a6a18dfec1f4cf48a112a1dbf79f78f, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794699
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794699
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

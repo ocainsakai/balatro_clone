@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Seven_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2934041749
-    Part2: 1213633347
-    Part3: 3330632364
-    Part4: 605864668
-  CardName: Seven Of Spades
+    Part1: 2863952827
+    Part2: 1081512035
+    Part3: 3463228075
+    Part4: 3957422678
   Rank: 7
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: -7453893517988605549, guid: 67a705f0360031a4bb419c1b41142183, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794733
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794733
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 7

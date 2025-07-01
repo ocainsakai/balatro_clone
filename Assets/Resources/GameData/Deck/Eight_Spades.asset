@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Eight_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2654848732
-    Part2: 1093925886
-    Part3: 1913140641
-    Part4: 767211680
-  CardName: Eight Of Spades
+    Part1: 1109298906
+    Part2: 1138223892
+    Part3: 2988174493
+    Part4: 1370474701
   Rank: 8
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: -6192760473696248999, guid: f55ecda3780e877419721be2415f7120, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794734
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794734
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 8

@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Queen_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2995461952
-    Part2: 1139624045
-    Part3: 166283169
-    Part4: 2622461320
-  CardName: Queen Of Clubs
+    Part1: 1342368930
+    Part2: 1224055762
+    Part3: 2671641763
+    Part4: 2932988400
   Rank: 12
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: 2546708646141091889, guid: 70ee3623740f8b54c853976eae671255, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794725
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794725
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f77717910b6b60459912daef9852818, type: 3}
+  m_Name: Erosion
+  m_EditorClassIdentifier: 
+  JokerName: Erosion
+  Description: +4Multfor each card below[the deck's starting size]in your full deck(Currently+0Mult)
+  Art: {fileID: 6276903435589812396, guid: 014382b2aa0140047b0da58a9ecc8166, type: 3}
+  Price: 6
+  SellValue: 0
+  IsLegendary: 0
+  IsPassive: 0

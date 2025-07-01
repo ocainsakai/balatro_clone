@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Eight_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 580384217
-    Part2: 1195721415
-    Part3: 2160914596
-    Part4: 123871622
-  CardName: Eight Of Hearts
+    Part1: 2044879340
+    Part2: 1224178346
+    Part3: 2612164534
+    Part4: 3372611662
   Rank: 8
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 476911994884363630, guid: 0faace225c8f0ef478fbbf2aa7ed9c14, type: 3}
+  playEffectCommand:
+    rid: 6407944408473534537
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944408473534537
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 8

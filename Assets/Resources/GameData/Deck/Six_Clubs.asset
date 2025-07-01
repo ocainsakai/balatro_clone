@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Six_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 376126853
-    Part2: 1315744355
-    Part3: 3699747774
-    Part4: 638043983
-  CardName: Six Of Clubs
+    Part1: 1035441348
+    Part2: 1089905764
+    Part3: 438405041
+    Part4: 695767268
   Rank: 6
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: 3110341584932237930, guid: 4f58842b028e89348a9f74b7da9d0486, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794719
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794719
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 6

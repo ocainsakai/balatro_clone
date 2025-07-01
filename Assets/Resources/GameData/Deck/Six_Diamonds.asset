@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Six_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1222885169
-    Part2: 1205838645
-    Part3: 153604796
-    Part4: 1001106780
-  CardName: Six Of Diamonds
+    Part1: 3842376431
+    Part2: 1100983597
+    Part3: 3560841886
+    Part4: 1183003505
   Rank: 6
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: -7751137743065934938, guid: ed76971449722064992e4ac15bf57361, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794706
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794706
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 6

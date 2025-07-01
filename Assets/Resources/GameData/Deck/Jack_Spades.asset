@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Jack_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 4292241372
-    Part2: 1319918677
-    Part3: 3385762440
-    Part4: 2412491939
-  CardName: Jack Of Spades
+    Part1: 3003387517
+    Part2: 1213787595
+    Part3: 1597510533
+    Part4: 4074108642
   Rank: 11
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: 2087476722716373978, guid: 1d6cc85235fc94b4cb904fa54e53ff20, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794737
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794737
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

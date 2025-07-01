@@ -1,69 +1,82 @@
-using System;
-using Cysharp.Threading.Tasks;
+using UniRx;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class CardManager : MonoBehaviour
 {
-    [SerializeField] CardPile deck;
-    [SerializeField] CardPile discardPile;
-    [SerializeField] HandCard hand;
-    [SerializeField] CardFactory cardFactory;
-    [SerializeField] InputManager inputManager;
-
+    [SerializeField] FactoryManager factoryManager;
+    [SerializeField] GameContext gameContext;
+    [SerializeField] GridObjectLayout2D handGrid;
+    [SerializeField] GridObjectLayout2D deckGrid;
+    [SerializeField] GridObjectLayout2D discardPile;
+    private List<Card> allCards = new List<Card>();
+    public List<Card> GetCards(IEnumerable<SerializableGuid> cardIDs)
+    {
+        return allCards.Where(x => cardIDs.Contains(x.ID)).ToList();
+    }
+    public Sprite back;
     private void Awake()
     {
-
-        inputManager.OnDraw += DrawHand;
-        inputManager.OnDiscard += DiscardHand;
-        inputManager.OnPlay += PlayHand;
-        inputManager.OnReset += ResetHand;
+        CardSelectHandle();
     }
-    private void Start()
+    #region Card_Select
+    private void CardSelectHandle()
     {
-        
-    }
-
-    private void ResetHand()
-    {
-       
-    }
-
-    private void PlayHand()
-    {
-        
-    }
-
-    private async void DiscardHand()
-    {
-        var selectedList = hand.TakeSelected();
-        foreach (var card in selectedList)
+        Card.OnCardSelected.Subscribe(_ =>
         {
-            discardPile.AddCard(card);
-        }
-        await discardPile.ResetPile();
-        DrawHand();
+            OnCardSelctHandle(_);
+        });
+        gameContext.selectedCards.ObserveCountChanged().Subscribe(_ =>
+        {
+            Card.CanSelect = _ < 5;
+        });
     }
+    private void OnCardSelctHandle(Card _)
+    {
+        bool isSelect = gameContext.selectedCards.Contains(_.ID);
+        if (Card.CanSelect && !isSelect)
+        {
+            gameContext.selectedCards.Add(_.ID);
+            _.MoveUp();
+        }
+        else if (isSelect)
+        {
+            gameContext.selectedCards.Remove(_.ID);
+            _.MoveDown();
+        }
+    }
+    #endregion
+    public void Initialize(IEnumerable<CardData> cards)
+    {
+        foreach (CardData cardData in cards)
+        {
+            var card = factoryManager.CreateCard(cardData, back, deckGrid.transform);
+            allCards.Add(card);
+        }
+        gameContext.deck.AddRange(allCards.Select(x => x.ID));
+        gameContext.deck.Shuffle();
+    }
+    public async void DrawCard()
+    {
+        if (!gameContext.CanDarw)
+        {
+            gameContext.Discard2Deck();
+            await deckGrid.ApplyWithoutLayout(GetCards(gameContext.deck));
+        }
 
-    private async void DrawHand()
-    {
-        int amount = hand.HandSize - hand.Count;
-        if (amount > deck.Count)
-        {
-           await RefillDeck();
-        }
-        for (int i = 0; i < amount; i++) 
-        {
-            var card = deck.TakeCard(0);
-            card.IsFront = true;
-            hand.AddCard(card);
-        }
-        hand.ResetHand();
+        gameContext.Deck2Hand();
+        var hand = GetCards(gameContext.hand);
+        hand = hand.OrderBy(x => x.Data.Rank).ThenBy(x => x.Data.Suit).ToList();
+        hand.ForEach(x => x.SetFace(true));
+        await handGrid.ApplyLayout(hand);
     }
-    private async UniTask RefillDeck()
+    public async void DiscardHand()
     {
-        var list = discardPile.TakeAllCard();
-        deck.AddCards(list);
-        await deck.ResetPile(24);
-        //await UniTask.Delay(1000);
+        if (gameContext.selectedCards.Count == 0) return;
+        await discardPile.ApplyWithoutLayout(GetCards(gameContext.selectedCards));
+        gameContext.discardPile.AddRange(gameContext.selectedCards);
+        DrawCard();
     }
 }

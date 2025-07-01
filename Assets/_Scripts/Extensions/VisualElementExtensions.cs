@@ -1,4 +1,5 @@
-﻿using UnityEngine.UIElements;
+﻿using UniRx;
+using UnityEngine.UIElements;
 
 public static class VisualElementExtensions {
     public static VisualElement CreateChild(this VisualElement parent, params string[] classes) {
@@ -6,7 +7,6 @@ public static class VisualElementExtensions {
         child.AddClass(classes).AddTo(parent);
         return child;
     }
-    
     public static T CreateChild<T>(this VisualElement parent, params string[] classes) where T : VisualElement, new() {
         var child = new T();
         child.AddClass(classes).AddTo(parent);
@@ -30,5 +30,12 @@ public static class VisualElementExtensions {
     public static T WithManipulator<T>(this T visualElement, IManipulator manipulator) where T : VisualElement {
         visualElement.AddManipulator(manipulator);
         return visualElement;
+    }
+    public static void Subcribe<T>(this Label parent, ReactiveProperty<T> property, StrExtensionType extension = StrExtensionType.None )
+    {
+        property.DistinctUntilChanged().Subscribe(_ => {
+            string text = _.ToString(); 
+            parent.text = text.AddExtension(extension);
+        });
     }
 }

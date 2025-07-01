@@ -1,5 +1,4 @@
 using System;
-using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -21,7 +20,7 @@ public class CardView : MonoBehaviour
         CardBack = back;
         Artwork.sprite = CardBack;
     }
-    public async UniTask Flip(bool IsFlip, float duration = 0.5f)
+    public async void Flip(bool IsFlip, float duration = 0.5f)
     {
         float halfDuration = duration / 2f;
 
@@ -40,9 +39,9 @@ public class CardView : MonoBehaviour
                        .SetEase(Ease.InOutSine)
                        .AsyncWaitForCompletion();
     }
-    public async UniTask LocolmotionY(float y = 0)
+    public void LocolmotionY(float y = 0)
     {
-        await transform.DOLocalMoveY(y, 0.2f).AsyncWaitForCompletion();
+        transform.DOLocalMoveY(y, 0.2f);
     }
     public void OnMouseDown()
     {

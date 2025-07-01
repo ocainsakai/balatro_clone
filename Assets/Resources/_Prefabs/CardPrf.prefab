@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3141871614132733445}
   - component: {fileID: 6466054053309094433}
   - component: {fileID: 5368271626004162663}
+  - component: {fileID: -6455387436951085539}
   m_Layer: 0
   m_Name: CardPrf
   m_TagString: Untagged
@@ -163,8 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ccb9eeb6141d04cb1fdcf2d193b749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data: {fileID: 0}
-  IsFlip: 0
 --- !u!114 &5368271626004162663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +178,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseAnimation: {fileID: 0}
   Artwork: {fileID: 0}
+--- !u!114 &-6455387436951085539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8024651186519223946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b4d5581bb5ea9342bdf5f7d0a274425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

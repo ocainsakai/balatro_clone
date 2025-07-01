@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Seven_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1205508077
-    Part2: 1261870771
-    Part3: 2015518864
-    Part4: 1312052092
-  CardName: Seven Of Clubs
+    Part1: 738476347
+    Part2: 1075482794
+    Part3: 3957985980
+    Part4: 2164228141
   Rank: 7
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: 2972843422072821144, guid: 7a136dad7ba626b42987b65351535114, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794720
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794720
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 7

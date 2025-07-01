@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Five_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 726210835
-    Part2: 1147688704
-    Part3: 1598249904
-    Part4: 1959043071
-  CardName: Five Of Hearts
+    Part1: 529787089
+    Part2: 1224087619
+    Part3: 558307725
+    Part4: 2734396499
   Rank: 5
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 8711284962023612246, guid: 285ff0cc4513f7c4096fa5b09127aecd, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794692
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794692
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 5

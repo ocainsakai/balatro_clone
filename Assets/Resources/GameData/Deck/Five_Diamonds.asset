@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Five_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 493023167
-    Part2: 1271008583
-    Part3: 1556040336
-    Part4: 1142504207
-  CardName: Five Of Diamonds
+    Part1: 1556540044
+    Part2: 1142932397
+    Part3: 3410452610
+    Part4: 786546210
   Rank: 5
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: 3586831959988974154, guid: a4f90566ecd81f94c98f48453f0d3dc0, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794705
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794705
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 5

@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Eight_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 102632705
-    Part2: 1199717881
-    Part3: 1116228482
-    Part4: 3113022804
-  CardName: Eight Of Clubs
+    Part1: 3831466120
+    Part2: 1138936268
+    Part3: 797454985
+    Part4: 3813570755
   Rank: 8
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: -7367754653545699349, guid: a0f2f063d04cb294ba8a499fd8448744, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794721
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794721
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 8

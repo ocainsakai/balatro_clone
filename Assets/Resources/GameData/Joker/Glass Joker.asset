@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f77717910b6b60459912daef9852818, type: 3}
+  m_Name: Glass Joker
+  m_EditorClassIdentifier: 
+  JokerName: Glass Joker
+  Description: This Joker gainsX0.75Multfor everyGlass Cardthat is destroyed(CurrentlyX1Mult)
+  Art: {fileID: -1962220949601577376, guid: bf4fe6c72118b0140bc5417e557a48fa, type: 3}
+  Price: 6
+  SellValue: 0
+  IsLegendary: 0
+  IsPassive: 0

@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Two_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 3052651879
-    Part2: 1210246673
-    Part3: 3271029677
-    Part4: 544820093
-  CardName: Two Of Hearts
+    Part1: 1268136620
+    Part2: 1280244352
+    Part3: 3823101608
+    Part4: 2347541752
   Rank: 2
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 3757878209201975682, guid: 683bb2b343ffb6f45b60c52f25666c5e, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794689
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794689
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 2

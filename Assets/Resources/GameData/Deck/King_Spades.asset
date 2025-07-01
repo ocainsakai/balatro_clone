@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: King_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1671897707
-    Part2: 1292611597
-    Part3: 1429185193
-    Part4: 1942226861
-  CardName: King Of Spades
+    Part1: 1108108410
+    Part2: 1328242307
+    Part3: 3072047534
+    Part4: 1563526370
   Rank: 13
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: -431265726642068221, guid: f30db492aa3d40c4f967f04154494c91, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794739
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794739
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

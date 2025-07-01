@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Nine_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 218642778
-    Part2: 1078855606
-    Part3: 1221496961
-    Part4: 1346607604
-  CardName: Nine Of Spades
+    Part1: 1777065285
+    Part2: 1082494109
+    Part3: 2881771401
+    Part4: 3034802486
   Rank: 9
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: 3682593335737993756, guid: 28136ac19eeab8c42adb9c65b4723388, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794735
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794735
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 9

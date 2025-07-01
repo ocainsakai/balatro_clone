@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Ace_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 4131823617
-    Part2: 1131737374
-    Part3: 268825271
-    Part4: 2132431486
-  CardName: Ace Of Diamonds
+    Part1: 3370807608
+    Part2: 1271280848
+    Part3: 4085505155
+    Part4: 4107744844
   Rank: 14
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: 9213952401200370327, guid: 63c4116c4b6aae94885c400255314553, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794714
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794714
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 11

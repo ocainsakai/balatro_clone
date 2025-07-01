@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Six_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 789702808
-    Part2: 1302124781
-    Part3: 4043301041
-    Part4: 1565414124
-  CardName: Six Of Spades
+    Part1: 3181908360
+    Part2: 1243324125
+    Part3: 517801361
+    Part4: 2317366091
   Rank: 6
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: -2195322293631776267, guid: a05d000e1ca6b394997a3471200c77cd, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794732
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794732
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 6

@@ -1,8 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public static class CardExtensions
 {
+    private static Random rng = new Random();
+
+    public static void Shuffle<T>(this IList<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            (list[k], list[n]) = (list[n], list[k]);
+        }
+    }
     // Utility function to get rank groups, useful for many checks
     private static List<IGrouping<CardRank, CardData>> GetRankGroups(IEnumerable<CardData> cards)
     {

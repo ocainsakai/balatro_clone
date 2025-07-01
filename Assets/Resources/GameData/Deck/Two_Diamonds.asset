@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Two_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2680359668
-    Part2: 1197995012
-    Part3: 272950146
-    Part4: 2847441060
-  CardName: Two Of Diamonds
+    Part1: 3113994186
+    Part2: 1142543830
+    Part3: 2875136680
+    Part4: 2841742476
   Rank: 2
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: -6014251829394900164, guid: dd265ef14640f5342821425808ac1c2d, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794702
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794702
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 2

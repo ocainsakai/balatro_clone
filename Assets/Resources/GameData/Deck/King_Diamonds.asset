@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: King_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2109187032
-    Part2: 1219904960
-    Part3: 2791599015
-    Part4: 273111284
-  CardName: King Of Diamonds
+    Part1: 2154712211
+    Part2: 1235261403
+    Part3: 3177198774
+    Part4: 92105827
   Rank: 13
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: 2100891349826192237, guid: 83e077137b9b48647ab4fdcbcbff6190, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794713
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794713
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

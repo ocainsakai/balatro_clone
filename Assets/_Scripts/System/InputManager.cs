@@ -26,6 +26,11 @@ public class InputManager : MonoBehaviour
     {
         DisableInput();
     }
+    public void SetInput(bool status)
+    {
+        if (status) EnableInput();
+        else DisableInput();
+    }
     public void DisableInput()
     {
         action.Disable();

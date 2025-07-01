@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Jack_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 4212754421
-    Part2: 1136177824
-    Part3: 3486383495
-    Part4: 558088396
-  CardName: Jack Of Diamonds
+    Part1: 2593705396
+    Part2: 1241865018
+    Part3: 2869978525
+    Part4: 3516491408
   Rank: 11
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: 2966120415379253702, guid: 7040ed02cdae8ed4a96ddc9f5bdce086, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794711
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794711
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

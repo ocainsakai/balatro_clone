@@ -1,60 +1,63 @@
 using UnityEngine;
 using UniRx;
-//[RequireComponent (typeof(SpriteRenderer))]
+using Cysharp.Threading.Tasks;
+
+[RequireComponent(typeof(CardView))]
 public class Card : MonoBehaviour
 {
+    // static state
     public static bool CanSelect = true;
-    public CardData Data;
+    public static Subject<Card> OnCardSelected = new Subject<Card>();
+    private float originY;
+    // property
+    public SerializableGuid ID;
+    public SerializableGuid DataID;
+    public CardData Data {  get; private set;} 
     private CardView cardView;
-    public bool IsFront;
-    private ReactiveProperty<CardState> state = new ReactiveProperty<CardState>();
-    public IReadOnlyReactiveProperty<CardState> State => state;
-    public enum CardState
-    {
-        None,
-        Hold,
-        Select,
-        Play,
-        Score
-    }
+    private ChipEffect chipEffect;
+
+    public bool IsFront { get; private set; }
+
     private void Awake()
     {
         cardView = GetComponent<CardView>();
+        chipEffect = GetComponent<ChipEffect>();
+        cardView.OnClicked += () => OnCardSelected.OnNext(this);
     }
-    public void ChangeState(CardState state)
+    public UniTask AddChip() => chipEffect.Add(Data.chipAmount);
+    
+    public void Initialize(CardData data, Sprite cardBack)
     {
-        this.state.Value = state;
-    }
-    public void SetData(CardData cardData, Sprite cardBack)
-    {
-        Data = cardData;
+        this.Data = data;
+        DataID = data.ID;
+        ID = SerializableGuid.NewGuid();
         cardView.SetView(Data.Art, cardBack);
-        cardView.OnClicked += OnClickHandle;
-        ResetCard();
     }
-    public void ResetCard()
+    public void SetFace(bool isFront)
     {
-        state.Value = CardState.Hold;
+        IsFront = isFront;
+        Flip(false);
     }
-    private void OnClickHandle()
+    public void MoveUp()
     {
-        if (state.Value == CardState.Select)
-        {
-            state.Value = CardState.Hold;
-            _ = cardView.LocolmotionY();
-        } else if (CanSelect && state.Value == CardState.Hold) 
-        {
-            state.Value = CardState.Select;
-            _ = cardView.LocolmotionY(0.5f);
-        }
+        originY = transform.localPosition.y;
+        cardView.LocolmotionY(originY + 0.5f);
     }
-    public void Flip(bool isFlip = true)
+    public void MoveDown() => cardView.LocolmotionY(originY);
+    public void Flip(bool toggle = true)
     {
-        if (isFlip)
+        if (toggle)
         {
             IsFront = !IsFront;
         }
-        _ = cardView.Flip(IsFront);
+        cardView.Flip(IsFront);
     }
-
+}
+public enum CardState
+{
+    None,
+    Hold,
+    Select,
+    Play,
+    Score
 }

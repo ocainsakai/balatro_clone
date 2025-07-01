@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Three_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 3011393246
-    Part2: 1216698928
-    Part3: 2515139490
-    Part4: 1068660666
-  CardName: Three Of Clubs
+    Part1: 1455400338
+    Part2: 1163594123
+    Part3: 78978965
+    Part4: 1057282778
   Rank: 3
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: -1717659096002086432, guid: f3000fe0681578f4a8c11566b97b789c, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794716
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794716
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 3

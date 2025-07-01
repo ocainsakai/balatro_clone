@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Ace_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1664669808
-    Part2: 1084474862
-    Part3: 819718586
-    Part4: 1801751936
-  CardName: Ace Of Clubs
+    Part1: 2881982607
+    Part2: 1179039428
+    Part3: 3601980049
+    Part4: 1196631953
   Rank: 14
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: 9143688492262608414, guid: 9548b02ccdf23494ebd276015e73fcec, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794727
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794727
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 11

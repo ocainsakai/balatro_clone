@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Jack_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 3704690209
-    Part2: 1199129237
-    Part3: 844784297
-    Part4: 3510936699
-  CardName: Jack Of Clubs
+    Part1: 2994543729
+    Part2: 1100553698
+    Part3: 3790868150
+    Part4: 3200238345
   Rank: 11
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: 3699209466524322564, guid: 19ecc4e396c04734aaada7390895c08f, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794724
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794724
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

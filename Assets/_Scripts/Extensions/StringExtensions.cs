@@ -14,4 +14,21 @@ public static class StringExtensions
 
 		return Regex.Replace(str, "(?<!^)([A-Z])", " $1");
 	}
+	public static string AddExtension(this string str, StrExtensionType extension = StrExtensionType.None)
+	{
+        switch (extension)
+        {
+            case StrExtensionType.WithSpace:
+                return str.AddWhiteSpace();
+            case StrExtensionType.NoSpace:
+                return str.NoWhiteSpace();
+        }
+        return str;
+    }
+}
+public enum StrExtensionType
+{
+    None,
+    WithSpace,
+    NoSpace,
 }

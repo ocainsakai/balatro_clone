@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Nine_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2807191667
-    Part2: 1274842883
-    Part3: 3044306861
-    Part4: 1690337460
-  CardName: Nine Of Hearts
+    Part1: 4029590706
+    Part2: 1209727783
+    Part3: 2966198704
+    Part4: 3310901803
   Rank: 9
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 4279396221807198571, guid: 779f4da70b2f7af42bbfcc225df51dbc, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794696
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794696
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 9

@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Two_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2469945044
-    Part2: 1159920631
-    Part3: 4050743938
-    Part4: 3211739846
-  CardName: Two Of Spades
+    Part1: 3527773889
+    Part2: 1299399715
+    Part3: 2733142673
+    Part4: 2240534538
   Rank: 2
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: -2566685888177535599, guid: 176d049574d5b744bbee4ed589a27dc9, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794728
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794728
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 2

@@ -7,9 +7,9 @@ using UnityEngine;
 
 public static class PokerChecker 
 {
-    public static PokerData GetPokerData(this PokerHandMatch result)
+    public static PokerData GetPokerData(this PokerHandType result)
     {
-        return Resources.Load<PokerData>("Game/Data/Poker/"+result.HandType);
+        return Resources.Load<PokerData>("GameData/Poker/"+result);
     }
     public static PokerHandMatch GetBestHand(IEnumerable<Card> cards)
     {

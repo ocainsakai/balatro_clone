@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f77717910b6b60459912daef9852818, type: 3}
+  m_Name: DNA
+  m_EditorClassIdentifier: 
+  JokerName: DNA
+  Description: Iffirst handof round has only1card, add a permanent copy to deck and
+    draw it tohand
+  Art: {fileID: 6620728232874123085, guid: 6ee6f03c293f796469b07101836ffdb6, type: 3}
+  Price: 8
+  SellValue: 0
+  IsLegendary: 0
+  IsPassive: 0

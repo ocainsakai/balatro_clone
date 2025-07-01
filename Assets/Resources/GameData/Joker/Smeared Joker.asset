@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f77717910b6b60459912daef9852818, type: 3}
+  m_Name: Smeared Joker
+  m_EditorClassIdentifier: 
+  JokerName: Smeared Joker
+  Description: HeartsandDiamondscount as the same suit,SpadesandClubscount as the
+    same suit
+  Art: {fileID: -5733273662932780367, guid: 0efd418c8aefee04eb7e28e0de4637c6, type: 3}
+  Price: 7
+  SellValue: 0
+  IsLegendary: 0
+  IsPassive: 0

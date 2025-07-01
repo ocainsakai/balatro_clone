@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Ace_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 47782180
-    Part2: 1115546876
-    Part3: 304161920
-    Part4: 653732412
-  CardName: Ace Of Spades
+    Part1: 4291386630
+    Part2: 1158889685
+    Part3: 64781242
+    Part4: 3918371966
   Rank: 14
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: -5498659744019066566, guid: 1316217a9257dd64d8e1229b84e7169c, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794740
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794740
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 11

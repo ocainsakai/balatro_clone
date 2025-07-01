@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Queen_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1362409834
-    Part2: 1159211129
-    Part3: 3734548625
-    Part4: 62738609
-  CardName: Queen Of Spades
+    Part1: 2364496471
+    Part2: 1325446197
+    Part3: 3611488163
+    Part4: 888337142
   Rank: 12
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: 7423857372119259060, guid: 51456e0835670d9449915fd49a6cc2bd, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794738
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794738
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

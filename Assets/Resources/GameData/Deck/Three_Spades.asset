@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Three_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 3294235207
-    Part2: 1090498462
-    Part3: 2222463666
-    Part4: 3408554452
-  CardName: Three Of Spades
+    Part1: 3794558244
+    Part2: 1217661414
+    Part3: 514224543
+    Part4: 1738725029
   Rank: 3
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: -1864335151391314204, guid: 8d51b18cfe4d25d4aba5e1d6dc399207, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794729
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794729
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 3

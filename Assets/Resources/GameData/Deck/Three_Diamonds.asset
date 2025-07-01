@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Three_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1331210898
-    Part2: 1244355536
-    Part3: 3720912559
-    Part4: 3863844618
-  CardName: Three Of Diamonds
+    Part1: 447155248
+    Part2: 1265179335
+    Part3: 3175388061
+    Part4: 3497303518
   Rank: 3
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: 8219775157891397005, guid: 4af3e55f27ca91d43bfb0c9916797ce5, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794703
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794703
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 3

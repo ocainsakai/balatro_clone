@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Four_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 957783566
-    Part2: 1228482532
-    Part3: 432479415
-    Part4: 158179505
-  CardName: Four Of Diamonds
+    Part1: 3773778708
+    Part2: 1244475641
+    Part3: 1632128692
+    Part4: 619051014
   Rank: 4
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: 5903791162609016174, guid: 7dc0d705c54450345bc8fbe27d12b289, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794704
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794704
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 4

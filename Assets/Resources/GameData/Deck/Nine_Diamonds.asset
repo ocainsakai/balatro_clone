@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Nine_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2960956747
-    Part2: 1259929537
-    Part3: 2645361311
-    Part4: 3065258864
-  CardName: Nine Of Diamonds
+    Part1: 207001979
+    Part2: 1264113132
+    Part3: 627092914
+    Part4: 1051390772
   Rank: 9
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: -7012663909080327202, guid: 6b1c24d2ebf5ac04fb490737be2ae5b9, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794709
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794709
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 9

@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Five_Spades
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2359358585
-    Part2: 1222433133
-    Part3: 4049289137
-    Part4: 2622017743
-  CardName: Five Of Spades
+    Part1: 2622196220
+    Part2: 1330434984
+    Part3: 1242477986
+    Part4: 1408349094
   Rank: 5
   Suit: 3
-  Art: {fileID: 0}
+  Art: {fileID: -5692770184539305836, guid: b41a004b01dbc6e489d66965e7094b73, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794731
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794731
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 5

@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Eight_Diamonds
   m_EditorClassIdentifier: 
   ID:
-    Part1: 3108650096
-    Part2: 1168583838
-    Part3: 290827425
-    Part4: 804344706
-  CardName: Eight Of Diamonds
+    Part1: 3541611408
+    Part2: 1281030809
+    Part3: 3705687683
+    Part4: 2820559186
   Rank: 8
   Suit: 1
-  Art: {fileID: 0}
+  Art: {fileID: -934473813298660644, guid: 78c6d0aaa21b86d438f6d5c869ddcf44, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794708
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794708
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 8

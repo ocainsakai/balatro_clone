@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Six_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1678343810
-    Part2: 1074102298
-    Part3: 1776510111
-    Part4: 1217727243
-  CardName: Six Of Hearts
+    Part1: 3261400299
+    Part2: 1302326194
+    Part3: 3263583163
+    Part4: 1582389352
   Rank: 6
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 3283007950855111838, guid: 18e8917c5d7c5474896712b3444454fc, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794693
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794693
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 6

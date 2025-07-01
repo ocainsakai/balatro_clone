@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Nine_Clubs
   m_EditorClassIdentifier: 
   ID:
-    Part1: 2492016737
-    Part2: 1163397548
-    Part3: 935255458
-    Part4: 1623897057
-  CardName: Nine Of Clubs
+    Part1: 3563434591
+    Part2: 1222504305
+    Part3: 4003053475
+    Part4: 1086003626
   Rank: 9
   Suit: 2
-  Art: {fileID: 0}
+  Art: {fileID: 5542213809070044991, guid: 2ed879e1a7f1e1749ac9b6ea91c0f10c, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794722
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794722
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 9

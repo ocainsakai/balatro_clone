@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: King_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 1017554705
-    Part2: 1204066497
-    Part3: 386210970
-    Part4: 2861868
-  CardName: King Of Hearts
+    Part1: 1968456804
+    Part2: 1273024728
+    Part3: 3410305436
+    Part4: 2994379974
   Rank: 13
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 8293724599906168013, guid: b036401a704f0ec4ea4b072efb4e17af, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794700
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794700
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f77717910b6b60459912daef9852818, type: 3}
+  m_Name: The Idol
+  m_EditorClassIdentifier: 
+  JokerName: The Idol
+  Description: Each played[rank]of[suit]givesX2Multwhen scoredCard changes every
+    round
+  Art: {fileID: -8897560807045371536, guid: 12248f63c50b4614e9d89dd8757f754d, type: 3}
+  Price: 6
+  SellValue: 0
+  IsLegendary: 0
+  IsPassive: 0

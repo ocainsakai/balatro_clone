@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: Ten_Hearts
   m_EditorClassIdentifier: 
   ID:
-    Part1: 668208274
-    Part2: 1323898253
-    Part3: 2754172823
-    Part4: 4284664330
-  CardName: Ten Of Hearts
+    Part1: 2101943866
+    Part2: 1105206062
+    Part3: 1768120228
+    Part4: 911858395
   Rank: 10
   Suit: 0
-  Art: {fileID: 0}
+  Art: {fileID: 2975699305617224511, guid: 426097541057d324cbad43e9cce081ca, type: 3}
+  playEffectCommand:
+    rid: 6407944397383794697
+  references:
+    version: 2
+    RefIds:
+    - rid: 6407944397383794697
+      type: {class: AddChipCommand, ns: , asm: Assembly-CSharp}
+      data:
+        _amount: 10
